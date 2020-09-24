@@ -1,0 +1,659 @@
+---
+title: "pH"
+author: "SS"
+date: "10/23/2019"
+output: html_document
+---
+
+```{r}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(ggpubr)
+library(nortest)
+library(gmodels)
+library(rcompanion)
+library(predictmeans)
+library(randomForest)
+library(tidyr)
+library(lattice)
+library(DescTools)
+library(parsnip)
+library(tidymodels)
+library(vctrs)
+library(hardhat)
+```
+
+```{r Import data}
+data1 <- read.csv("pH s1.csv", header=T)
+str(data1)
+data1$TRT=as.factor(data1$TRT)
+data1$trt=as.factor(data1$trt)
+data1$run=as.factor(data1$run)
+data1$rep=as.factor(data1$rep)
+
+data2 <- read.csv("pH s2.csv", header=T)
+str(data2)
+data2$TRT=as.factor(data2$TRT)
+data2$trt=as.factor(data2$trt)
+data2$run=as.factor(data2$run)
+data2$rep=as.factor(data2$rep)
+
+data3 <- read.csv("pH s3.csv", header=T)
+str(data3)
+data3$TRT=as.factor(data3$TRT)
+data3$trt=as.factor(data3$trt)
+data3$run=as.factor(data3$run)
+data3$rep=as.factor(data3$rep)
+
+data4 <- read.csv("pH s4.csv", header=T)
+str(data4)
+data4$TRT=as.factor(data4$TRT)
+data4$trt=as.factor(data4$trt)
+data4$run=as.factor(data4$run)
+data4$rep=as.factor(data4$rep)
+```
+
+```{r Summary/raw trend visualization}
+means1 <-round(tapply(data1$ph,data1$des, mean),2)
+means1
+boxplot(data1$ph~data1$trt, col="gray", xlab="Treatment", ylab="pH")
+boxplot(data1$perch~data1$trt, col="maroon", xlab="Treatment", ylab="% change in pH")
+groupwiseMean(ph~trt, data=data1, conf=0.95, digits=3)
+
+means2 <-round(tapply(data2$ph,data2$des, mean),2)
+means2
+boxplot(data2$ph~data2$trt, col="gray", xlab="Treatment", ylab="pH")
+boxplot(data2$perch~data2$trt, col="maroon", xlab="Treatment", ylab="% change in pH")
+groupwiseMean(ph~trt, data=data2, conf=0.95, digits=3)
+
+means3 <-round(tapply(data3$ph,data3$des, mean),2)
+means3
+boxplot(data3$ph~data3$trt, col="gray", xlab="Treatment", ylab="pH")
+boxplot(data3$perch~data3$trt, col="maroon", xlab="Treatment", ylab="% change in pH")
+groupwiseMean(ph~trt, data=data3, conf=0.95, digits=3)
+
+means4 <-round(tapply(data4$ph,data4$des, mean),2)
+means4
+boxplot(data4$ph~data4$trt, col="gray", xlab="Treatment", ylab="pH")
+boxplot(data4$perch~data4$trt, col="maroon", xlab="Treatment", ylab="% change in pH")
+groupwiseMean(ph~trt, data=data4, conf=0.95, digits=3)
+```
+
+```{r Study 1 analysis}
+data1 <- read.csv("pH s1.csv", header=T)
+str(data1)
+data1$TRT=as.factor(data1$TRT)
+data1$trt=as.factor(data1$trt)
+data1$run=as.factor(data1$run)
+data1$rep=as.factor(data1$rep)
+data1 = subset(data1, des!="nontreated check")
+table(data1$des)
+table(droplevels(data1)$des)
+str(data1)
+
+model1 = lmer(ph ~ TRT*conc + (1|run/rep), data=data1)
+#model1 = lmer(ph ~ trt + (1|run/rep), data=data1)
+residuals = resid(model1)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+leveneTest(ph ~ trt, data=data1)
+plot(model1, main="Lab study 1, raw data")
+#outlierTest(model1)
+
+summary(model1)
+coef(model1)
+anova(model1, test.statistic = "F", type="III")
+lsm1=emmeans(model1, ~TRT | conc, contr="pairwise", adjust="tukey", type="response")
+lsm1
+cld1 <- CLD(lsm1, adjust="tukey", reversed=TRUE, Letters= letters)
+cld1
+
+Data1 = data1%>%
+  filter(conc=="4x")
+model1.1 = aov(ph~TRT + (1|run/rep), data=Data1)
+HSD = HSD.test(model1.1, "TRT", group=TRUE, alpha=0.05)
+HSD
+#predictmeans(model1, "trt")
+
+#data = data1 %>%
+  #filter(trt==c("31", "32"))
+#t.test(ph ~ trt, data=data)
+
+#DunnettTest(ph ~ trt, data = data1, control="33")
+```
+
+
+```{r Study 2 analysis}
+data2 <- read.csv("pH s2.csv", header=T)
+str(data2)
+data2$TRT=as.factor(data2$TRT)
+data2$trt=as.factor(data2$trt)
+data2$run=as.factor(data2$run)
+data2$rep=as.factor(data2$rep)
+data2 = subset(data2, des!="nontreated")
+table(data2$des)
+table(droplevels(data2)$des)
+
+model2 = lmer(ph ~ TRT*conc + (1|run/rep), data=data2)
+#model2 = lmer(ph ~ trt + (1|run/rep), data=data2)
+residuals2 = resid(model2)
+shapiro.test(residuals2)
+pearson.test(residuals2)
+qqnorm(residuals2); qqline(residuals2, col=2)
+hist(residuals2,freq=F, xlab="Residuals", ylab="Frequency", main="")
+leveneTest(ph ~ trt, data=data2)
+plot(model2, main="Lab study 2, raw data")
+#outlierTest(model2)
+
+summary(model2)
+coef(model2)
+anova(model2, test.statistic = "F", type="III")
+lsm2=emmeans(model2, ~ TRT | conc, adjust="tukey", contr="pairwise", type="response")
+lsm2
+cld2 <- CLD(lsm2, adjust="tukey", reversed=TRUE, Letters= letters)
+cld2
+
+Data2 = data2%>%
+  filter(conc=="1x")
+model2.1 = aov(ph~TRT + (1|run/rep), data=Data2)
+HSD = HSD.test(model2.1, "TRT", group=TRUE, alpha=0.05)
+HSD
+#predictmeans(model2, "trt")
+
+#data = data2 %>%
+  #filter(trt==c("6", "5"))
+#t.test(ph ~ trt, data=data)
+
+#DunnettTest(ph ~ trt, data = data2, control="9")
+```
+
+
+```{r Study 3 analysis}
+data3 <- read.csv("pH s3.csv", header=T)
+str(data3)
+data3$TRT=as.factor(data3$TRT)
+data3$trt=as.factor(data3$trt)
+data3$run=as.factor(data3$run)
+data3$rep=as.factor(data3$rep)
+data3 = subset(data3, des!="Nontreated check")
+table(data3$des)
+table(droplevels(data3)$des)
+
+model3 = lmer(ph ~ TRT*conc + (1|run/rep), data=data3)
+#model3 = lmer(ph ~ trt + (1|run/rep), data=data3)
+residuals3 = resid(model3)
+shapiro.test(residuals3)
+pearson.test(residuals3)
+qqnorm(residuals3); qqline(residuals3, col=2)
+hist(residuals3,freq=F, xlab="Residuals", ylab="Frequency", main="")
+leveneTest(ph ~ trt, data=data3)
+plot(model3, main="Lab study 2, raw data")
+#outlierTest(model3)
+
+summary(model3)
+coef(model3)
+anova(model3, test.statistic = "F", type="III")
+lsm3=emmeans(model3, ~TRT | conc, contr="pairwise", adjust="tukey", type="response")
+lsm3
+cld3 <- CLD(lsm3, adjust="tukey", reversed=TRUE, Letters= letters)
+cld3
+
+Data3 = data3%>%
+  filter(conc=="4x")
+model3.1 = aov(ph~TRT*conc + (1|run/rep), data=data3)
+HSD = HSD.test(model3.1, "TRT", group=TRUE, alpha=0.05)
+HSD
+#predictmeans(model3, "trt")
+
+#data = data3 %>%
+  #filter(trt==c("47", "48"))
+#t.test(ph ~ trt, data=data)
+
+#DunnettTest(ph ~ trt, data = data3, control="49")
+```
+
+
+```{r Study 4 analysis}
+data4 <- read.csv("pH s4.csv", header=T)
+str(data4)
+data4$TRT=as.factor(data4$TRT)
+data4$trt=as.factor(data4$trt)
+data4$run=as.factor(data4$run)
+data4$rep=as.factor(data4$rep)
+data4 = subset(data4, des!="Nontreated check")
+table(data4$des)
+table(droplevels(data4)$des)
+
+model4 = lmer(ph ~ TRT*conc + (1|run/rep), data=data4)
+#model4 = lmer(ph ~ trt + (1|run/rep), data=data4)
+residuals4 = resid(model4) 
+shapiro.test(residuals4) 
+pearson.test(residuals4) 
+qqnorm(residuals4); qqline(residuals4, col=2) 
+hist(residuals4,freq=F, xlab="Residuals", ylab="Frequency", main="") 
+leveneTest(ph ~ trt, data=data4) 
+plot(model4, main="Lab study 4, raw data") 
+#outlierTest(model4)
+
+summary(model4)
+coef(model4)
+anova(model4, test.statistic = "F", type="III")
+lsm4=emmeans(model4, ~ TRT | conc, contr="pairwise", adjust="tukey", type="response")
+lsm4
+cld4 <- CLD(lsm4, adjust="tukey", reversed=TRUE, Letters= letters)
+cld4
+
+Data4 = data4%>%
+  filter(conc=="1x")
+model4.1 = aov(ph~TRT + (1|run/rep), data=Data4)
+HSD = HSD.test(model4.1, "TRT", group=TRUE, alpha=0.05)
+HSD
+#predictmeans(model4, "trt")
+
+#data = data4 %>%
+  #filter(trt==c("19", "20"))
+#t.test(ph ~ trt, data=data)
+
+#DunnettTest(ph ~ trt, data = data4, control="21")
+```
+
+
+```{r Supplementary}
+data5 <- read.csv("sup1 pH.csv", header=T)
+str(data5)
+data5$trt=as.factor(data5$trt)
+data5$run=as.factor(data5$run)
+data5$rep=as.factor(data5$rep)
+groupwiseMean(ph~trt, data=data5, conf=0.95, digits=3)
+
+data5 = subset(data5, des!="Nontreated check")
+table(data5$des)
+table(droplevels(data5)$des)
+
+groupwiseMean(perch~trt, data=data5, conf=0.95, digits=3)
+```
+
+```{r pH figure for extension article}
+data6 <- read.csv("select ph.csv", header=T)
+str(data6)
+data6$SA=as.factor(data6$SA)
+data6$gly=as.factor(data6$gly)
+
+sum = groupwiseMean(ph~SA*gly, data=data6, conf=0.95, digits=3)
+sum
+
+level_order = c("no glyphosate", "Durango DMA", "Roundup PowerMax", "Premix")
+
+ggplot(sum, aes(x = factor(gly, level=level_order), y=Mean, group=gly, fill=gly)) +
+  geom_bar(stat="identity", width = 0.5, color="black") +
+  facet_grid(.~SA) +
+  geom_linerange(aes(ymin  =  Trad.lower, ymax  =  Trad.upper), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 15), 
+                     legend.title = element_blank(),
+                     plot.title =  element_text(size=35, color="black", face="bold", hjust=0.5),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="pH", x="") +
+  scale_fill_manual(values=c( "#646569" ,"#C5050C", "#dadfe1", "#282728"), name="", 
+                    labels=c("Durango DMA", "no glyphosate","Premix", "Roundup PM")) +
+  ggsave("pH+gly.tiff", units="in", width=13, height=9, dpi=600)
+```
+
+```{r Random Forest S1}
+dat1=read.csv("study 1 RF.csv",header=TRUE, na.strings="")
+set.seed(42)
+test=randomForest(y=dat1[,1],x=dat1[,3:7], ntree=500, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test)
+test
+labs <- c("DRA","HG15","Rate","Dicamba Formulation","Glyphosate")
+names(labs) <- c("dra", "gr15", "conc", "dic.form", "gly")
+graph = varImpPlot(test,type=1, main="", labels=labs, sort=TRUE, n.var=5, pch=16, col="black")
+
+dotchart(sort(graph[,1]), xlim=c(-1,80), cex=1.2, labels=c("DRA","HG15","Rate","Dicamba Formulation","Glyphosate"), xlab="MSE increase (%)", pch=16, col="gray18", lcolor = "snow3")
+```
+
+
+```{r NEW Random Forest S1}
+dat1=read.csv("study 1 RF v2.csv",header=TRUE, na.strings="")
+set.seed(123)
+s1_split <- initial_split(dat1, strata = ph)
+s1_train <- training(s1_split)
+s1_test <- testing(s1_split)
+
+s1_rec <- recipe(ph ~ ., data=s1_train)
+
+tune_spec <- rand_forest(mtry=tune(), trees=1000, min_n=tune()) %>%
+  set_mode("regression") %>%
+  set_engine("ranger")
+
+tune_wf <- workflow() %>%
+  add_recipe(s1_rec) %>%
+  add_model(tune_spec)
+
+set.seed(234)
+s1_folds <- vfold_cv(s1_train)
+library(doParallel)
+doParallel::registerDoParallel()
+set.seed(345)
+library(ranger)
+tune_res <- tune_grid(tune_wf, resamples=s1_folds, grid=20)
+tune_res %>%
+  select_best("rmse")
+tune_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  pivot_longer(min_n:mtry, values_to="value", names_to="parameter") %>%
+  ggplot(aes(value, mean, color=parameter)) +
+  geom_point(show.legend=FALSE) +
+  facet_wrap(~ parameter)
+
+rf_grid <- grid_regular(mtry(range=c(0,5)), min_n(range=c(5,35)), levels=5)
+set.seed(456)
+regular_res <- tune_grid(tune_wf, resamples=s1_folds, grid=rf_grid)
+regular_res %>%
+  select_best("rmse")
+regular_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  mutate(min_n = factor(min_n)) %>%
+  ggplot(aes(mtry, mean, color = min_n)) +
+  geom_line(alpha=0.5, size=1.5) +
+  geom_point()
+
+best_rmse <- select_best(regular_res, "rmse")
+final_rf <- finalize_model(tune_spec, best_rmse)
+
+library(vip)
+final_rf %>%
+  set_engine("ranger", importance="impurity") %>%
+  fit(ph ~ ., data=s1_train) %>%
+  vip(geom="point", horizontal=TRUE, aesthetics=list(color="black", size=2)) +
+  theme_classic() +
+  labs(x="xxx", y="es")
+
+
+final_wf <- workflow() %>%
+  add_recipe(s1_rec) %>%
+  add_model(final_rf)
+
+final_res <- final_wf %>%
+  last_fit(s1_split)
+
+final_res %>%
+  collect_metrics()
+
+final_res %>%
+  collect_predictions() %>%
+  bind_cols(s1_test)
+
+```
+
+
+```{r Random forest S2}
+dat2=read.csv("study 2 RF.csv",header=TRUE, na.strings="")
+test2=randomForest(y=dat2[,1],x=dat2[,3:5],ntree=500, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test2)
+test2
+labs2 <- c("Rate", "pH modifier", "Glyphosate")
+graph2 = varImpPlot(test2,type=1, main="", labels=labs2, sort=TRUE, n.var=3, pch=16, col="black")
+
+dotchart(sort(graph2[,1]), xlim=c(0,80), cex=1.2, labels=c("Rate", "pH modifier", "Glyphosate"), xlab="MSE increase (%)", pch=16, col="gray18", lcolor = "snow3")
+```
+
+```{r NEW Random Forest S2}
+dat2=read.csv("study 2 RF v2.csv",header=TRUE, na.strings="")
+set.seed(123)
+s2_split <- initial_split(dat2, strata = ph)
+s2_train <- training(s2_split)
+s2_test <- testing(s2_split)
+
+s2_rec <- recipe(ph ~ ., data=s2_train)
+
+tune_spec <- rand_forest(mtry=tune(), trees=1000, min_n=tune()) %>%
+  set_mode("regression") %>%
+  set_engine("ranger")
+
+tune_wf <- workflow() %>%
+  add_recipe(s2_rec) %>%
+  add_model(tune_spec)
+
+set.seed(234)
+s2_folds <- vfold_cv(s2_train)
+doParallel::registerDoParallel()
+set.seed(345)
+tune_res <- tune_grid(tune_wf, resamples=s2_folds, grid=20)
+tune_res %>%
+  select_best("rmse")
+tune_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  pivot_longer(min_n:mtry, values_to="value", names_to="parameter") %>%
+  ggplot(aes(value, mean, color=parameter)) +
+  geom_point(show.legend=FALSE) +
+  facet_wrap(~ parameter)
+
+rf_grid <- grid_regular(mtry(range=c(0,5)), min_n(range=c(5,35)), levels=5)
+set.seed(456)
+regular_res <- tune_grid(tune_wf, resamples=s2_folds, grid=rf_grid)
+regular_res %>%
+  select_best("rmse")
+regular_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  mutate(min_n = factor(min_n)) %>%
+  ggplot(aes(mtry, mean, color = min_n)) +
+  geom_line(alpha=0.5, size=1.5) +
+  geom_point()
+
+best_rmse <- select_best(regular_res, "rmse")
+final_rf <- finalize_model(tune_spec, best_rmse)
+
+library(vip)
+final_rf %>%
+  set_engine("ranger", importance="impurity") %>%
+  fit(ph ~ ., data=s2_train) %>%
+  vip(geom="point", horizontal=TRUE, aesthetics=list(color="black", size=2)) +
+  theme_classic()
+
+final_wf <- workflow() %>%
+  add_recipe(s2_rec) %>%
+  add_model(final_rf)
+
+final_res <- final_wf %>%
+  last_fit(s2_split)
+
+final_res %>%
+  collect_metrics()
+
+final_res %>%
+  collect_predictions() %>%
+  bind_cols(s2_test)
+
+```
+
+```{r Random forest s3}
+#simplified
+dat3=read.csv("study 3 RF.csv",header=TRUE, na.strings="")
+test3=randomForest(y=dat3[,1],x=dat3[,3:6],ntree=500, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test3)
+test3
+labs3 <- c("AMS", "Rate", "Dicamba Formulation","Glyphosate")
+graph3 = varImpPlot(test3,type=1, main="", n.var=4, sort=TRUE)
+
+dotchart(sort(graph3[,1]), xlim=c(0,95), cex=1.2, labels=c("AMS", "Rate", "Dicamba Formulation","Glyphosate"), xlab="MSE increase (%)", pch=16, col="gray18", lcolor = "snow3")
+```
+
+```{r NEW Random Forest S3}
+dat3=read.csv("study 3 RF v2.csv",header=TRUE, na.strings="")
+set.seed(123)
+s3_split <- initial_split(dat3, strata = ph)
+s3_train <- training(s3_split)
+s3_test <- testing(s3_split)
+
+s3_rec <- recipe(ph ~ ., data=s3_train)
+
+tune_spec <- rand_forest(mtry=tune(), trees=1000, min_n=tune()) %>%
+  set_mode("regression") %>%
+  set_engine("ranger")
+
+tune_wf <- workflow() %>%
+  add_recipe(s3_rec) %>%
+  add_model(tune_spec)
+
+set.seed(234)
+s3_folds <- vfold_cv(s3_train)
+doParallel::registerDoParallel()
+set.seed(345)
+tune_res <- tune_grid(tune_wf, resamples=s3_folds, grid=20)
+tune_res %>%
+  select_best("rmse")
+tune_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  pivot_longer(min_n:mtry, values_to="value", names_to="parameter") %>%
+  ggplot(aes(value, mean, color=parameter)) +
+  geom_point(show.legend=FALSE) +
+  facet_wrap(~ parameter)
+
+rf_grid <- grid_regular(mtry(range=c(0,5)), min_n(range=c(5,35)), levels=5)
+set.seed(456)
+regular_res <- tune_grid(tune_wf, resamples=s3_folds, grid=rf_grid)
+regular_res %>%
+  select_best("rmse")
+regular_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  mutate(min_n = factor(min_n)) %>%
+  ggplot(aes(mtry, mean, color = min_n)) +
+  geom_line(alpha=0.5, size=1.5) +
+  geom_point()
+
+best_rmse <- select_best(regular_res, "rmse")
+final_rf <- finalize_model(tune_spec, best_rmse)
+
+library(vip)
+final_rf %>%
+  set_engine("ranger", importance="impurity") %>%
+  fit(ph ~ ., data=s3_train) %>%
+  vip(geom="point", horizontal=TRUE, aesthetics=list(color="black", size=2)) +
+  theme_classic()
+
+final_wf <- workflow() %>%
+  add_recipe(s3_rec) %>%
+  add_model(final_rf)
+
+final_res <- final_wf %>%
+  last_fit(s3_split)
+
+final_res %>%
+  collect_metrics()
+
+final_res %>%
+  collect_predictions() %>%
+  bind_cols(s3_test)
+
+```
+
+```{r Random forest s4}
+dat4=read.csv("study 4 RF.csv",header=TRUE, na.strings="")
+str(dat4)
+test4=randomForest(y=dat4[,1],x=dat4[4:6],ntree=500,importance=TRUE, mtry=2, proximity=TRUE)
+importance(test4)
+test4
+labs4 <- c("AMS", "Rate","Glyphosate")
+graph4 = varImpPlot(test4, type=1, main="",n.var=3, sort=TRUE)
+
+dotchart(sort(graph4[,1]), xlim=c(-5,115), cex=1.2, labels=c("AMS", "Rate","Glyphosate"), xlab="MSE increase (%)", pch=16, col="gray18", lcolor = "snow3")
+```
+
+```{r NEW Random Forest S4}
+dat3=read.csv("study 4 RF v2.csv",header=TRUE, na.strings="")
+set.seed(123)
+s4_split <- initial_split(dat4, strata = ph)
+s4_train <- training(s4_split)
+s4_test <- testing(s4_split)
+
+s4_rec <- recipe(ph ~ ., data=s4_train)
+
+tune_spec <- rand_forest(mtry=tune(), trees=1000, min_n=tune()) %>%
+  set_mode("regression") %>%
+  set_engine("ranger")
+
+tune_wf <- workflow() %>%
+  add_recipe(s4_rec) %>%
+  add_model(tune_spec)
+
+set.seed(234)
+s4_folds <- vfold_cv(s4_train)
+doParallel::registerDoParallel()
+set.seed(345)
+tune_res <- tune_grid(tune_wf, resamples=s4_folds, grid=20)
+tune_res %>%
+  select_best("rmse")
+tune_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  pivot_longer(min_n:mtry, values_to="value", names_to="parameter") %>%
+  ggplot(aes(value, mean, color=parameter)) +
+  geom_point(show.legend=FALSE) +
+  facet_wrap(~ parameter)
+
+rf_grid <- grid_regular(mtry(range=c(0,5)), min_n(range=c(5,35)), levels=5)
+set.seed(456)
+regular_res <- tune_grid(tune_wf, resamples=s4_folds, grid=rf_grid)
+regular_res %>%
+  select_best("rmse")
+regular_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>%
+  mutate(min_n = factor(min_n)) %>%
+  ggplot(aes(mtry, mean, color = min_n)) +
+  geom_line(alpha=0.5, size=1.5) +
+  geom_point()
+
+best_rmse <- select_best(regular_res, "rmse")
+final_rf <- finalize_model(tune_spec, best_rmse)
+
+library(vip)
+final_rf %>%
+  set_engine("ranger", importance="impurity") %>%
+  fit(ph ~ ., data=s4_train) %>%
+  vip(geom="point", horizontal=TRUE, aesthetics=list(color="black", size=2)) +
+  theme_classic()
+
+final_wf <- workflow() %>%
+  add_recipe(s4_rec) %>%
+  add_model(final_rf)
+
+final_res <- final_wf %>%
+  last_fit(s4_split)
+
+final_res %>%
+  collect_metrics()
+
+final_res %>%
+  collect_predictions() %>%
+  bind_cols(s4_test)
+
+```

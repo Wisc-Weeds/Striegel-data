@@ -1,0 +1,117 @@
+---
+title: "Final weed density by POST timing"
+author: "SS"
+date: "2/11/2020"
+output: html_document
+---
+
+install/load packages
+```{r include=FALSE}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(nortest)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(bestNormalize)
+library(glmmTMB)
+library(dplyr)
+```
+
+read in data and adjust data frame as needed
+```{r}
+Data <- read.csv("Final weed density.csv", header=T)
+str(Data)
+dim(Data)
+Data$Year=as.factor(Data$Year)
+Data$Siteyr=as.factor(Data$Siteyr)
+Data$Block=as.factor(Data$Block)
+Data$Trt=as.factor(Data$Trt)
+
+Data <- subset(Data, POST!="none")
+table(Data$POST)
+table(droplevels(Data)$POST)
+str(Data)
+```
+
+```{r AMBTR - lmer model}
+model=lmer(mAMBTR ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data)
+#normality - statistical tests and graphical checks
+residuals = resid(model)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(mAMBTR~POST*residual, data=Data)
+plot(model)
+
+summary(model)
+anova(model, test.statistic = "F")
+interaction.plot(Data$POST, Data$Siteyr, Data$mAMBTR, col=2:8, xlab="residual", ylab="ambtr control")
+
+lsm <- emmeans(model, ~ POST | Siteyr, adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+```
+
+```{r AMBTR - lmer model WITH transformation}
+Data = Data %>%
+  mutate(mambtr = sqrt(mAMBTR + (3/8)))
+
+model.2=lmer(sqrt(mAMBTR +(3/8)) ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data)
+#normality - statistical tests and graphical checks
+residuals = resid(model.2)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(mambtr~POST*residual, data=Data)
+plot(model.2)
+
+summary(model.2)
+anova(model.2, test.statistic = "F")
+interaction.plot(Data$POST, Data$Siteyr, Data$mambtr, col=2:8, xlab="residual", ylab="ambtr control")
+
+lsm2 <- emmeans(model.2, ~ POST | Siteyr, adjust="none", contr="pairwise")
+lsm2
+cld2 <- CLD(lsm2, adjust="none", reversed=TRUE, Letters= letters)
+cld2
+```
+
+```{r AMBTR - glmmTMB model % density reduction from NTC}
+model.3=glmmTMB(AMBTRred ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data, beta_family(link="logit"))
+leveneTest(AMBTRred~POST*residual, data=Data)
+
+summary(model.3)
+Anova(model.3, test.statistic = "Chisq", type = "II")
+interaction.plot(Data$POST, Data$Siteyr, Data$AMBTRred, col=2:8, xlab="POST", ylab="AMBTR density reduction from NTC")
+
+lsm3 <- emmeans(model.3, ~ POST | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm3
+cld3 <- CLD(lsm3, adjust="none", reversed=TRUE, Letters= letters)
+cld3
+```
+
+```{r AMBTR - glmmTMB model % density reduction from PRE}
+model.4=glmmTMB(AMBTRredPRE ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data, beta_family(link="logit"))
+leveneTest(AMBTRredPRE~POST*residual, data=Data)
+
+summary(model.4)
+Anova(model.4, test.statistic = "Chisq", type = "II")
+interaction.plot(Data$POST, Data$Siteyr, Data$AMBTRredPRE, col=2:8, xlab="POST", ylab="AMBTR density reduction from PRE")
+
+lsm4 <- emmeans(model.4, ~ POST | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm4
+cld4 <- CLD(lsm4, adjust="none", reversed=TRUE, Letters= letters)
+cld4
+```
