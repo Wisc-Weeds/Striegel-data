@@ -1,0 +1,225 @@
+Site,Year,Siteyr,Plot,Block,Trt,Trtdes,POST,residual,iBiomass,mBiomass,Ogred
+Arlington,2018,ARL18,104,1,1,Check,none,none,256.8,1382.1,
+Arlington,2018,ARL18,207,2,1,Check,none,none,67.4,362.7,
+Arlington,2018,ARL18,305,3,1,Check,none,none,132.8,714.7,
+Arlington,2018,ARL18,403,4,1,Check,none,none,165.7,891.8,
+Janesville,2018,ROK18,102,1,1,Check,none,none,177.7,956.4,
+Janesville,2018,ROK18,206,2,1,Check,none,none,72.9,392.3,
+Janesville,2018,ROK18,308,3,1,Check,none,none,89.8,483.3,
+Janesville,2018,ROK18,401,4,1,Check,none,none,306,1646.9,
+Lancaster,2018,LAN18,109,1,1,Check,none,none,53.2,286.3,
+Lancaster,2018,LAN18,206,2,1,Check,none,none,48.2,259.4,
+Lancaster,2018,LAN18,304,3,1,Check,none,none,42.7,229.8,
+Lancaster,2018,LAN18,410,4,1,Check,none,none,242.9,1307.3,
+Arlington,2019,ARL19,101,1,1,Check,none,none,91.3,491.4,
+Arlington,2019,ARL19,204,2,1,Check,none,none,90,484.4,
+Arlington,2019,ARL19,302,3,1,Check,none,none,90.8,488.7,
+Arlington,2019,ARL19,407,4,1,Check,none,none,149.3,803.5,
+Janesville,2019,ROK19,101,1,1,Check,none,none,388.9,1069.4,
+Janesville,2019,ROK19,206,2,1,Check,none,none,198.7,1997.8,
+Janesville,2019,ROK19,302,3,1,Check,none,none,371.2,944.0,
+Janesville,2019,ROK19,408,4,1,Check,none,none,175.4,560.0,
+Brooklyn,2019,BRO19,101,1,1,Check,none,none,104.06,994.6,
+Brooklyn,2019,BRO19,204,2,1,Check,none,none,184.81,878.9,
+Brooklyn,2019,BRO19,308,3,1,Check,none,none,163.3,543.1,
+Brooklyn,2019,BRO19,402,4,1,Check,none,none,100.92,222.5,
+Lancaster,2019,LAN19,101,1,1,Check,none,none,41.35,271.8,
+Lancaster,2019,LAN19,206,2,1,Check,none,none,50.51,219.6,
+Lancaster,2019,LAN19,303,3,1,Check,none,none,40.81,308.9,
+Lancaster,2019,LAN19,407,4,1,Check,none,none,57.39,41.4,
+Arlington,2018,ARL18,102,1,2,PRE,none,none,7.7,41.4,95.05379798
+Arlington,2018,ARL18,208,2,2,PRE,none,none,167.7,902.6,1
+Arlington,2018,ARL18,306,3,2,PRE,none,none,47.7,256.7,69.35924201
+Arlington,2018,ARL18,410,4,2,PRE,none,none,5.6,30.1,96.40276216
+Janesville,2018,ROK18,108,1,2,PRE,none,none,90.2,485.5,44.18316832
+Janesville,2018,ROK18,210,2,2,PRE,none,none,109.8,590.9,32.05445545
+Janesville,2018,ROK18,301,3,2,PRE,none,none,369.4,1988.1,1
+Janesville,2018,ROK18,405,4,2,PRE,none,none,206.2,1109.8,1
+Lancaster,2018,LAN18,106,1,2,PRE,none,none,0.4,2.2,99.58656331
+Lancaster,2018,LAN18,203,2,2,PRE,none,none,0.7,3.8,99.27648579
+Lancaster,2018,LAN18,301,3,2,PRE,none,none,0.01,0.1,99
+Lancaster,2018,LAN18,406,4,2,PRE,none,none,0.01,0.1,99
+Arlington,2019,ARL19,102,1,2,PRE,none,none,35.1,188.9,66.68248695
+Arlington,2019,ARL19,205,2,2,PRE,none,none,38.6,207.7,63.36022781
+Arlington,2019,ARL19,308,3,2,PRE,none,none,112.4,604.9,1
+Arlington,2019,ARL19,405,4,2,PRE,none,none,89.3,480.6,15.23493118
+Janesville,2019,ROK19,102,1,2,PRE,none,none,236.6,1264.8,16.55792629
+Janesville,2019,ROK19,204,2,2,PRE,none,none,235,1535.5,17.12220067
+Janesville,2019,ROK19,308,3,2,PRE,none,none,285.3,906.3,1
+Janesville,2019,ROK19,406,4,2,PRE,none,none,168.4,888.0,40.61012167
+Brooklyn,2019,BRO19,102,1,2,PRE,none,none,164.99,342.7,1
+Brooklyn,2019,BRO19,207,2,2,PRE,none,none,63.68,520.8,53.9460124
+Brooklyn,2019,BRO19,305,3,2,PRE,none,none,96.77,720.2,30.0150066
+Brooklyn,2019,BRO19,401,4,2,PRE,none,none,133.81,216.9,3.227322859
+Lancaster,2019,LAN19,102,1,2,PRE,none,none,40.3,44.2,15.18467852
+Lancaster,2019,LAN19,208,2,2,PRE,none,none,8.21,58.9,82.72124592
+Lancaster,2019,LAN19,301,3,2,PRE,none,none,10.94,21.0,76.97569189
+Lancaster,2019,LAN19,406,4,2,PRE,none,none,3.9,0.1,91.79206566
+Arlington,2018,ARL18,108,1,3,E POST,A,no,0.01,0.1,95
+Arlington,2018,ARL18,202,2,3,E POST,A,no,0.01,0.1,96
+Arlington,2018,ARL18,309,3,3,E POST,A,no,0.01,0.1,97
+Arlington,2018,ARL18,404,4,3,E POST,A,no,0.01,0.1,98
+Janesville,2018,ROK18,105,1,3,E POST,A,no,0.01,0.1,99
+Janesville,2018,ROK18,203,2,3,E POST,A,no,0.01,0.1,99
+Janesville,2018,ROK18,309,3,3,E POST,A,no,0.01,0.1,99
+Janesville,2018,ROK18,406,4,3,E POST,A,no,11.2,60.3,93.06930693
+Lancaster,2018,LAN18,102,1,3,E POST,A,no,0.01,0.1,95
+Lancaster,2018,LAN18,210,2,3,E POST,A,no,0.01,0.1,96
+Lancaster,2018,LAN18,303,3,3,E POST,A,no,0.01,0.1,97
+Lancaster,2018,LAN18,408,4,3,E POST,A,no,0.01,0.1,98
+Arlington,2019,ARL19,103,1,3,E POST,A,no,0.01,0.1,99
+Arlington,2019,ARL19,207,2,3,E POST,A,no,0.01,0.1,99
+Arlington,2019,ARL19,305,3,3,E POST,A,no,0.2801,1.5,99.73412435
+Arlington,2019,ARL19,402,4,3,E POST,A,no,0.2332,1.3,99.77864262
+Janesville,2019,ROK19,103,1,3,E POST,A,no,55.3,380.0,80.4972668
+Janesville,2019,ROK19,207,2,3,E POST,A,no,70.6,502.7,75.10139305
+Janesville,2019,ROK19,305,3,3,E POST,A,no,93.4,282.6,67.06048316
+Janesville,2019,ROK19,402,4,3,E POST,A,no,52.5,213.2,81.48474696
+Brooklyn,2019,BRO19,103,1,3,E POST,A,no,39.62,111.3,71.34643548
+Brooklyn,2019,BRO19,206,2,3,E POST,A,no,20.68,73.4,85.04402538
+Brooklyn,2019,BRO19,302,3,3,E POST,A,no,13.63,126.7,90.14265309
+Brooklyn,2019,BRO19,408,4,3,E POST,A,no,23.55,18.0,82.96841382
+Lancaster,2019,LAN19,103,1,3,E POST,A,no,3.35,18.0,92.94959486
+Lancaster,2019,LAN19,207,2,3,E POST,A,no,0.01,0.1,99
+Lancaster,2019,LAN19,304,3,3,E POST,A,no,0.01,0.1,99
+Lancaster,2019,LAN19,401,4,3,E POST,A,no,0.01,0.1,99
+Arlington,2018,ARL18,107,1,4,M POST,B,no,0.01,0.1,95
+Arlington,2018,ARL18,210,2,4,M POST,B,no,0.01,0.1,96
+Arlington,2018,ARL18,308,3,4,M POST,B,no,0.01,0.1,97
+Arlington,2018,ARL18,402,4,4,M POST,B,no,0.01,0.1,98
+Janesville,2018,ROK18,101,1,4,M POST,B,no,0.01,0.1,99
+Janesville,2018,ROK18,207,2,4,M POST,B,no,0.8,4.3,99.5049505
+Janesville,2018,ROK18,310,3,4,M POST,B,no,0.01,0.1,99
+Janesville,2018,ROK18,404,4,4,M POST,B,no,0.01,0.1,99
+Lancaster,2018,LAN18,101,1,4,M POST,B,no,0.01,0.1,95
+Lancaster,2018,LAN18,204,2,4,M POST,B,no,0.01,0.1,96
+Lancaster,2018,LAN18,308,3,4,M POST,B,no,0.01,0.1,97
+Lancaster,2018,LAN18,401,4,4,M POST,B,no,0.01,0.1,98
+Arlington,2019,ARL19,104,1,4,M POST,B,no,0.01,0.1,99
+Arlington,2019,ARL19,206,2,4,M POST,B,no,0.1975,1.1,99.81252966
+Arlington,2019,ARL19,303,3,4,M POST,B,no,0.01,0.1,99
+Arlington,2019,ARL19,401,4,4,M POST,B,no,0.01,0.1,99
+Janesville,2019,ROK19,104,1,4,M POST,B,no,3.5,27.4,98.7656498
+Janesville,2019,ROK19,208,2,4,M POST,B,no,5.1,14.0,98.20137542
+Janesville,2019,ROK19,303,3,4,M POST,B,no,2.6,7.5,99.08305414
+Janesville,2019,ROK19,407,4,4,M POST,B,no,1.4,31.3,99.50625992
+Brooklyn,2019,BRO19,104,1,4,M POST,B,no,5.82,61.3,95.7909201
+Brooklyn,2019,BRO19,201,2,4,M POST,B,no,11.39,0.1,91.76264261
+Brooklyn,2019,BRO19,304,3,4,M POST,B,no,0.01,23.0,99
+Brooklyn,2019,BRO19,407,4,4,M POST,B,no,4.28,0.1,96.90466289
+Lancaster,2019,LAN19,104,1,4,M POST,B,no,0.01,0.1,99
+Lancaster,2019,LAN19,202,2,4,M POST,B,no,0.01,0.1,99
+Lancaster,2019,LAN19,307,3,4,M POST,B,no,0.01,0.1,99
+Lancaster,2019,LAN19,403,4,4,M POST,B,no,0.01,0.1,99
+Arlington,2018,ARL18,110,1,5,L POST,C,no,0.01,0.1,95
+Arlington,2018,ARL18,204,2,5,L POST,C,no,0.01,0.1,96
+Arlington,2018,ARL18,302,3,5,L POST,C,no,0.01,0.1,97
+Arlington,2018,ARL18,406,4,5,L POST,C,no,0.01,0.1,98
+Janesville,2018,ROK18,103,1,5,L POST,C,no,0.01,0.1,99
+Janesville,2018,ROK18,201,2,5,L POST,C,no,0.01,0.1,99
+Janesville,2018,ROK18,305,3,5,L POST,C,no,0.01,0.1,99
+Janesville,2018,ROK18,409,4,5,L POST,C,no,0.01,0.1,99
+Lancaster,2018,LAN18,103,1,5,L POST,C,no,0.01,0.1,95
+Lancaster,2018,LAN18,209,2,5,L POST,C,no,0.01,0.1,96
+Lancaster,2018,LAN18,306,3,5,L POST,C,no,0.01,0.1,97
+Lancaster,2018,LAN18,403,4,5,L POST,C,no,0.01,0.1,98
+Arlington,2019,ARL19,105,1,5,L POST,C,no,0.01,0.1,99
+Arlington,2019,ARL19,202,2,5,L POST,C,no,0.01,0.1,99
+Arlington,2019,ARL19,304,3,5,L POST,C,no,0.01,0.1,99
+Arlington,2019,ARL19,406,4,5,L POST,C,no,0.01,0.1,99
+Janesville,2019,ROK19,105,1,5,L POST,C,no,2.8,11.3,99.01251984
+Janesville,2019,ROK19,202,2,5,L POST,C,no,2.1,0.5,99.25938988
+Janesville,2019,ROK19,307,3,5,L POST,C,no,0.1,4.8,99.96473285
+Janesville,2019,ROK19,405,4,5,L POST,C,no,0.9,87.2,99.68259566
+Brooklyn,2019,BRO19,105,1,5,L POST,C,no,16.2,75.0,88.28400441
+Brooklyn,2019,BRO19,202,2,5,L POST,C,no,13.93,84.7,89.92569021
+Brooklyn,2019,BRO19,306,3,5,L POST,C,no,15.74,49.0,88.61668083
+Brooklyn,2019,BRO19,403,4,5,L POST,C,no,9.11,0.1,93.41156051
+Lancaster,2019,LAN19,105,1,5,L POST,C,no,0.01,0.1,99
+Lancaster,2019,LAN19,201,2,5,L POST,C,no,0.01,0.1,99
+Lancaster,2019,LAN19,308,3,5,L POST,C,no,0.01,0.1,99
+Lancaster,2019,LAN19,405,4,5,L POST,C,no,0.01,0.1,99
+Arlington,2018,ARL18,105,1,6,E POST with residual,A,yes,0.01,0.1,95
+Arlington,2018,ARL18,201,2,6,E POST with residual,A,yes,0.01,0.1,96
+Arlington,2018,ARL18,304,3,6,E POST with residual,A,yes,0.01,0.1,97
+Arlington,2018,ARL18,409,4,6,E POST with residual,A,yes,0.01,0.1,98
+Janesville,2018,ROK18,104,1,6,E POST with residual,A,yes,0.01,0.1,99
+Janesville,2018,ROK18,209,2,6,E POST with residual,A,yes,10.1,54.4,93.75
+Janesville,2018,ROK18,307,3,6,E POST with residual,A,yes,2.3,12.4,98.57673267
+Janesville,2018,ROK18,403,4,6,E POST with residual,A,yes,5,26.9,96.90594059
+Lancaster,2018,LAN18,110,1,6,E POST with residual,A,yes,0.01,0.1,95
+Lancaster,2018,LAN18,208,2,6,E POST with residual,A,yes,0.01,0.1,96
+Lancaster,2018,LAN18,305,3,6,E POST with residual,A,yes,0.01,0.1,97
+Lancaster,2018,LAN18,402,4,6,E POST with residual,A,yes,0.01,0.1,98
+Arlington,2019,ARL19,106,1,6,E POST with residual,A,yes,0.01,0.1,99
+Arlington,2019,ARL19,208,2,6,E POST with residual,A,yes,0.01,0.1,99
+Arlington,2019,ARL19,301,3,6,E POST with residual,A,yes,0.01,0.1,99
+Arlington,2019,ARL19,408,4,6,E POST with residual,A,yes,0.01,0.1,99
+Janesville,2019,ROK19,106,1,6,E POST with residual,A,yes,14.8,463.9,94.780462
+Janesville,2019,ROK19,201,2,6,E POST with residual,A,yes,86.2,327.8,69.59971786
+Janesville,2019,ROK19,304,3,6,E POST with residual,A,yes,60.9,641.0,78.52230647
+Janesville,2019,ROK19,403,4,6,E POST with residual,A,yes,119.1,149.8,57.99682596
+Brooklyn,2019,BRO19,106,1,6,E POST with residual,A,yes,27.83,16.5,79.87307671
+Brooklyn,2019,BRO19,208,2,6,E POST with residual,A,yes,3.07,137.7,97.77974652
+Brooklyn,2019,BRO19,301,3,6,E POST with residual,A,yes,25.59,43.7,81.49306623
+Brooklyn,2019,BRO19,404,4,6,E POST with residual,A,yes,8.12,0.1,94.12753801
+Lancaster,2019,LAN19,106,1,6,E POST with residual,A,yes,0.01,0.1,99
+Lancaster,2019,LAN19,203,2,6,E POST with residual,A,yes,0.01,0.1,99
+Lancaster,2019,LAN19,306,3,6,E POST with residual,A,yes,0.01,0.1,99
+Lancaster,2019,LAN19,408,4,6,E POST with residual,A,yes,0.01,0.1,99
+Arlington,2018,ARL18,101,1,7,M POST with residual,B,yes,0.01,0.1,95
+Arlington,2018,ARL18,205,2,7,M POST with residual,B,yes,0.01,0.1,96
+Arlington,2018,ARL18,303,3,7,M POST with residual,B,yes,0.01,0.1,97
+Arlington,2018,ARL18,408,4,7,M POST with residual,B,yes,0.01,0.1,98
+Janesville,2018,ROK18,110,1,7,M POST with residual,B,yes,0.1,0.5,99.93811881
+Janesville,2018,ROK18,208,2,7,M POST with residual,B,yes,0.01,0.1,99
+Janesville,2018,ROK18,302,3,7,M POST with residual,B,yes,0.01,0.1,99
+Janesville,2018,ROK18,407,4,7,M POST with residual,B,yes,0.01,0.1,99
+Lancaster,2018,LAN18,105,1,7,M POST with residual,B,yes,0.01,0.1,95
+Lancaster,2018,LAN18,201,2,7,M POST with residual,B,yes,0.01,0.1,96
+Lancaster,2018,LAN18,310,3,7,M POST with residual,B,yes,0.01,0.1,97
+Lancaster,2018,LAN18,407,4,7,M POST with residual,B,yes,0.01,0.1,98
+Arlington,2019,ARL19,107,1,7,M POST with residual,B,yes,0.01,0.1,99
+Arlington,2019,ARL19,203,2,7,M POST with residual,B,yes,0.01,0.1,99
+Arlington,2019,ARL19,307,3,7,M POST with residual,B,yes,0.01,0.1,99
+Arlington,2019,ARL19,403,4,7,M POST with residual,B,yes,0.01,0.1,99
+Janesville,2019,ROK19,107,1,7,M POST with residual,B,yes,4.1,0.4,98.55404691
+Janesville,2019,ROK19,203,2,7,M POST with residual,B,yes,0.06701,7.5,99.97636748
+Janesville,2019,ROK19,301,3,7,M POST with residual,B,yes,1.4,0.1,99.50625992
+Janesville,2019,ROK19,404,4,7,M POST with residual,B,yes,0.01,66.5,99
+Brooklyn,2019,BRO19,107,1,7,M POST with residual,B,yes,12.35,35.4,91.06836139
+Brooklyn,2019,BRO19,203,2,7,M POST with residual,B,yes,6.57,20.7,95.2485129
+Brooklyn,2019,BRO19,307,3,7,M POST with residual,B,yes,3.85,63.0,97.21564302
+Brooklyn,2019,BRO19,405,4,7,M POST with residual,B,yes,11.71,0.1,91.53121553
+Lancaster,2019,LAN19,107,1,7,M POST with residual,B,yes,0.01,0.1,99
+Lancaster,2019,LAN19,204,2,7,M POST with residual,B,yes,0.01,0.1,99
+Lancaster,2019,LAN19,305,3,7,M POST with residual,B,yes,0.01,0.1,99
+Lancaster,2019,LAN19,402,4,7,M POST with residual,B,yes,0.01,0.1,99
+Arlington,2018,ARL18,109,1,8,L POST with residual,C,yes,0.01,0.1,95
+Arlington,2018,ARL18,206,2,8,L POST with residual,C,yes,0.01,0.1,96
+Arlington,2018,ARL18,310,3,8,L POST with residual,C,yes,0.01,0.1,97
+Arlington,2018,ARL18,401,4,8,L POST with residual,C,yes,0.01,0.1,98
+Janesville,2018,ROK18,107,1,8,L POST with residual,C,yes,0.01,0.1,99
+Janesville,2018,ROK18,204,2,8,L POST with residual,C,yes,0.01,0.1,99
+Janesville,2018,ROK18,306,3,8,L POST with residual,C,yes,0.01,0.1,99
+Janesville,2018,ROK18,402,4,8,L POST with residual,C,yes,0.01,0.1,99
+Lancaster,2018,LAN18,108,1,8,L POST with residual,C,yes,0.01,0.1,95
+Lancaster,2018,LAN18,202,2,8,L POST with residual,C,yes,0.01,0.1,96
+Lancaster,2018,LAN18,307,3,8,L POST with residual,C,yes,0.01,0.1,97
+Lancaster,2018,LAN18,404,4,8,L POST with residual,C,yes,0.01,0.1,98
+Arlington,2019,ARL19,108,1,8,L POST with residual,C,yes,0.01,0.1,99
+Arlington,2019,ARL19,201,2,8,L POST with residual,C,yes,0.01,0.1,99
+Arlington,2019,ARL19,306,3,8,L POST with residual,C,yes,0.01,0.1,99
+Arlington,2019,ARL19,404,4,8,L POST with residual,C,yes,0.01,0.1,99
+Janesville,2019,ROK19,108,1,8,L POST with residual,C,yes,0.4,23.1,99.85893141
+Janesville,2019,ROK19,205,2,8,L POST with residual,C,yes,4.3,1.1,98.48351261
+Janesville,2019,ROK19,306,3,8,L POST with residual,C,yes,0.2,0.1,99.9294657
+Janesville,2019,ROK19,401,4,8,L POST with residual,C,yes,0.01,171.6,99
+Brooklyn,2019,BRO19,108,1,8,L POST with residual,C,yes,31.89,19.3,76.93684572
+Brooklyn,2019,BRO19,205,2,8,L POST with residual,C,yes,3.58,6.5,97.41090962
+Brooklyn,2019,BRO19,303,3,8,L POST with residual,C,yes,1.21,1.2,99.12491638
+Brooklyn,2019,BRO19,406,4,8,L POST with residual,C,yes,0.23,0.1,99.83366179
+Lancaster,2019,LAN19,108,1,8,L POST with residual,C,yes,0.01,0.1,99
+Lancaster,2019,LAN19,205,2,8,L POST with residual,C,yes,0.01,0.1,99
+Lancaster,2019,LAN19,302,3,8,L POST with residual,C,yes,0.01,0.1,99
+Lancaster,2019,LAN19,404,4,8,L POST with residual,C,yes,0.01,0.1,99
