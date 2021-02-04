@@ -37,14 +37,13 @@ data1 <- data %>%
     Trt = as.factor(Trt)) %>% 
   janitor::clean_names() %>% 
   select(site, year, siteyr, block, trt, trtdes, post, residual, biored) %>% 
-  unite("site_year", c("site", "year"), remove = FALSE) %>% 
   mutate(residual = fct_recode(residual, "no" = "none"),
          post = fct_recode(post, "no" = "none"))
 ```
 
 
 ```{r}
-leveneTest(biored ~ year, data = data1)
+leveneTest(biored ~ siteyr, data = data1)
 ```
 
 
@@ -56,7 +55,7 @@ data1 %>%
 
 ```{r}
 data2 <- data1 %>% 
-  nest(site_year, year, siteyr, block, trt, trtdes, post, residual, biored)
+  nest(year, site, block, trt, trtdes, post, residual, biored)
 ```
 
 ```{r beta-function}
@@ -83,7 +82,7 @@ data4 <- data3 %>%
 
 ```{r check-anova}
 data4 %>% 
-  filter(site == "Arlington") %>% 
+  filter(siteyr == "ROK18") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
 ```
@@ -95,7 +94,7 @@ data5 <- data4 %>%
     emmeans = pmap(
       .l = list(
         object = model, 
-        specs = "post",
+        list(specs = ~ post | residual),
         type="response",
 #        cont="pairwise", 
         adjust="none"
@@ -143,15 +142,13 @@ data7
 
 ```{r}
 data7 %>% 
-  group_by(site, post) %>% 
-#  mutate(herb = reorder_within(herb, by = response, within = rate)) %>% 
   ggplot(aes(x = post, y = response)) +
   geom_point() +
 #  geom_label(aes(label = .group), parse = TRUE, # somthing is wrong with geom_text
 #            nudge_x = 0,
 #            nudge_y = -0.3) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
-  facet_wrap(~ site, scales = "free") +
+  facet_grid(residual ~ siteyr, scales = "free") +
   coord_flip() +
 #  scale_x_reordered() +
   scale_y_continuous("% biomass reduction", limits = c(0, 1.03),
