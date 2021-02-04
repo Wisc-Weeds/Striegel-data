@@ -32,7 +32,7 @@ library(scales)
 library(grDevices)
 ```
 
-read in data and adjust data frame as needed
+
 ```{r}
 Data <- read.csv("Weed seed fecundity and viability.csv", header=T) 
 #Data = Data %>%
@@ -83,7 +83,7 @@ groupwiseMean(viaseedprodROK~Trt|Siteyr, data=Data, conf=0.95, digits=3)
 
 ```{r ARLINGTON}
 #no obs for PRE fb POST trts
-model=lmer(mAMBEL ~ POST*residual + (1|Block), data=dataARL)
+model=lmer(mAMBEL ~ POST*residual + (1|Block), data = dataARL)
 #normality - statistical tests and graphical checks
 residuals = resid(model)
 shapiro.test(residuals)

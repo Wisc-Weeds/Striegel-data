@@ -1,0 +1,161 @@
+---
+title: "Biomass_Post"
+author: "Maxwel Coura Oliveira"
+date: "2/4/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = TRUE,
+  warning = TRUE,
+  error = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(glmmTMB)
+library(emmeans)
+library(car)
+```
+
+```{r}
+data <- read.csv("Final biomass.csv")
+```
+
+
+```{r}
+data1 <- data %>% 
+  mutate_if(is.character, as.factor) %>% 
+  filter(!Trtdes %in% c("Check", "PRE")) %>% 
+  mutate(
+    biored = Ogred / 100,
+    Block = as.factor(Block),
+    Year = as.factor(Year),
+    Trt = as.factor(Trt)) %>% 
+  janitor::clean_names() %>% 
+  select(site, year, siteyr, block, trt, trtdes, post, residual, biored) %>% 
+  unite("site_year", c("site", "year"), remove = FALSE) %>% 
+  mutate(residual = fct_recode(residual, "no" = "none"),
+         post = fct_recode(post, "no" = "none"))
+```
+
+
+```{r}
+leveneTest(biored ~ year, data = data1)
+```
+
+
+```{r}
+data1 %>% 
+  group_by(trtdes) %>% 
+  summarise(min = min(biored), max = max(biored))
+```
+
+```{r}
+data2 <- data1 %>% 
+  nest(site_year, year, siteyr, block, trt, trtdes, post, residual, biored)
+```
+
+```{r beta-function}
+beta_model <- function(df) {
+  model = glmmTMB(biored ~ post * residual + (1|year:block), 
+                beta_family(link="logit"),
+                REML = FALSE, data = df)
+}
+```
+
+
+```{r model, warning = FALSE}
+data3 <- data2 %>% 
+  mutate(model = map(data, beta_model))
+```
+
+
+
+```{r anova}
+data4 <- data3 %>% 
+    mutate(anova = map(model, glmmTMB:::Anova.glmmTMB))
+```
+
+
+```{r check-anova}
+data4 %>% 
+  filter(site == "Arlington") %>% 
+  unnest(anova)
+# You can check your ANOVA by filtering for each pop and rate
+```
+
+
+```{r emmeans_function}
+data5 <- data4 %>% 
+  mutate(
+    emmeans = pmap(
+      .l = list(
+        object = model, 
+        specs = "post",
+        type="response",
+#        cont="pairwise", 
+        adjust="none"
+      ),
+      .f = emmeans
+    )
+  ) 
+```
+
+
+
+```{r check-emmeans}
+# full data frame with all means and CIs 
+data5 %>% 
+  mutate(emm2 = map(emmeans, data.frame)) %>% 
+  unnest(emm2) #
+#You can filter and make a data frame for each population and rate
+```
+
+
+```{r cld-function}
+cld_function <- function(emmeans) {
+  if(requireNamespace("multcomp")) {
+    multcomp::cld(emmeans, alpha=0.05, Letters=letters, adjust="none", reversed = TRUE)
+}
+}
+```
+
+
+```{r cld}
+data6 <- data5 %>% 
+  mutate(cld = map(emmeans, cld_function))
+```
+
+
+```{r}
+# here is similar to emmeans but you have letters
+data7 <- data6 %>% 
+  unnest(cld)
+# You can also filter and make specific data frames
+data7
+```
+
+
+
+```{r}
+data7 %>% 
+  group_by(site, post) %>% 
+#  mutate(herb = reorder_within(herb, by = response, within = rate)) %>% 
+  ggplot(aes(x = post, y = response)) +
+  geom_point() +
+#  geom_label(aes(label = .group), parse = TRUE, # somthing is wrong with geom_text
+#            nudge_x = 0,
+#            nudge_y = -0.3) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
+  facet_wrap(~ site, scales = "free") +
+  coord_flip() +
+#  scale_x_reordered() +
+  scale_y_continuous("% biomass reduction", limits = c(0, 1.03),
+                     labels = scales::label_number(scale = 100)) +
+  theme_bw()
+# this is how you reorder by high to low. Notice that all rates follow same pattern.
+```
