@@ -55,7 +55,7 @@ data1 %>%
 
 ```{r}
 data2 <- data1 %>% 
-  nest(year, site, block, trt, trtdes, post, residual, control)
+  nest(year, siteyr, block, trt, trtdes, post, residual, control)
 ```
 
 ```{r beta-function}
@@ -82,7 +82,7 @@ data4 <- data3 %>%
 
 ```{r check-anova}
 data4 %>% 
-  filter(siteyr == "ROK18") %>% 
+  filter(site == "Lancaster") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
 ```
@@ -148,7 +148,7 @@ data7 %>%
 #            nudge_x = 0,
 #            nudge_y = -0.3) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
-  facet_grid(residual ~ siteyr, scales = "free") +
+  facet_grid(residual ~ site, scales = "free") +
   coord_flip() +
 #  scale_x_reordered() +
   scale_y_continuous("% control", limits = c(0, 1.03),

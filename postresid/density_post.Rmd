@@ -22,12 +22,12 @@ library(car)
 ```
 
 ```{r}
-data <- read.csv("Final weed density.csv")
-str(data)
+density <- read.csv("Final weed density.csv")
+str(density)
 ```
 
 ```{r}
-data1 <- data %>% 
+density1 <- density %>% 
   mutate_if(is.character, as.factor) %>% 
   filter(!Trt %in% c("1", "2")) %>% 
   mutate(
@@ -42,19 +42,19 @@ data1 <- data %>%
 
 
 ```{r}
-leveneTest(dens_red ~ siteyr, data = data1)
+leveneTest(dens_red ~ siteyr, data = density1)
 ```
 
 
 ```{r}
-data1 %>% 
+density1 %>% 
   group_by(trt_des) %>% 
   summarise(min = min(dens_red), max = max(dens_red))
 ```
 
 ```{r}
-data2 <- data1 %>% 
-  nest(year, site, block, trt, trt_des, post, residual, dens_red)
+density2 <- density1 %>% 
+  nest(year, siteyr, block, trt, trt_des, post, residual, dens_red)
 ```
 
 ```{r beta-function}
@@ -67,28 +67,28 @@ beta_model <- function(df) {
 
 
 ```{r model, warning = FALSE}
-data3 <- data2 %>% 
+density3 <- density2 %>% 
   mutate(model = map(data, beta_model))
 ```
 
 
 
 ```{r anova}
-data4 <- data3 %>% 
+density4 <- density3 %>% 
     mutate(anova = map(model, glmmTMB:::Anova.glmmTMB))
 ```
 
 
 ```{r check-anova}
-data4 %>% 
-  filter(siteyr == "ROK18") %>% 
+density4 %>% 
+  filter(site == "Lancaster") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering
 ```
 
 
 ```{r emmeans_function}
-data5 <- data4 %>% 
+density5 <- density4 %>% 
   mutate(
     emmeans = pmap(
       .l = list(
@@ -107,7 +107,7 @@ data5 <- data4 %>%
 
 ```{r check-emmeans}
 # full data frame with all means and CIs 
-data5 %>% 
+density5 %>% 
   mutate(emm2 = map(emmeans, data.frame)) %>% 
   unnest(emm2) #
 #You can filter and make a data frame for each population and rate
@@ -124,30 +124,30 @@ cld_function <- function(emmeans) {
 
 
 ```{r cld}
-data6 <- data5 %>% 
+density6 <- density5 %>% 
   mutate(cld = map(emmeans, cld_function))
 ```
 
 
 ```{r}
 # here is similar to emmeans but you have letters
-data7 <- data6 %>% 
+density7 <- density6 %>% 
   unnest(cld)
 # You can also filter and make specific data frames
-data7
+density7
 ```
 
 
 
 ```{r}
-data7 %>% 
+density7 %>% 
   ggplot(aes(x = post, y = response)) +
   geom_point() +
 #  geom_label(aes(label = .group), parse = TRUE, # somthing is wrong with geom_text
 #            nudge_x = 0,
 #            nudge_y = -0.3) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
-  facet_grid(residual ~ siteyr, scales = "free") +
+  facet_grid(residual ~ site, scales = "free") +
   coord_flip() +
 #  scale_x_reordered() +
   scale_y_continuous("% density reduction", limits = c(0, 1.03),
