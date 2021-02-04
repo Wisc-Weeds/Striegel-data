@@ -1,0 +1,73 @@
+---
+title: "seed_fecundy"
+author: "Maxwel Coura Oliveira"
+date: "2/4/2021"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = TRUE,
+  warning = TRUE,
+  error = TRUE)
+```
+
+
+```{r load-package}
+library(tidyverse)
+library(lme4)
+library(emmeans)
+library(car)
+library(lmerTest)
+```
+
+
+```{r load-data}
+seed <- read_csv("Weed seed fecundity and viability.csv") 
+```
+
+
+
+```{r clean-data}
+seed1 <- seed %>% 
+  janitor::clean_names() %>% 
+  mutate_if(is.character, as.factor) %>% 
+  mutate(
+    block = as.factor(block),
+    year = as.factor(year),
+    trt = as.factor(trt)) %>% 
+  filter(!trt %in% c("1", "2")) %>% 
+  select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
+  mutate(mseed = round(mseed, 0))
+```
+
+```{r nest}
+seed2 <- seed1 %>% 
+  nest(-site)
+```
+
+
+
+```{r function}
+seed_model <- function(df) {
+  glmer(mseed ~ post * residual + (1|year:block), 
+       family="poisson",
+       data=df)
+}
+```
+
+
+```{r model, warning = FALSE}
+seed3 <- seed2 %>% 
+  mutate(model = map(data, seed_model))
+```
+
+
+```{r anova}
+seed4 <- seed3 %>% 
+    mutate(anova = map(model, glmmTMB:::Anova.glmmTMB))
+```
+
+
