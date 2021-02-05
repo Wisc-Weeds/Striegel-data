@@ -21,6 +21,8 @@ library(tidytext)
 library(patchwork)
 library(gridExtra)
 library(ggthemes)
+library(ggtext)
+library(rlang)
 ```
 
 
@@ -45,6 +47,37 @@ jan_seed <- seed7 %>%
   mutate_at(c("lower.CL", "upper.CL"), round)
 ```
 
+```{r}
+element_textbox_highlight <- function(..., hi.labels = NULL, hi.fill = NULL,
+                                      hi.col = NULL, hi.box.col = NULL, hi.family = NULL) {
+  structure(
+    c(element_textbox(...),
+      list(hi.labels = hi.labels, hi.fill = hi.fill, hi.col = hi.col, hi.box.col = hi.box.col, hi.family = hi.family)
+    ),
+    class = c("element_textbox_highlight", "element_textbox", "element_text", "element")
+  )
+}
+
+element_grob.element_textbox_highlight <- function(element, label = "", ...) {
+  if (label %in% element$hi.labels) {
+    element$fill <- element$hi.fill %||% element$fill
+    element$colour <- element$hi.col %||% element$colour
+    element$box.colour <- element$hi.box.col %||% element$box.colour
+    element$family <- element$hi.family %||% element$family
+  }
+  NextMethod()
+}
+```
+
+```{r}
+library(showtext)
+font_add_google("Playfair Display", ## name of Google font
+                "Playfair")  ## name that will be used in R
+font_add_google("Bangers", "Bangers")
+```
+
+
+
 ```{r jan-control}
 j1 <- jan_control %>% 
   mutate(post = fct_recode(post,
@@ -56,21 +89,32 @@ j1 <- jan_control %>%
                                "No residual" = "no")) %>% 
 #  group_by(post, residual) %>% 
 #  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
-  ggplot(aes(x = fct_reorder(post, response), y = response)) +
-  geom_point() +
+  ggplot(aes(x = post, y = response, color = post)) +
+  geom_point(size = 2) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   facet_grid(~ residual) +
   coord_flip() +
-  theme_light() +
+  theme_test() +
+  scale_color_brewer(palette = "Set1") +
 #  scale_x_reordered() +
   labs(x = "", title = "") +
-  scale_y_continuous("% giant ragweed control", limits = c(0, 1.03),
+  scale_y_continuous("% giant ragweed control", limits = c(0.5, 1.03),
+                     breaks = c(0.5, 0.75, 1.0),
                      labels = scales::label_number(scale = 100)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
-         axis.text.x = element_text(size=10),
-         strip.text = element_text(color = "black",
-                                   size = 11,
-                                   face = "bold"))
+        axis.text.x = element_text(size=10),
+#         strip.text = element_text(color = "black",
+#                                   size = 11,
+#                                   face = "bold"),
+        legend.position = "none",
+    strip.text = element_textbox_highlight(
+      size = 12, face = "bold",
+      fill = "#c5050c", box.color = "#c5050c", color = "white",
+      halign = .5, linetype = 1, r = unit(0, "pt"), width = unit(1, "npc"),
+      padding = margin(2, 0, 1, 0), margin = margin(0, 1, 0, 1),
+      hi.labels = "With residual", hi.family = "",
+      hi.fill = "#0479a8", hi.box.col = "#0479a8", hi.col = "white"))
+j1 
 ```
 
 ```{r}
@@ -79,16 +123,19 @@ j2 <- jan_biomass %>%
                            "Early POST" = "A",
                            "Mid POST" = "B",
                            "Late POST" = "C")) %>% 
-  ggplot(aes(x = post, y = response)) +
-  geom_point() +
+  ggplot(aes(x = post, y = response, color = post)) +
+  geom_point(size = 2) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   coord_flip() +
   labs(x = "", title = "") +
-  theme_light() +
-    scale_y_continuous("% giant ragweed biomass reduction", limits = c(0, 1.03),
+  theme_test() +
+  scale_color_brewer(palette = "Set1") +
+  scale_y_continuous("% giant ragweed biomass reduction", limits = c(0.5, 1.03),
+                     breaks = c(0.5, 0.75, 1.0),
                      labels = scales::label_number(scale = 100)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
-        axis.text.x = element_text(size=10))
+        axis.text.x = element_text(size=10),
+        legend.position = "none")
 ```
 
 
@@ -103,21 +150,27 @@ j3 <- jan_density %>%
                                "No residual" = "no")) %>% 
 #  group_by(post, residual) %>% 
 #  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
-  ggplot(aes(x = fct_reorder(post, response), y = response)) +
-  geom_point() +
+  ggplot(aes(x = fct_reorder(post, response), y = response, color = post)) +
+  geom_point(size = 2) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   facet_grid(~ residual) +
   coord_flip() +
-  theme_light() +
-#  scale_x_reordered() +
+  theme_test() +
+  scale_color_brewer(palette = "Set1") + 
   labs(x = "", title = "") +
-    scale_y_continuous("% giant ragweed density reduction", limits = c(0, 1.03),
+    scale_y_continuous("% giant ragweed density reduction", limits = c(0.5, 1.03),
+                     breaks = c(0.5, 0.75, 1.0),
                      labels = scales::label_number(scale = 100)) +
    theme(axis.text.y = element_text(size=10, face = "bold"),
-         axis.text.x = element_text(size=10),
-         strip.text = element_text(color = "black",
-                                   size = 11,
-                                   face = "bold"))
+        axis.text.x = element_text(size=10),
+            strip.text = element_textbox_highlight(
+      size = 12, face = "bold",
+      fill = "#c5050c", box.color = "#c5050c", color = "white",
+      halign = .5, linetype = 1, r = unit(0, "pt"), width = unit(1, "npc"),
+      padding = margin(2, 0, 1, 0), margin = margin(0, 1, 0, 1),
+      hi.labels = "With residual", hi.family = "",
+      hi.fill = "#0479a8", hi.box.col = "#0479a8", hi.col = "white"),
+         legend.position = "none")
 ```
 
 
@@ -127,17 +180,19 @@ j4 <- jan_yield %>%
                            "Early POST" = "A",
                            "Mid POST" = "B",
                            "Late POST" = "C")) %>% 
-  mutate(post = fct_reorder(post, emmean)) %>% 
-  ggplot(aes(x = post, y = emmean)) +
-  geom_point() +
+  ggplot(aes(x = post, y = emmean, color = post)) +
+  geom_point(size = 2) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   coord_flip() +
-  theme_light() +
+  theme_test() +
+  scale_color_brewer(palette = "Set1") +
   labs(x = "", y = expression(paste("Soybean yield (kg ha"^"-1",")")),
        title = "") +
-    scale_y_continuous( limits = c(0, 4500)) +
+    scale_y_continuous(limits = c(2500, 4500),
+                       breaks = c(2500, 3500, 4500)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
-        axis.text.x = element_text(size=10))
+        axis.text.x = element_text(size=10),,
+        legend.position = "none")
 j4
 ```
 
@@ -152,13 +207,13 @@ j5 <- jan_seed %>%
                                "No residual" = "no")) %>% 
 #  group_by(post, residual) %>% 
 #  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
-  ggplot(aes(x = fct_reorder(post, rate), y = rate)) +
-  geom_point() +
+  ggplot(aes(x = post, y = rate, color = post)) +
+  geom_point(size = 2) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   facet_grid(~ residual) +
   coord_flip() +
-  theme_light() +
-#  scale_x_reordered() +
+  theme_test() +
+  scale_color_brewer(palette = "Set1") +
   labs(x = "", y = "Number of seeds (x1000)",
        title = "") +
   scale_y_continuous( 
@@ -166,11 +221,34 @@ j5 <- jan_seed %>%
                                                    accuracy = 1)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
          axis.text.x = element_text(size=10),
-         strip.text = element_text(color = "black",
-                                   size = 11,
-                                   face = "bold"))
+             strip.text = element_textbox_highlight(
+      size = 12, face = "bold",
+      fill = "#c5050c", box.color = "#c5050c", color = "white",
+      halign = .5, linetype = 1, r = unit(0, "pt"), width = unit(1, "npc"),
+      padding = margin(2, 0, 1, 0), margin = margin(0, 1, 0, 1),
+      hi.labels = "With residual", hi.family = "",
+      hi.fill = "#0479a8", hi.box.col = "#0479a8", hi.col = "white"),
+        legend.position = "none")
 j5
 ```
+
+```{r}
+j6 <- ggplot(janes_data, aes(x=doy, y=(emergence*100), color=trt, 
+                       linetype = trt)) + 
+  geom_jitter(size=2, alpha = 0.3) + 
+  geom_line(data=nd, aes(x=doy, y=(p*100)), size=1) +
+  theme_test() +
+  theme(axis.text.y = element_text(size=10, face = "bold"),
+         axis.text.x = element_text(size=10),
+        legend.position = c(0.8, 0.2),
+        legend.title = element_blank()) +
+  labs(y="giant ragweed emergence (%)", x="Day of year") +
+  scale_x_continuous(limits=c(135,220)) +
+  scale_y_continuous(breaks=c(0., 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) 
+```
+
 
 
 gridExtra::tableGrob(jan_seed[c('post', 'residual', 'rate', 
@@ -179,14 +257,32 @@ gridExtra::tableGrob(jan_seed[c('post', 'residual', 'rate',
                                               base_family = ""))
 
 ```{r}
-(j1 / j2) + (j3) + (j4) + plot_layout(ncol = 2, nrow = 3, 
-                                      heights = c(3, 3),
-                                      width = c(2, 1)) +
-  j5 + 
-  ggsave("janesville.pdf", height = 10, width = 10)
+(j1 / j2) + 
+  (j3) + (j6) +
+  (j5) + (j4) +
+  plot_layout(ncol = 2, nrow = 3, 
+              heights = c(2, 2),
+              width = c(2, 1)) +
+  plot_annotation(tag_levels = 'A') +
+  ggsave("janesville.pdf", height = 10, width = 8)
 ```
 
 
+```{r}
+jc <- {(j1 / j3 / j2) + 
+  (j6) + (j5) + (j4)} +
+    plot_annotation(tag_levels = 'A') +
+    plot_layout(ncol = 3, nrow = 2, 
+              heights = c(3, 3, 3),
+              width = c(3, 3, 3)) &
+   theme(
+         plot.background = element_rect(fill ="white", color = NULL),
+         panel.background = element_rect(fill ="white", color = NULL))
+#  plot_annotation(
+#  title = 'Giant ragweed biology and management in Janesville',
+#  subtitle = "Data presented across two years")
+  ggsave('janesville_2.pdf',  height = 6, width = 12, jc) 
+```
 
 
 

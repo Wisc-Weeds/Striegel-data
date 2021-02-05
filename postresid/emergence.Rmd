@@ -1,0 +1,127 @@
+---
+title: "emergence"
+author: "Maxwel Coura Oliveira"
+date: "2/5/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = TRUE,
+  warning = TRUE,
+  error = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(drc)
+```
+
+```{r load-data}
+emergence <- read_csv("WeedEmerge.csv")
+```
+
+ 
+```{r clean-data}
+emergence1 <- emergence %>% 
+  janitor::clean_names() %>% 
+  pivot_longer(cols = ambel:amatu, 
+               names_to = "weeds", 
+               values_to = "emergence") %>% 
+  filter(!is.na(emergence)) %>% 
+  mutate_if(is_character, as_factor)
+```
+
+
+```{r nest}
+emergence2 <- emergence1 %>% 
+  nest(-location)
+```
+
+```{r model-function}
+drc_model <- function(df){
+  drm(emergence ~ doy, trt, fct = l3(fixed=c(NA, NA, NA), 
+                                     names = c("b", "c", "e")), 
+      data=df)
+}
+```
+
+
+```{r model, warning = FALSE}
+emergence3 <- emergence2 %>% 
+  mutate(model = map(data, drc_model))
+```
+
+```{r summary, warning = FALSE}
+emergence4 <- emergence3 %>% 
+  mutate(summary = map(model, summary))
+```
+
+
+
+# Janesville
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+janes_model <- emergence4$model[[2]]
+janes_data <- emergence4 %>% 
+  unnest(data) %>% 
+  filter(location == "Janesville")
+
+newdata <- expand.grid(doy = exp(seq(log(130), log(215), length = 215)))
+
+newdata1 <- data.frame(trt = "NTC", newdata)
+newdata2 <- data.frame(trt = "PRE", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(janes_model, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+
+janes_data$doy0 <- janes_data$doy
+janes_data$doy0[janes_data$doy0==145] <- 145
+
+nd <- nd %>% 
+  mutate_if(is_character, as_factor)
+```
+
+
+```{r}
+ggplot(janes_data, aes(x=doy, y=(emergence*100), color=trt)) + 
+  geom_point(size=1) + 
+  geom_line(data=nd, aes(x=doy, y=(p*100), color=trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Cumulative emergence", x="Day of year") +
+  scale_x_continuous(limits=c(135,220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Janesville 2018, giant ragweed") +
+  ggsave("AMBTR ROK18.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+
+
+
+
+
+
+
+
+
+
+

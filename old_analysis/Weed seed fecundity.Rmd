@@ -1,0 +1,616 @@
+---
+title: "Weed seed fecundity"
+author: "SS"
+date: "11/26/2019"
+output: html_document
+---
+
+install/load packages
+```{r include=FALSE}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(bestNormalize)
+library(glmmTMB)
+library(ggpubr)
+library(nortest)
+library(zoo)
+library(predictmeans)
+library(RColorBrewer)
+library(CircStats)
+library(openair)
+library(scales)
+library(grDevices)
+```
+
+
+```{r}
+Data <- read.csv("Weed seed fecundity and viability.csv", header=T) 
+#Data = Data %>%
+  #drop_na()
+str(Data)
+dim(Data)
+Data$Year=as.factor(Data$Year)
+Data$Siteyr=as.factor(Data$Siteyr)
+Data$Block=as.factor(Data$Block)
+Data$Trt=as.factor(Data$Trt)
+
+
+Data <- subset(Data, POST!="none")
+table(Data$POST)
+table(droplevels(Data)$POST)
+str(Data)
+
+dataARL = Data %>%
+  filter(Site=="Arlington")
+
+dataROK = Data %>%
+  filter(Site=="Janesville")
+
+dataBRO = Data %>%
+  filter(Site=="Brooklyn")
+str(dataBRO)
+```
+
+```{r}
+Data = Data %>%
+  mutate(viaseedprodBRO = mAMATU*viaAMATU) %>%
+  mutate(viaseedprodARL = mAMBEL*viaAMBEL) %>%
+  mutate(viaseedprodROK = mAMBTR*viaAMBTR)
+
+groupwiseMean(mAMATU~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(viaAMATU~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(viaseedprodBRO~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+
+groupwiseMean(mAMBEL~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(viaAMBEL~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(viaseedprodARL~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+
+groupwiseMean(mAMBTR~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(viaAMBTR~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(viaseedprodROK~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+```
+
+
+```{r ARLINGTON}
+#no obs for PRE fb POST trts
+model=lmer(mAMBEL ~ POST*residual + (1|Block), data = dataARL)
+#normality - statistical tests and graphical checks
+residuals = resid(model)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(mAMBEL~POST*residual, data=Data)
+plot(model)
+
+summary(model)
+anova(model, test.statistic = "F")
+
+lsm <- emmeans(model, ~ POST, adjust="none", contr="pairwise", type="response")
+lsm
+cld <- CLD(lsm, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld
+```
+
+```{r BROOKLYN - seed prod}
+model2=lmer(mAMATU ~ POST*residual + (1|Block), data=dataBRO)
+#normality - statistical tests and graphical checks
+residuals = resid(model2)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(mAMATU~POST*residual, data=dataBRO)
+plot(model2)
+
+dataBRO = dataBRO %>%
+  mutate(MAMATU = sqrt(mAMATU))
+model2.2=lmer(sqrt(mAMATU) ~ POST*residual + (1|Block), data=dataBRO)
+#normality - statistical tests and graphical checks
+residuals = resid(model2.2)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(MAMATU~POST*residual, data=dataBRO)
+plot(model2.2)
+
+summary(model2.2)
+anova(model2.2, test.statistic = "F")
+
+lsm2 <- emmeans(model2.2, ~ POST, adjust="none", contr="pairwise", type="response")
+lsm2
+cld2 <- CLD(lsm2, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld2
+
+model=lm(mAMATU~POST*residual, data=dataBRO)
+LSD.test(model, "POST", alpha=0.05, p.adj="none", console=TRUE)
+
+T1 = subset(dataBRO, dataBRO$Trt=="1")
+T2 = subset(dataBRO, dataBRO$Trt=="2")
+T3 = subset(dataBRO, dataBRO$Trt=="3")
+T4 = subset(dataBRO, dataBRO$Trt=="4")
+T5 = subset(dataBRO, dataBRO$Trt=="5")
+T6 = subset(dataBRO, dataBRO$Trt=="6")
+T7 = subset(dataBRO, dataBRO$Trt=="7")
+T8 = subset(dataBRO, dataBRO$Trt=="8")
+T34 = subset(dataBRO, dataBRO$Trt==c("3", "4"))
+T56 = subset(dataBRO, dataBRO$Trt==c("5", "6"))
+T78 = subset(dataBRO, dataBRO$Trt==c("7", "8"))
+t.test(T2$mAMATU, T8$mAMATU)
+```
+
+```{r BROOKLYN via}
+model2=glmmTMB(viaAMATU ~ POST*residual + (1|Block), data=dataBRO, beta_family(link="logit"))
+leveneTest(viaAMATU~POST*residual, data=dataBRO)
+
+summary(model2)
+Anova.glmmTMB(model2.2,test.statistic = "Chisq", type = "II")
+
+lsm2 <- emmeans(model2, ~ POST, adjust="none", contr="pairwise", type="response")
+lsm2
+cld2 <- CLD(lsm2, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld2
+
+groupwiseMean(viaAMATU~POST, data=dataBRO, conf=0.95, digits=3)
+
+t.test(T2$viaAMATU, T8$viaAMATU)
+```
+
+```{r BROOKLYN via seed prod}
+dataBRO = dataBRO %>%
+  mutate(viaseedprodBRO = mAMATU*viaAMATU)
+
+model2.3=lmer(viaseedprodBRO ~ POST*residual + (1|Block), data=dataBRO)
+#normality - statistical tests and graphical checks
+residuals = resid(model2.3)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(viaseedprodBRO~POST*residual, data=dataBRO)
+plot(model2.3)
+
+dataBRO = dataBRO %>%
+  mutate(TviaseedprodBRO = sqrt(viaseedprodBRO))
+model2.3=lmer(sqrt(viaseedprodBRO) ~ POST*residual + (1|Block), data=dataBRO)
+#normality - statistical tests and graphical checks
+residuals = resid(model2.3)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(TviaseedprodBRO~POST*residual, data=dataBRO)
+plot(model2.3)
+
+summary(model2.3)
+anova(model2.3, test.statistic = "F")
+
+lsm2 <- emmeans(model2.3, ~ POST, adjust="none", contr="pairwise", type="response")
+lsm2
+cld2 <- CLD(lsm2, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld2
+```
+
+```{r JANESVILLE seed prod}
+dataROK1 = dataROK %>%
+  filter(Siteyr=="ROK18")
+dataROK2 = dataROK %>%
+  filter(Siteyr=="ROK19")
+
+model3=lmer(mAMBTR ~ POST*residual*Year + (1|Year:Block), data=dataROK)
+#model3=lmer(mAMBTR ~ POST*residual + (1|Block), data=dataROK)
+#normality - statistical tests and graphical checks
+residuals = resid(model3)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(mAMBTR~POST*residual, data=dataROK)
+plot(model3)
+
+dataROK2 = dataROK %>%
+  mutate(MAMBTR = sqrt(mAMBTR)) 
+  #filter(Siteyr=="ROK19")
+model3.2=lmer(sqrt(mAMBTR) ~ POST*residual*Year + (1|Year:Block), data=dataROK)
+#model3.2=lmer(sqrt(mAMBTR) ~ POST*residual + (1|Block), data=dataROK)
+#normality - statistical tests and graphical checks
+residuals = resid(model3.2)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(MAMBTR~POST*residual, data=dataROK2)
+plot(model3.2)
+
+summary(model3.2)
+anova(model3.2, test.statistic = "F")
+
+#lsm3 <- emmeans(model3.2, ~ POST|Siteyr, adjust="none", contr="pairwise", type="response")
+lsm3 <- emmeans(model3.2, ~ POST|residual, adjust="none", contr="pairwise", type="response")
+lsm3
+cld3 <- CLD(lsm3, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld3
+
+model=lm(mAMBTR~POST*residual, data=dataROK)
+LSD.test(model, "POST", alpha=0.05, p.adj="none", console=TRUE)
+
+T1 = subset(dataROK1, dataROK1$Trt == "1")
+T2 = subset(dataROK1, dataROK1$Trt == "2")
+T3 = subset(dataROK1, dataROK1$Trt == "3")
+T4 = subset(dataROK1, dataROK1$Trt == "4")
+T5 = subset(dataROK1, dataROK1$Trt == "5")
+T6 = subset(dataROK1, dataROK1$Trt == "6")
+T7 = subset(dataROK1, dataROK1$Trt == "7")
+T8 = subset(dataROK1, dataROK1$Trt == "8")
+t.test(T2$mAMBTR, T8$mAMBTR)
+```
+
+```{r JANESVILLE via}
+model3.2=glmmTMB(viaAMBTR ~ Year+POST+residual + (1|Year:Block), data=dataROK, beta_family(link="logit"))
+leveneTest(viaAMBTR~POST*residual, data=dataROK)
+
+summary(model3.2)
+glmmTMB:::Anova.glmmTMB(model3.2, test.statistic = "Chisq", type = "II")
+
+lsm3 <- emmeans(model3.2, ~ POST|Siteyr, adjust="none", contr="pairwise", type="response")
+lsm3
+cld3 <- CLD(lsm3, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld3
+
+groupwiseMean(viaAMBTR~POST|Siteyr, data=dataROK, conf=0.95, digits=3)
+
+t.test(T2$viaAMBTR, T6$viaAMBTR)
+```
+
+```{r JANESVILLE via seed prod}
+dataROK2 = dataROK %>%
+  #filter(Siteyr=="ROK19") %>%
+  mutate(viaseedprodROK = mAMBTR*viaAMBTR)
+
+model3.3=lmer(viaseedprodROK ~ POST*residual*Siteyr + (1|Siteyr:Block), data=dataROK2)
+#normality - statistical tests and graphical checks
+residuals = resid(model3.3)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(viaseedprodROK~POST*residual, data=dataROK)
+plot(model3.3)
+
+model3.2=lmer(sqrt(viaseedprodROK) ~ Year*POST*residual + (1|Year:Block), data=dataROK2)
+#normality - statistical tests and graphical checks
+residuals = resid(model3.2)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+
+summary(model3.2)
+anova(model3.2, test.statistic = "F")
+
+lsm3 <- emmeans(model3.2, ~ POST, adjust="none", contr="pairwise", type="response")
+lsm3
+cld3 <- CLD(lsm3, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld3
+```
+
+```{r}
+syname = c("Arlington 2019")
+names(syname) = c("ARL19")
+
+level_order = c("Check", "PRE", "E POST", "E POST with residual", "M POST", "M POST with residual", 
+                "L POST", "L POST with residual")
+cols = c("Check"="darksalmon", "PRE"="skyblue", "E POST"="salmon3", "E POST with residual" = "salmon3",
+         "M POST"="cornflowerblue", "M POST with residual"="cornflowerblue", "L POST" = "lightgoldenrod",
+         "L POST with residual"="lightgoldenrod")
+
+ggplot(cld, aes(x = factor(Trt.Des, level=level_order), y=response, label=.group, fill=Trt.Des)) +
+  geom_bar(stat="identity", width = 0.6, color="black") +
+  #facet_grid(.~Siteyr, labeller = labeller(Siteyr=syname)) +
+  geom_linerange(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position = "none",
+                     #legend.position="bottom", legend.direction = "horizontal", 
+                     #legend.box = "horizontal", 
+                     #legend.text = element_text(color="black", size = 15), 
+                     #legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(),
+                     #axis.title.y = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Seeds (m"^"-2",")")), x="") +
+  scale_fill_manual(values=cols) +
+  geom_text(size = 6,
+            nudge_x = c(0, 0, 0, 0, 0, 0, 0, 0),
+            nudge_y = c(29000, 18000, 5000, 5000, 5000, 5000, 5000, 5000),
+            color   = "black") + ylim(0,150000) +
+  scale_y_continuous(breaks=c(0,25000, 50000, 75000, 100000, 125000, 150000)) +
+  #scale_x_discrete(labels=wrap_format(20)) +
+  #ggtitle("Arlington 2019")
+  ggsave("ARLfecundity3.tiff", units="in", width=6, height=4, dpi=400)
+```
+
+
+```{r}
+syname2 = c("Brooklyn 2019")
+names(syname2) = c("BRO19")
+
+ggplot(cld2, aes(x = factor(Trt.Des, level=level_order), y=response, label=.group, fill=Trt.Des)) +
+  geom_bar(stat="identity", width = 0.6, color="black") +
+  #facet_grid(Siteyr~., labeller = labeller(Siteyr=syname2)) +
+  geom_linerange(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position = "none",
+                     #legend.position="bottom", legend.direction = "horizontal", 
+                     #legend.box = "horizontal", 
+                     #legend.text = element_text(color="black", size = 15), 
+                     #legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     #axis.text.x = element_blank(),
+                     #axis.title.y = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Seeds (m"^"-2",")")), x="") +
+  scale_fill_manual(values=cols) +
+  geom_text(size = 6,
+            nudge_x = c(0, 0, 0, 0, 0, 0, 0, 0),
+            nudge_y = c(315550, 255000, 195000, 160000, 140000, 140000, 140000, 140000),
+            color   = "black") + ylim(0,800000) +
+  #scale_y_continuous(breaks=c(0,25000, 50000, 75000, 100000, 125000, 150000)) +
+  scale_x_discrete(labels=wrap_format(20)) +
+  #ggtitle("Brooklyn 2019")
+  ggsave("BROfecundity3.tiff", units="in", width=6, height=5, dpi=400)
+```
+
+
+```{r}
+synames = c("Janesville 2018", "Janesville 2019")
+names(synames) = c("ROK18", "ROK19")
+
+ggplot(cld3, aes(x = factor(Trt.Des, level=level_order), y=response, label=.group, fill=Trt.Des)) +
+  geom_bar(stat="identity", width = 0.6, color="black") +
+  facet_grid(Siteyr~., labeller = labeller(Siteyr=synames)) +
+  geom_linerange(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position = "none",
+                     #legend.position="right", legend.direction = "vertical", 
+                     #legend.box = "vertical", 
+                     #legend.text = element_text(color="black", size = 15), 
+                     #legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     axis.text.x = element_text(size=13, angle=45, hjust=1, color="black"),
+                     #axis.text.x = element_blank(),
+                     #axis.title.y = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.y = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Seeds (m"^"-2",")")), x="") +
+  scale_fill_manual(values=cols, labels=level_order) +
+  geom_text(size = 6, color="black",
+            nudge_x = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            nudge_y = c(2500, 2500, 1000, 1000, 1000, 1000, 1000, 1000, 3900, 3500, 3500, 3300, 1000, 
+                        1000, 1000, 1000, 1000)) + 
+  ylim(0, 15500) +
+  #scale_y_continuous(breaks=c(0,2500, 5000, 7500, 100000, 125000, 1)) +
+  scale_x_discrete(labels=wrap_format(20)) +
+  #ggtitle("Brooklyn 2019")
+  ggsave("ROKfecundity3.tiff", units="in", width=6, height=8, dpi=600)
+```
+
+
+```{r}
+Data = Data %>%
+  mutate(Mseed = sqrt(mseed))
+model=lmer(sqrt(mseed) ~ POST*residual*Siteyr + (1|Block), data=Data)
+#normality - statistical tests and graphical checks
+residuals = resid(model)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(Mseed~POST*residual, data=Data)
+plot(model)
+
+summary(model)
+anova(model, test.statistic = "F")
+
+lsm <- emmeans(model, ~ POST|Siteyr, adjust="none", contr="pairwise", type="response")
+lsm
+cld <- CLD(lsm, adjust="none", type="response", reversed=TRUE, Letters= letters)
+cld
+
+synames2 = c("Arlington 2019", "Brooklyn 2019", "Janesville 2018", "Janesville 2019")
+names(synames2) = c("ARL19", "BRO19", "ROK18", "ROK19")
+
+level_order = c("A", "B", "C")
+
+cld1 = cld %>%
+  filter(Siteyr=="ROK18")
+
+ggplot(cld1, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.5, color="black") +
+  #facet_grid (.~Siteyr, labeller = labeller(Siteyr=synames2)) +
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(plot.title = element_text(hjust=0.5, size=35, face="bold"),
+                     axis.title.y = element_text(size=30, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 25), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     #axis.text.y = element_blank(),
+                     strip.text.x = element_text(size=25, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("seeds m"^"-2")), x="") +
+  scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("EPOST","MPOST", "LPOST")) + ylim(0,19000) +
+  #ggtitle("Weed Seed Fecundity") +
+  ggsave("WSeed fec ROK18.tiff", units="in", width=6, height=8, dpi=600)
+```
+
+```{r}
+syname2 = c("Brooklyn 2019")
+names(syname2) = c("BRO19")
+
+ggplot(cld2, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.6, color="black") +
+  #facet_grid(Siteyr~., labeller = labeller(Siteyr=syname2)) +
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(#axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position = "none",
+                     #legend.position="bottom", legend.direction = "horizontal", 
+                     #legend.box = "horizontal", 
+                     #legend.text = element_text(color="black", size = 15), 
+                     #legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     #axis.text.x = element_blank(),
+                     #axis.title.y = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.title.y = element_blank(),
+                     axis.text.x = element_blank(),
+                     axis.text.y = element_text(hjust=0, size=10, 
+                                                color="black"),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Seeds (m"^"-2",")")), x="") +
+  scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("E POST","M POST", "L POST")) +
+  #geom_text(size = 6,
+            #nudge_x = c(0, 0, 0, 0, 0, 0, 0, 0),
+            #nudge_y = c(315550, 255000, 195000, 160000, 140000, 140000, 140000, 140000),
+            #color   = "black") + 
+  ylim(0,240000) +
+  #scale_y_continuous(breaks=c(0,25000, 50000, 75000, 100000, 125000, 150000)) +
+  scale_x_discrete(labels=wrap_format(20)) +
+  #ggtitle("Brooklyn 2019")
+  ggsave("BROfecundity3 V2.tiff", units="in", width=6, height=5, dpi=400)
+```
+
+```{r}
+cld18 = cld3 %>%
+  filter(Siteyr=="ROK18")
+cld19 = cld3 %>%
+  filter(Siteyr=="ROK19")
+
+ggplot(cld18, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.5, color="black") +
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(#axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position = "none",
+                     #legend.position="right", legend.direction = "vertical", 
+                     #legend.box = "vertical", 
+                     #legend.text = element_text(color="black", size = 15), 
+                     #legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=13, angle=45, hjust=1, color="black"),
+                     axis.title.y = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.x = element_blank(),
+                     axis.text.y = element_text(size=15, 
+                                                color="black"),
+                     strip.text.y = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Seeds (m"^"-2",")")), x="") +
+   scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("EPOST","MPOST", "LPOST")) +
+  #geom_text(size = 6, color="black",
+            #nudge_x = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            #nudge_y = c(2500, 2500, 1000, 1000, 1000, 1000, 1000, 1000, 3900, 3500, 3500, 3300, 1000, 
+                        #1000, 1000, 1000, 1000) + 
+  ylim(0, 7500) +
+  #scale_y_continuous(breaks=c(0,2500, 5000, 7500, 100000, 125000, 1)) +
+  scale_x_discrete(labels=wrap_format(20)) +
+  #ggtitle("Brooklyn 2019")
+  ggsave("ROKfecundity3 V2.tiff", units="in", width=6, height=6, dpi=600)
+```
+
+```{r}
+level_order = c("A", "B", "C")
+
+synames = c("No layered residual", "layered residual")
+names(synames) = c("no", "yes")
+
+ggplot(cld3, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.5, color="black") +
+  facet_grid (.~residual, labeller = labeller(residual=synames)) +
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(plot.title = element_text(hjust=0.5, size=35, face="bold"),
+                     axis.title.y = element_text(size=30, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 25), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     #axis.text.y = element_blank(),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("seeds m"^"-2")), x="") +
+  scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("EPOST","MPOST", "LPOST")) + ylim(0,10800) +
+  geom_text(size = 10,nudge_x = c(0, 0, 0),nudge_y = c(3200, 2800, 800, 800, 800, 800),color   = "black") + 
+  #ggtitle("Weed Seed Fecundity") +
+  #ggsave("WSeed fec ROK19 V2.tiff", units="in", width=6, height=8, dpi=600)
+```
+

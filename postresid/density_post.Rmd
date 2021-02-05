@@ -35,7 +35,7 @@ density1 <- density %>%
     Year = as.factor(Year),
     Trt = as.factor(Trt)) %>% 
   janitor::clean_names() %>% 
-  select(site, year, siteyr, block, trt, trt_des, post, residual, dens_red) %>% 
+  dplyr::select(site, year, siteyr, block, trt, trt_des, post, residual, dens_red) %>% 
   mutate(residual = fct_recode(residual, "no" = "none"),
          post = fct_recode(post, "no" = "none"))
 ```

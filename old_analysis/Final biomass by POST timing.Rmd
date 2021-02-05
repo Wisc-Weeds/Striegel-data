@@ -1,0 +1,351 @@
+---
+title: "SB13 final biomass by POST timing"
+author: "ss"
+date: "10/2/2019"
+output:
+  word_document: default
+  html_document: default
+---
+
+install/load packages
+```{r include=FALSE}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(bestNormalize)
+library(glmmTMB)
+library(ggpubr)
+library(nortest)
+library(RColorBrewer)
+library(dplyr)
+library(rcompanion)
+```
+
+read in data & adjust data frame as needed
+```{r}
+Data <- read.csv("Final biomass.csv", header=T)
+str(Data)
+dim(Data)
+Data$Siteyr=as.factor(Data$Siteyr)
+Data$Year=as.factor(Data$Year)
+Data$Block=as.factor(Data$Block)
+Data$Trt=as.factor(Data$Trt)
+
+#groupwiseMean(biored~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+
+#Data = Data %>%
+  #drop_na()%>%
+
+Data <- subset(Data, POST!="none")
+table(Data$POST)
+table(droplevels(Data)$POST)
+
+str(Data)
+
+Data = Data %>%
+  mutate(biored = Ogred/100)
+str(Data)
+```
+
+AS BIOMASS
+```{r}
+model.1=lmer(mBiomass ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data)
+#normality - statistical tests and graphical checks
+residuals = resid(model.1)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(mBiomass~POST*residual, data=Data)
+plot(model.1)
+
+Data <- Data %>%   
+  mutate(MBiomass = sqrt(mBiomass))
+model.2=lmer(sqrt(mBiomass) ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data)
+#normality - statistical tests and graphical checks
+residuals = resid(model.2)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(MBiomass~POST*residual, data=Data)
+plot(model.2)
+
+summary(model.2)
+anova(model.2, test.statistic = "F", type = "II")
+interaction.plot(Data$POST, Data$Siteyr, Data$MBiomass, col=2:8, xlab="residual", ylab="biomass")
+```
+
+```{r}
+lsm <- emmeans(model.2, ~ POST | Siteyr, adjust="none", contr="pairwise", type="response")
+lsm
+```
+
+
+```{r warning=FALSE}
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters, type="response")
+cld
+```
+
+FIGURES
+```{r}
+cldR = cld %>%
+  filter(Siteyr=="ROK19")
+
+cld <- subset(cld, Siteyr!="ROK19")
+table(cld$Siteyr)
+table(droplevels(cld)$Siteyr)
+str(cld)
+
+synames = c("Arlington 2018", "Arlington 2019", "Brooklyn 2019", "Lancaster 2018", "Lancaster 2019",
+            "Janesville 2018")
+names(synames) = c("ARL18", "ARL19", "BRO19", "LAN18", "LAN19", "ROK18")
+syname = c("Janesville 2019")
+names(syname) = c("ROK19")
+
+level_order = c("A", "B", "C")
+
+ggplot(cld, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.6, color="black") +
+  facet_wrap (~Siteyr, labeller = labeller(Siteyr=synames)) +
+  geom_linerange(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 15), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Biomass (g m"^"-2",")")), x="") +
+  scale_fill_manual(values=c("salmon3", "cornflowerblue", "lightgoldenrod"), name="", 
+                    labels=c("E POST","M POST", "L POST")) +
+  geom_text(size = 8,
+            nudge_x = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            nudge_y = c(20, 20, 20, 20, 20, 20, 43, 30, 30, 20, 20, 20, 20, 20, 20, 30, 23, 23, 
+                        80, 32, 32),
+            color   = "black") + ylim(0, 100) +
+  #ggtitle("Weed Biomass") +
+  ggsave("WeedBio.tiff", units="in", width=10, height=8, dpi=600)
+
+
+ggplot(cldR, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.6, color="black") +
+  facet_grid (.~Siteyr, labeller = labeller(Siteyr=syname)) +
+  geom_linerange(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(#axis.title.y = element_text(size=25, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     #legend.position = "none",
+                     legend.position="bottom", legend.direction = "horizontal", 
+                     legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 15), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(),
+                     axis.title.y = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  #labs(y=expression(paste("Biomass (g m"^"-2",")")), x="") +
+  scale_fill_manual(values=c("salmon3", "cornflowerblue", "lightgoldenrod"), name="", 
+                    labels=c("E POST","M POST", "L POST")) +
+  geom_text(size = 8,
+            nudge_x = c(0, 0, 0),
+            nudge_y = c(80, 50, 50),
+            color   = "black") + ylim(0, 450) +
+  #ggtitle("Weed Biomass") +
+  ggsave("WeedBio2.tiff", units="in", width=4, height=8, dpi=600)
+```
+
+```{r}
+cld <- subset(cld, Siteyr!="LAN19")
+cld <- subset(cld, Siteyr!="LAN18")
+cld <- subset(cld, Siteyr!="ARL18")
+table(cld$Siteyr)
+table(droplevels(cld)$Siteyr)
+str(cld)
+
+synames2 = c("Arlington 2019", "Brooklyn 2019", "Janesville 2018", "Janesville 2019")
+names(synames2) = c("ARL19", "BRO19", "ROK18", "ROK19")
+
+level_order = c("A", "B", "C")
+
+ggplot(cld, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.5, color="black") +
+  facet_grid (.~Siteyr, labeller = labeller(Siteyr=synames2)) +
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(plot.title = element_text(hjust=0.5, size=35, face="bold"),
+                     axis.title.y = element_text(size=30, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 25), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=25, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Biomass (g m"^"-2",")")), x="") +
+  scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("EPOST","MPOST", "LPOST")) +
+  geom_text(size = 10,
+            nudge_x = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+            nudge_y = c(30, 30, 30, 50, 40, 40, 40, 25, 25, 90, 40, 40),
+            color   = "black") + ylim(-5, 450) +
+  ggtitle("End-of-Season Weed Biomass") +
+  ggsave("WeedBioV2.tiff", units="in", width=27, height=6, dpi=600)
+```
+
+```{r}
+cld1 = cld %>%
+  filter(Siteyr=="ROK19")
+
+level_order = c("A", "B", "C")
+
+ggplot(cld1, aes(x = factor(POST, level=level_order), y=response, label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.5, color="black") +
+  #facet_grid (.~Siteyr, labeller = labeller(Siteyr=synames2)) +
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(plot.title = element_text(hjust=0.5, size=30, face="bold"),
+                     axis.title.y = element_text(size=30, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 25), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=25, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Biomass (g m"^"-2",")")), x="") +
+  scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("EPOST","MPOST", "LPOST")) +
+  geom_text(size = 10,
+            nudge_x = c(0, 0, 0),
+            nudge_y = c(85, 50, 50),
+            color   = "black") + ylim(0, 450) +
+  #ggtitle("End-of-Season Weed Biomass") +
+  ggsave("WeedBioROK19.tiff", units="in", width=6, height=8, dpi=600)
+```
+
+REDUCED MODEL - BY SITEYR
+```{r}
+Data2 <- Data %>%   
+  filter(Siteyr=="BRO19")
+model.2=lmer(sqrt(mBiomass) ~ POST*residual + (1|Block), data=Data2)
+
+summary(model.2)
+anova(model.2, test.statistic = "F", type = "II")
+#interaction.plot(Data$POST, Data$Siteyr, Data$MBiomass, col=2:8, xlab="residual", ylab="biomass")
+
+lsm <- emmeans(model.2, ~ POST, adjust="none", contr="pairwise", type="response")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters, type="response")
+cld
+
+model=lm(biored~POST*residual, data=Data2)
+LSD.test(model, "POST", alpha=0.05, p.adj="none", console=TRUE)
+```
+
+AS BIOMASS REDUCTION
+```{r}
+#BY SITE-YR
+data2 = Data %>%
+  filter(Siteyr==c("ROK19", "ROK18", "BRO19"))
+modelBR=glmmTMB(biored ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data, beta_family(link="logit"))
+leveneTest(biored~POST*residual, data=Data)
+
+summary(modelBR)
+glmmTMB:::Anova.glmmTMB(modelBR, test.statistic = "Chisq", type = "II")
+#interaction.plot(Data$residual, Data$POST, Data$overall, col=2:4, xlab="residual", ylab="overall control")
+#interaction.plot(Data$POST, Data$Siteyr, Data$overall, col=2:8, xlab="POST", ylab="overall control")
+
+lsmBR <- emmeans(modelBR, ~ POST, type="response", adjust="none", contr="pairwise")
+lsmBR
+cldBR <- CLD(lsmBR, adjust="none", reversed=TRUE, Letters= letters)
+cldBR
+
+#SUBSETTED DATA (ARL & LAN 18/19) AND SITE-YR RANDOM
+Data1 = Data %>%
+  filter(Site==c("Arlington", "Lancaster"))
+modelBR=glmmTMB(biored ~ POST*residual + (1|Siteyr/Block), data=Data1, beta_family(link="logit"))
+leveneTest(biored~POST*residual, data=Data1)
+
+summary(modelBR)
+glmmTMB:::Anova.glmmTMB(modelBR, test.statistic = "Chisq", type = "II")
+
+lsmBR <- emmeans(modelBR, ~ POST, type="response", adjust="none", contr="pairwise")
+lsmBR
+
+#SITE-YR FIXED
+Data1 = Data %>%
+  filter(Site=="Janesville")
+modelBR=glmmTMB(biored ~ POST*residual*Year + (1|Year:Block), data=Data1, beta_family(link="logit"))
+leveneTest(biored~POST*residual, data=Data1)
+
+summary(modelBR)
+glmmTMB:::Anova.glmmTMB(modelBR, test.statistic = "Chisq", type = "II")
+
+lsmBR <- emmeans(modelBR, ~ POST, type="response", adjust="none", contr="pairwise")
+lsmBR
+```
+
+```{r}
+level_order = c("A", "B", "C")
+
+ggplot(cldBR, aes(x = factor(POST, level=level_order), y=(prop*100), label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.5, color="black") +
+  #facet_grid (.~Siteyr, labeller = labeller(Siteyr=synames2)) +
+  geom_errorbar(aes(ymin  =  (lower.CL*100), ymax  =  (upper.CL*100)), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(plot.title = element_text(hjust=0.5, size=30, face="bold"),
+                     axis.title.y = element_text(size=30, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 25), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=25, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Biomass reduction")), x="") +
+  scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("EPOST","MPOST", "LPOST")) +
+  geom_text(size = 10,nudge_x = c(0, 0, 0),nudge_y = c(10, 10, 10),color   = "black") + 
+  scale_y_continuous(breaks=c(0,20,40,60,80,100,120)) +
+  ggsave("WeedBioRedROK19.tiff", units="in", width=6, height=8, dpi=600)
+```

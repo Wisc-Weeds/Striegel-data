@@ -22,12 +22,11 @@ library(car)
 ```
 
 ```{r}
-data <- read.csv("Visual control.csv")
-str(data)
+control <- read_csv("Visual control.csv")
 ```
 
 ```{r}
-data1 <- data %>% 
+control1 <- control %>% 
   mutate_if(is.character, as.factor) %>% 
   filter(!Trtdes %in% c("Check", "PRE")) %>% 
   mutate(
@@ -36,25 +35,25 @@ data1 <- data %>%
     Trt = as.factor(Trt),
     control = control/100) %>% 
   janitor::clean_names() %>% 
-  select(site, year, siteyr, block, trt, trtdes, post, residual, control) %>% 
+  dplyr::select(site, year, siteyr, block, trt, trtdes, post, residual, control) %>% 
   mutate(residual = fct_recode(residual, "no" = "none"),
          post = fct_recode(post, "no" = "none"))
 ```
 
 
 ```{r}
-leveneTest(control ~ siteyr, data = data1)
+leveneTest(control ~ siteyr, data = control1)
 ```
 
 
 ```{r}
-data1 %>% 
+control1 %>% 
   group_by(trtdes) %>% 
   summarise(min = min(control), max = max(control))
 ```
 
 ```{r}
-data2 <- data1 %>% 
+control2 <- control1 %>% 
   nest(year, siteyr, block, trt, trtdes, post, residual, control)
 ```
 
@@ -68,20 +67,20 @@ beta_model <- function(df) {
 
 
 ```{r model, warning = FALSE}
-data3 <- data2 %>% 
+control3 <- control2 %>% 
   mutate(model = map(data, beta_model))
 ```
 
 
 
 ```{r anova}
-data4 <- data3 %>% 
+control4 <- control3 %>% 
     mutate(anova = map(model, glmmTMB:::Anova.glmmTMB))
 ```
 
 
 ```{r check-anova}
-data4 %>% 
+control4 %>% 
   filter(site == "Lancaster") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
@@ -89,7 +88,7 @@ data4 %>%
 
 
 ```{r emmeans_function}
-data5 <- data4 %>% 
+control5 <- control4 %>% 
   mutate(
     emmeans = pmap(
       .l = list(
@@ -108,7 +107,7 @@ data5 <- data4 %>%
 
 ```{r check-emmeans}
 # full data frame with all means and CIs 
-data5 %>% 
+control5 %>% 
   mutate(emm2 = map(emmeans, data.frame)) %>% 
   unnest(emm2) #
 #You can filter and make a data frame for each population and rate
@@ -125,23 +124,23 @@ cld_function <- function(emmeans) {
 
 
 ```{r cld}
-data6 <- data5 %>% 
+control6 <- control5 %>% 
   mutate(cld = map(emmeans, cld_function))
 ```
 
 
 ```{r}
 # here is similar to emmeans but you have letters
-data7 <- data6 %>% 
+control7 <- control6 %>% 
   unnest(cld)
 # You can also filter and make specific data frames
-data7
+control7
 ```
 
 
 
 ```{r}
-data7 %>% 
+control7 %>% 
   ggplot(aes(x = post, y = response)) +
   geom_point() +
 #  geom_label(aes(label = .group), parse = TRUE, # somthing is wrong with geom_text

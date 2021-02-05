@@ -22,12 +22,12 @@ library(car)
 ```
 
 ```{r}
-data <- read.csv("Final biomass.csv")
+biomass <- read.csv("Final biomass.csv")
 ```
 
 
 ```{r}
-data1 <- data %>% 
+biomass1 <- biomass %>% 
   mutate_if(is.character, as.factor) %>% 
   filter(!Trtdes %in% c("Check", "PRE")) %>% 
   mutate(
@@ -36,25 +36,25 @@ data1 <- data %>%
     Year = as.factor(Year),
     Trt = as.factor(Trt)) %>% 
   janitor::clean_names() %>% 
-  select(site, year, siteyr, block, trt, trtdes, post, residual, biored) %>% 
+  dplyr::select(site, year, siteyr, block, trt, trtdes, post, residual, biored) %>% 
   mutate(residual = fct_recode(residual, "no" = "none"),
          post = fct_recode(post, "no" = "none"))
 ```
 
 
 ```{r}
-leveneTest(biored ~ siteyr, data = data1)
+leveneTest(biored ~ siteyr, data = biomass1)
 ```
 
 
 ```{r}
-data1 %>% 
+biomass1 %>% 
   group_by(trtdes) %>% 
   summarise(min = min(biored), max = max(biored))
 ```
 
 ```{r}
-data2 <- data1 %>% 
+biomass2 <- biomass1 %>% 
   nest(year, siteyr, block, trt, trtdes, post, residual, biored)
 ```
 
@@ -68,20 +68,20 @@ beta_model <- function(df) {
 
 
 ```{r model, warning = FALSE}
-data3 <- data2 %>% 
+biomass3 <- biomass2 %>% 
   mutate(model = map(data, beta_model))
 ```
 
 
 
 ```{r anova}
-data4 <- data3 %>% 
+biomass4 <- biomass3 %>% 
     mutate(anova = map(model, glmmTMB:::Anova.glmmTMB))
 ```
 
 
 ```{r check-anova}
-data4 %>% 
+biomass4 %>% 
   filter(site == "Brooklyn") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
@@ -89,7 +89,7 @@ data4 %>%
 
 
 ```{r emmeans_function}
-data5 <- data4 %>% 
+biomass5 <- biomass4 %>% 
   mutate(
     emmeans = pmap(
       .l = list(
@@ -108,7 +108,7 @@ data5 <- data4 %>%
 
 ```{r check-emmeans}
 # full data frame with all means and CIs 
-data5 %>% 
+biomass5 %>% 
   mutate(emm2 = map(emmeans, data.frame)) %>% 
   unnest(emm2) #
 #You can filter and make a data frame for each population and rate
@@ -125,23 +125,23 @@ cld_function <- function(emmeans) {
 
 
 ```{r cld}
-data6 <- data5 %>% 
+biomass6 <- biomass5 %>% 
   mutate(cld = map(emmeans, cld_function))
 ```
 
 
 ```{r}
 # here is similar to emmeans but you have letters
-data7 <- data6 %>% 
+biomass7 <- biomass6 %>% 
   unnest(cld)
 # You can also filter and make specific data frames
-data7
+biomass7
 ```
 
 
 
 ```{r}
-data7 %>% 
+biomass7 %>% 
   ggplot(aes(x = post, y = response)) +
   geom_point() +
 #  geom_label(aes(label = .group), parse = TRUE, # somthing is wrong with geom_text

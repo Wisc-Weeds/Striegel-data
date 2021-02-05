@@ -1,0 +1,299 @@
+---
+title: "Final weed density by POST timing"
+author: "SS"
+date: "2/11/2020"
+output: html_document
+---
+
+install/load packages
+```{r include=FALSE}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(bestNormalize)
+library(glmmTMB)
+library(dplyr)
+library(rcompanion)
+```
+
+read in data and adjust data frame as needed
+```{r}
+Data <- read.csv("Final weed density.csv", header=T)
+str(Data)
+dim(Data)
+Data$Year=as.factor(Data$Year)
+Data$Siteyr=as.factor(Data$Siteyr)
+Data$Block=as.factor(Data$Block)
+Data$Trt=as.factor(Data$Trt)
+
+#groupwiseMean(AMBTRred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+
+Data <- subset(Data, POST!="none")
+table(Data$POST)
+table(droplevels(Data)$POST)
+str(Data)
+```
+
+```{r Poaceae - glmmTMB model % density reduction from NTC}
+#WITH SITE-YR FIXED
+model=glmmTMB(Poaceaered ~ Siteyr*POST*residual + (1|Site:Year:Block), data=Data, beta_family(link="logit"))
+leveneTest(Poaceaered~POST*residual, data=Data)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST*residual | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+
+#WITH SUBSETTED DATASET (ARL & LAN 18/19) AND SITEYR RANDOM
+Data1 = Data %>%
+  filter(Site==c("Arlington", "Lancaster"))
+model=glmmTMB(Poaceaered ~ Year*Site*POST*residual + (1|Siteyr/Block), data=Data1, beta_family(link="logit"))
+leveneTest(Poaceaered~POST*residual, data=Data1)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST, type="response", adjust="none", contr="pairwise")
+lsm
+```
+
+```{r AMBEL - glmmTMB model % density reduction from NTC}
+#WITH SITE-YR FIXED
+model=glmmTMB(AMBELred ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data, beta_family(link="logit"))
+leveneTest(AMBELred~POST*residual, data=Data)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST*residual | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+
+#WITH SUBSETTED DATASET (ARL 18/19 & LAN 18) AND SITEYR RANDOM
+Data2 = Data1 %>%
+  filter(Siteyr==c("ARL18", "ARL19", "LAN18"))
+model=glmmTMB(AMBELred ~ POST*residual + (1|Siteyr/Block), data=Data2, beta_family(link="logit"))
+leveneTest(AMBELred~POST*residual, data=Data2)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST, type="response", adjust="none", contr="pairwise")
+lsm
+```
+
+```{r CHEAL - glmmTMB model % density reduction from NTC}
+#WITH SITE-YR FIXED
+data = Data %>%
+  filter(Site=="Lancaster")
+model=glmmTMB(CHEALred ~ Year*POST*residual + (1|Siteyr:Block), data=data, beta_family(link="logit"))
+leveneTest(CHEALred~POST*residual, data=data)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+interaction.plot(Data$POST, Data$Siteyr, Data$CHEALred, col=2:8, xlab="POST", ylab="CHEAL density reduction from NTC")
+interaction.plot(Data$residual, Data$Siteyr, Data$CHEALred, col=2:8, xlab="POST", ylab="CHEAL density reduction from NTC")
+
+lsm <- emmeans(model, ~ POST*residual | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+
+#WITH SUBSETTED DATASET (ARL 18/19 & LAN 18/19) AND SITEYR RANDOM
+model=glmmTMB(CHEALred ~ POST*residual + (1|Siteyr/Block), data=Data1, beta_family(link="logit"))
+leveneTest(CHEALred~POST*residual, data=Data1)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST, type="response", adjust="none", contr="pairwise")
+lsm
+```
+
+```{r ABUTH - glmmTMB model % density reduction from NTC}
+#model will not converge as only values other than 99% belong to PRE treatments
+model=glmmTMB(ABUThred ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data, beta_family(link="logit"))
+leveneTest(ABUThred~POST*residual, data=Data)
+
+summary(model)
+Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+#interaction.plot(Data$POST, Data$Siteyr, Data$AMBTRred, col=2:8, xlab="POST", ylab="AMBTR density reduction from NTC")
+
+lsm <- emmeans(model, ~ POST*residual | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+```
+
+```{r AMARE - glmmTMB model % density reduction from NTC}
+model=glmmTMB(AMAREred ~ Siteyr*POST*residual + (1|Siteyr:Block), data=Data, beta_family(link="logit"))
+leveneTest(AMAREred~POST*residual, data=Data)
+
+summary(model)
+Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+#interaction.plot(Data$POST, Data$Siteyr, Data$AMBTRred, col=2:8, xlab="POST", ylab="AMBTR density reduction from NTC")
+
+lsm <- emmeans(model, ~ POST*residual | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm
+```
+
+```{r AMBTR - glmmTMB model % density reduction from NTC}
+dataROK = Data %>%
+  filter(Site=="Janesville")
+model=glmmTMB(AMBTRred ~ Year*POST*residual + (1|Year:Block), data=dataROK, beta_family(link="logit"))
+leveneTest(AMBTRred~POST*residual, data=Data)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST*residual | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+```
+
+```{r AMATU - glmmTMB model % density reduction from NTC}
+#WITH SITE-YR FIXED
+data = Data %>%
+  filter(Site=="Brooklyn")
+model=glmmTMB(AMATUred ~ POST*residual + (1|Siteyr:Block), data=data, beta_family(link="logit"))
+leveneTest(AMATUred~POST*residual, data=data)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+interaction.plot(Data$POST, Data$Siteyr, Data$AMATUred, col=2:8, xlab="POST", ylab="AMATU density reduction from NTC")
+interaction.plot(Data$residual, Data$Siteyr, Data$AMATUred, col=2:8, xlab="POST", ylab="AMATU density reduction from NTC")
+
+lsm <- emmeans(model, ~ POST*residual | Siteyr, type="response", adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+
+#WITH SUBSETTED DATASET (LAN 18/19) AND SITEYR RANDOM
+Data3 = Data %>%
+  filter(Site=="Lancaster")
+model=glmmTMB(AMATUred ~ Year*POST*residual + (1|Siteyr/Block), data=Data3, beta_family(link="logit"))
+leveneTest(AMATUred~POST*residual, data=Data3)
+
+summary(model)
+glmmTMB:::Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST, type="response", adjust="none", contr="pairwise")
+lsm
+```
+
+```{r HIBTR - glmmTMB model % density reduction from NTC}
+model=glmmTMB(HIBTRred ~ POST*residual + (1|Siteyr:Block), data=Data, beta_family(link="logit"))
+leveneTest(HIBTRred~POST*residual, data=Data)
+
+summary(model)
+Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+#interaction.plot(Data$POST, Data$Siteyr, Data$AMBTRred, col=2:8, xlab="POST", ylab="AMBTR density reduction from NTC")
+
+lsm <- emmeans(model, ~ POST*residual, type="response", adjust="none", contr="pairwise")
+lsm
+```
+
+```{r Ind}
+data2 = Data %>%
+  filter(Siteyr=="ROK19")
+model=glmmTMB(AMATUred ~ POST*residual + (1|Block), data=data2, beta_family(link="logit"))
+#leveneTest(AMBTRred~POST*residual, data=data2)
+
+summary(model)
+Anova.glmmTMB(model, test.statistic = "Chisq", type = "II")
+
+lsm <- emmeans(model, ~ POST|residual, type="response", adjust="none", contr="pairwise")
+lsm
+cld <- CLD(lsm, adjust="none", reversed=TRUE, Letters= letters)
+cld
+
+model=lm(AMBTRred~POST*residual, data=data2)
+LSD.test(model, "POST", alpha=0.05, p.adj="none", console=TRUE)
+```
+
+```{r}
+level_order = c("A", "B", "C")
+
+synames = c("No layered residual", "layered residual")
+names(synames) = c("no", "yes")
+
+ggplot(cld, aes(x = factor(POST, level=level_order), y=(prop*100), label=.group, fill=POST)) +
+  geom_bar(stat="identity", width = 0.4, color="black") +
+  facet_grid (.~residual, labeller = labeller(residual=synames)) +
+  geom_errorbar(aes(ymin  =  (lower.CL*100), ymax  =  (upper.CL*100)), width =  0.1, size  =  0.7) +
+  theme_bw() + theme(plot.title = element_text(hjust=0.5, size=30, face="bold"),
+                     axis.title.y = element_text(size=30, color="black"),
+                     #axis.title.x = element_text(size=20, color="black", face="bold"), 
+                     legend.position="bottom", legend.direction = "horizontal", legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 25), 
+                     legend.title = element_blank(),
+                     #plot.title =  element_text(size=35, color="black", face="bold"),
+                     #axis.text.x = element_text(size=15, angle=45, hjust=1, color="black"),
+                     axis.text.x = element_blank(), 
+                     axis.text.y = element_text(size=15, color="black"),
+                     strip.text.x = element_text(size=15, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y=expression(paste("Density reduction")), x="") +
+  scale_fill_manual(values=c("#C5050C", "#646569", "#282728"), name="", 
+                    labels=c("EPOST","MPOST", "LPOST")) +
+  geom_text(size = 10,nudge_x = c(0, 0, 0),nudge_y = c(5, 5, 8, 8, 10, 10),color   = "black") + 
+  scale_y_continuous(breaks=c(0,20,40,60,80,100,120)) +
+  ggsave("WeedDensRedBRO19.tiff", units="in", width=6, height=8, dpi=600)
+```
+
+```{r groupwise means}
+groupwiseMean(ABUThred~POST*residual|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(POLPEred~POST*residual|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(CERFOred~POST*residual|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(AMBELred~POST*residual|Siteyr, data=Data, conf=0.95, digits=3)
+
+#all spp by treatment to get density reduction for PRE means
+Data <- read.csv("Final weed density.csv", header=T)
+str(Data)
+dim(Data)
+Data$Year=as.factor(Data$Year)
+Data$Siteyr=as.factor(Data$Siteyr)
+Data$Block=as.factor(Data$Block)
+Data$Trt=as.factor(Data$Trt)
+
+groupwiseMean(Poaceaered~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(AMBELred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(CHEALred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(ABUThred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(AMAREred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(POLPEred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(AMBTRred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(AMATUred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(CERFOred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(HIBTRred~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+
+
+#means for check AND PRE plots
+groupwiseMean(mPoaceae~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(mAMBEL~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(mCHEAL~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+#groupwiseMean(mABUTH~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+#groupwiseMean(mAMARE~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+#groupwiseMean(mPOLPE~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(mAMBTR~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+groupwiseMean(mAMATU~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+#groupwiseMean(mCERFO~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+#groupwiseMean(mHIBTR~Trt|Siteyr, data=Data, conf=0.95, digits=3)
+```

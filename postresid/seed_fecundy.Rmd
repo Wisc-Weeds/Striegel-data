@@ -39,7 +39,7 @@ seed1 <- seed %>%
     year = as.factor(year),
     trt = as.factor(trt)) %>% 
   filter(!trt %in% c("1", "2")) %>% 
-  select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
+  dplyr::select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
   mutate(mseed = round(mseed, 0))
 ```
 
