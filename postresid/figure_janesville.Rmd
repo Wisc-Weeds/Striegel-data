@@ -21,8 +21,10 @@ library(tidytext)
 library(patchwork)
 library(gridExtra)
 library(ggthemes)
+library(extrafont)
 library(ggtext)
 library(rlang)
+library(sysfonts)
 ```
 
 
@@ -91,21 +93,27 @@ j1 <- jan_control %>%
 #  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
   ggplot(aes(x = post, y = response, color = post)) +
   geom_point(size = 2) +
+  geom_jitter(data = control1 %>% 
+               filter(site == "Janesville") %>% 
+               mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C"),
+                      residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")), aes(y = control), 
+              alpha = 0.1) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   facet_grid(~ residual) +
   coord_flip() +
   theme_test() +
   scale_color_brewer(palette = "Set1") +
-#  scale_x_reordered() +
-  labs(x = "", title = "") +
-  scale_y_continuous("% giant ragweed control", limits = c(0.5, 1.03),
-                     breaks = c(0.5, 0.75, 1.0),
+  labs(x = "", y = "% giant ragweed control", title = "") +
+  scale_y_continuous(limits = c(0, 1.03),
+                     breaks = c(0, 0.25, 0.5, 0.75, 1.0),
                      labels = scales::label_number(scale = 100)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
         axis.text.x = element_text(size=10),
-#         strip.text = element_text(color = "black",
-#                                   size = 11,
-#                                   face = "bold"),
         legend.position = "none",
     strip.text = element_textbox_highlight(
       size = 12, face = "bold",
@@ -125,18 +133,30 @@ j2 <- jan_biomass %>%
                            "Late POST" = "C")) %>% 
   ggplot(aes(x = post, y = response, color = post)) +
   geom_point(size = 2) +
+  geom_jitter(data = biomass1 %>% 
+               filter(site == "Janesville") %>% 
+               mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C"),
+                      residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")), aes(y = biored), 
+              alpha = 0.1) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   coord_flip() +
-  labs(x = "", title = "") +
+  labs(x = "", y = "% giant ragweed biomass reduction", title = "") +
+  scale_y_continuous(limits = c(0, 1.03),
+                     breaks = c(0, 0.25, 0.5, 0.75, 1.0),
+                     labels = scales::label_number(scale = 100)) +
   theme_test() +
   scale_color_brewer(palette = "Set1") +
-  scale_y_continuous("% giant ragweed biomass reduction", limits = c(0.5, 1.03),
-                     breaks = c(0.5, 0.75, 1.0),
-                     labels = scales::label_number(scale = 100)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
         axis.text.x = element_text(size=10),
         legend.position = "none")
 ```
+
+
 
 
 ```{r}
@@ -148,18 +168,26 @@ j3 <- jan_density %>%
          residual = fct_recode(residual,
                                "With residual" = "yes",
                                "No residual" = "no")) %>% 
-#  group_by(post, residual) %>% 
-#  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
-  ggplot(aes(x = fct_reorder(post, response), y = response, color = post)) +
+  ggplot(aes(x = post, y = response, color = post)) +
   geom_point(size = 2) +
+  geom_jitter(data = density1 %>% 
+               filter(site == "Janesville") %>% 
+               mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C"),
+                      residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")), aes(y = dens_red), 
+              alpha = 0.1) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   facet_grid(~ residual) +
   coord_flip() +
   theme_test() +
   scale_color_brewer(palette = "Set1") + 
-  labs(x = "", title = "") +
-    scale_y_continuous("% giant ragweed density reduction", limits = c(0.5, 1.03),
-                     breaks = c(0.5, 0.75, 1.0),
+  labs(x = "", y = "% giant ragweed density reduction", title = "") +
+  scale_y_continuous(limits = c(0, 1.03),
+                     breaks = c(0, 0.25, 0.5, 0.75, 1.0),
                      labels = scales::label_number(scale = 100)) +
    theme(axis.text.y = element_text(size=10, face = "bold"),
         axis.text.x = element_text(size=10),
@@ -182,6 +210,12 @@ j4 <- jan_yield %>%
                            "Late POST" = "C")) %>% 
   ggplot(aes(x = post, y = emmean, color = post)) +
   geom_point(size = 2) +
+  geom_jitter(data = yield1 %>% 
+               filter(site == "Janesville") %>% 
+               mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C")), aes(y = m_yield), alpha = 0.1) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   coord_flip() +
   theme_test() +
@@ -209,12 +243,21 @@ j5 <- jan_seed %>%
 #  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
   ggplot(aes(x = post, y = rate, color = post)) +
   geom_point(size = 2) +
+  geom_jitter(data = seed1 %>% 
+               filter(site == "Janesville") %>% 
+               mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C"),
+                      residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")), aes(y = mseed), alpha = 0.1) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
   facet_grid(~ residual) +
   coord_flip() +
   theme_test() +
   scale_color_brewer(palette = "Set1") +
-  labs(x = "", y = "Number of seeds (x1000)",
+  labs(x = "", y = "Number of seeds (×1000)",
        title = "") +
   scale_y_continuous( 
                      labels = scales::label_number(scale = 1/1000,
@@ -235,14 +278,15 @@ j5
 ```{r}
 j6 <- ggplot(janes_data, aes(x=doy, y=(emergence*100), color=trt, 
                        linetype = trt)) + 
-  geom_jitter(size=2, alpha = 0.3) + 
+  geom_jitter(size=2, alpha = 0.1) + 
   geom_line(data=nd, aes(x=doy, y=(p*100)), size=1) +
   theme_test() +
-  theme(axis.text.y = element_text(size=10, face = "bold"),
+  theme(axis.text.y = element_text(size=10),
          axis.text.x = element_text(size=10),
         legend.position = c(0.8, 0.2),
         legend.title = element_blank()) +
-  labs(y="giant ragweed emergence (%)", x="Day of year") +
+  labs(y="% giant ragweed emergence", x="Day of year", 
+       title = "") +
   scale_x_continuous(limits=c(135,220)) +
   scale_y_continuous(breaks=c(0., 25, 50, 75, 100)) +
   scale_fill_manual(values = c("#494949", "#c5050c")) + 
@@ -262,6 +306,7 @@ library(stringr)
 library(dplyr)
 library(ggsn)
 ```
+
 ```{r}
 states = map_data("state")
 df <- subset(states, region =="wisconsin")
@@ -273,75 +318,50 @@ county <- subset(counties, region =="wisconsin")
 county 
 ```
 
+
 ```{r}
 j7 <- ggplot(data = county, mapping = aes(x = long, y = lat, group = group)) + 
-#  coord_fixed(1.5) + 
+#  coord_fixed(ratio = 1, expand = TRUE, clip = on) +
   geom_polygon(color = "grey80", fill = "white") +
   geom_polygon(data = county %>% 
                  filter(subregion == "rock"), aes(fill = subregion),
-               show.legend = FALSE) +
-  geom_point(aes(x = -89.0187, y = 42.6828)) +
-#  annotate("text", x= -90, y = 47, label = "Rock County - Lancaster, WI
-#           giant ragweed site") +
+               show.legend = FALSE, fill = "#c5050c") +
+  geom_point(aes(x = -89.0187, y = 42.6828), size = 0.5) +
+  annotate("text", x= -88.6, y = 47, label = "Lancaster, Rock County, WI",
+           size = 2) +
   theme_test() +
-  coord_map() + 
+#  labs(title = "Rock County - Lancaster, WI") +
+  coord_map("orthographic") +
   labs(x ="", y = "") +
 #  north(df, location = 'topleft', symbol = 3, anchor = c(x = -87.5, y = 47)) +
 #  scalebar(df, dist = 50, dist_unit="km", model = 'International', 
 #           location = "bottomleft", transform = TRUE) +
-  theme(axis.text.y = element_text(size=10, face = "bold"),
-         axis.text.x = element_text(size=10, face = "bold"))
+  theme(axis.text.y = element_text(size=10),
+         axis.text.x = element_text(size=10))
+j7
 ```
 
 
 
 
-```{r}
-(j1 / j2) + 
-  (j3) + (j6) +
-  (j5) + (j4) +
-  plot_layout(ncol = 2, nrow = 3, 
-              heights = c(2, 2),
-              width = c(2, 1)) +
-  plot_annotation(tag_levels = 'A') +
-  ggsave("janesville.pdf", height = 10, width = 8)
-```
-
-
-```{r}
-jc <- {(j1 / j3 / j2) + 
-  (j6) + (j5) + (j4)} +
-    plot_annotation(tag_levels = 'A') +
-    plot_layout(ncol = 3, nrow = 2, 
-              heights = c(3, 3, 3),
-              width = c(3, 3, 3)) &
-   theme(
-         plot.background = element_rect(fill ="white", color = NULL),
-         panel.background = element_rect(fill ="white", color = NULL))
-#  plot_annotation(
-#  title = 'Giant ragweed biology and management in Janesville',
-#  subtitle = "Data presented across two years")
-  ggsave('janesville_2.pdf',  height = 6, width = 12, jc) 
-```
 
 
 
-```{r}
-jc <- {(j7 / j1 / j3) + 
-  (j6) + (j5) + (j4)} +
-    plot_annotation(tag_levels = 'A') +
-    plot_layout(ncol = 3, nrow = 2, 
-              heights = c(3, 3, 3),
-              width = c(3, 3, 3)) &
-   theme(
-         plot.background = element_rect(fill ="white", color = NULL),
-         panel.background = element_rect(fill ="white", color = NULL)) &
-  plot_annotation(
+
+```{r figure-map}
+jc <- {(j7 / j6) | (j1 / j3) | (j5 / j4)} +
+  plot_layout(byrow = TRUE) &
+  plot_annotation(tag_levels = 'A', 
   title = 'Giant ragweed biology and management in Janesville, Rock County',
-  subtitle = "Giant ragweed is a troublesome weed in Southern Wisonsin. Data is presented over two years",
+  subtitle = "Giant ragweed is a troublesome weed in Southern Wisconsin. Data is presented from 2018 and 2019",
   theme = theme(plot.title = element_text(size = 18))) & 
-  theme(text = element_text('sans'))
-  ggsave('janesville_3.pdf',  height = 6, width = 12, jc) 
+  theme(plot.title = element_text("serif"))
+  ggsave('janesville_5.pdf',  height = 6, width = 12, jc) 
 ```
+
+
+
+
+
 
 
