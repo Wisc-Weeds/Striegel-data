@@ -122,7 +122,6 @@ j1 <- jan_control %>%
       padding = margin(2, 0, 1, 0), margin = margin(0, 1, 0, 1),
       hi.labels = "With residual", hi.family = "",
       hi.fill = "#0479a8", hi.box.col = "#0479a8", hi.col = "white"))
-j1 
 ```
 
 ```{r}
@@ -227,7 +226,6 @@ j4 <- jan_yield %>%
   theme(axis.text.y = element_text(size=10, face = "bold"),
         axis.text.x = element_text(size=10),
         legend.position = "none")
-j4
 ```
 
 ```{r}
@@ -272,7 +270,6 @@ j5 <- jan_seed %>%
       hi.labels = "With residual", hi.family = "",
       hi.fill = "#0479a8", hi.box.col = "#0479a8", hi.col = "white"),
         legend.position = "none")
-j5
 ```
 
 ```{r}
@@ -327,7 +324,7 @@ j7 <- ggplot(data = county, mapping = aes(x = long, y = lat, group = group)) +
                  filter(subregion == "rock"), aes(fill = subregion),
                show.legend = FALSE, fill = "#c5050c") +
   geom_point(aes(x = -89.0187, y = 42.6828), size = 0.5) +
-  annotate("text", x= -88.6, y = 47, label = "Lancaster, Rock County, WI",
+  annotate("text", x= -88.5, y = 47, label = "Janesville, Rock County, WI",
            size = 2) +
   theme_test() +
 #  labs(title = "Rock County - Lancaster, WI") +
@@ -338,7 +335,6 @@ j7 <- ggplot(data = county, mapping = aes(x = long, y = lat, group = group)) +
 #           location = "bottomleft", transform = TRUE) +
   theme(axis.text.y = element_text(size=10),
          axis.text.x = element_text(size=10))
-j7
 ```
 
 
