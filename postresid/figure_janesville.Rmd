@@ -71,12 +71,7 @@ element_grob.element_textbox_highlight <- function(element, label = "", ...) {
 }
 ```
 
-```{r}
-library(showtext)
-font_add_google("Playfair Display", ## name of Google font
-                "Playfair")  ## name that will be used in R
-font_add_google("Bangers", "Bangers")
-```
+
 
 
 
@@ -221,8 +216,8 @@ j4 <- jan_yield %>%
   scale_color_brewer(palette = "Set1") +
   labs(x = "", y = expression(paste("Soybean yield (kg ha"^"-1",")")),
        title = "") +
-    scale_y_continuous(limits = c(2500, 4500),
-                       breaks = c(2500, 3500, 4500)) +
+    scale_y_continuous(limits = c(0, 4500),
+                       breaks = c(0, 1500, 3000, 4500)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
         axis.text.x = element_text(size=10),
         legend.position = "none")
@@ -274,22 +269,44 @@ j5 <- jan_seed %>%
 
 ```{r}
 j6 <- ggplot(janes_data, aes(x=doy, y=(emergence*100), color=trt, 
-                       linetype = trt)) + 
+                       linetype = trt)) +
+  annotate("rect", xmin = 135, xmax = 152, ymin = 0, ymax = 120, 
+           alpha = .1, fill = "yellow") +
+  annotate("rect", xmin = 152, xmax = 182, ymin = 0, ymax = 120, 
+           alpha = .1, fill = "green") +
+  annotate("rect", xmin = 182, xmax = 213, ymin = 0, ymax = 120, 
+           alpha = .1, fill = "blue") +
+  annotate("rect", xmin = 213, xmax = 215, ymin = 0, ymax = 120, 
+           alpha = .1, fill = "grey") +
+  annotate("text", x = 143, y = 115, label = "May",
+           alpha = .5, fill = "black") +
+  annotate("text", x = 167, y = 115, label = "June",
+           alpha = .5, fill = "black") +
+  annotate("text", x = 197, y = 115, label = "July",
+           alpha = .5, fill = "black") +
   geom_jitter(size=2, alpha = 0.1) + 
   geom_line(data=nd, aes(x=doy, y=(p*100)), size=1) +
   theme_test() +
   theme(axis.text.y = element_text(size=10),
          axis.text.x = element_text(size=10),
         legend.position = c(0.8, 0.2),
+        legend.background = element_blank(),
+        legend.key = element_blank(), 
         legend.title = element_blank()) +
   labs(y="% giant ragweed emergence", x="Day of year", 
        title = "") +
-  scale_x_continuous(limits=c(135,220)) +
+  scale_x_continuous(limits=c(135,215)) +
   scale_y_continuous(breaks=c(0., 25, 50, 75, 100)) +
   scale_fill_manual(values = c("#494949", "#c5050c")) + 
   scale_color_manual(values = c("#494949", "#c5050c")) 
 ```
 
+
+
+```{r}
+day <- ymd(20180801)
+lubridate::yday(day)
+```
 
 
 ```{r}
@@ -354,6 +371,7 @@ jc <- {(j7 / j6) | (j1 / j3) | (j5 / j4)} +
   theme(plot.title = element_text("serif"))
   ggsave('janesville_5.pdf',  height = 6, width = 12, jc) 
 ```
+
 
 
 
