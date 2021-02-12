@@ -30,14 +30,16 @@ library(sysfonts)
 ```{r janesville}
 brook_yield <- yield7 %>% 
   filter(site == "Brooklyn")
+
 brook_control <- control7 %>% 
   filter(site == "Brooklyn")
-brook_control
+
 brook_biomass <- biomass7 %>% 
   filter(site == "Brooklyn")
-brook_biomass
+
 brook_density <- density7 %>% 
   filter(site == "Brooklyn")
+options(scipen = 999) # avoid exponential numbers
 brook_seed <- seed7 %>% 
   filter(site == "Brooklyn") %>% 
   mutate_at(c("lower.CL", "upper.CL"), round)
@@ -108,6 +110,7 @@ b1 <- brook_control %>%
       hi.labels = "With residual", hi.family = "",
       hi.fill = "#0479a8", hi.box.col = "#0479a8", hi.col = "white"))
 ```
+
 
 ```{r}
 b2 <- brook_biomass %>% 
@@ -240,11 +243,12 @@ b5 <- brook_seed %>%
   scale_color_brewer(palette = "Set1") +
   labs(x = "", y = "Number of seeds (×1000)",
        title = "") +
-  scale_y_continuous( 
-                     labels = scales::label_number(scale = 1/1000,
-                                                   accuracy = 1)) +
+#  scale_y_continuous( 
+#                     labels = 
+#                       scales::label_number(scale = 1,
+#                     accuracy = 1)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
-         axis.text.x = element_text(size=10),
+         axis.text.x = element_text(size=10, angle = 45),
              strip.text = element_textbox_highlight(
       size = 12, face = "bold",
       fill = "#c5050c", box.color = "#c5050c", color = "white",
@@ -256,6 +260,8 @@ b5 <- brook_seed %>%
 ```
 
 ```{r}
+label <- "Estimated 50% emergence ratio = 1  *P* = 0.34"
+
 b6 <- ggplot(brook_data, aes(x=doy, y=(emergence*100), color=trt, 
                        linetype = trt)) +
   annotate("rect", xmin = 135, xmax = 152, ymin = 0, ymax = 120, 
@@ -283,6 +289,12 @@ b6 <- ggplot(brook_data, aes(x=doy, y=(emergence*100), color=trt,
         legend.title = element_blank()) +
   labs(y="% waterhemp emergence", x="Day of year", 
        title = "") +
+#  geom_segment(x = 180, y = 50, xend = 160, yend = 50, show.legend = FALSE,
+#                  arrow = arrow(length = unit(0.5, "cm"))) +
+  geom_richtext(x = 160, y = 50, show.legend = FALSE,
+                    label = label, alpha = 0.5,
+                width = unit(5, "lines"),
+                stat = "unique") +
   scale_x_continuous(limits=c(135,215)) +
   scale_y_continuous(breaks=c(0., 25, 50, 75, 100)) +
   scale_fill_manual(values = c("#494949", "#c5050c")) + 

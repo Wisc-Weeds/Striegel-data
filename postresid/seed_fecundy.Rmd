@@ -39,7 +39,7 @@ seed1 <- seed %>%
     year = as.factor(year),
     trt = as.factor(trt)) %>% 
   filter(!trt %in% c("1", "2")) %>% 
-  dplyr::select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
+  select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
   mutate(mseed = round(mseed, 0))
 ```
 
@@ -73,7 +73,7 @@ seed4 <- seed3 %>%
 
 ```{r check-anova}
 seed4 %>% 
-  filter(site == "Brooklyn") %>% 
+  filter(site == "Arlington") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
 ```
@@ -125,7 +125,8 @@ seed6 <- seed5 %>%
 # here is similar to emmeans but you have letters
 seed7 <- seed6 %>% 
   unnest(cld) %>% 
-  mutate(rate = round(rate, 0)) %>% 
+  mutate(rate = round(rate, 0),
+         ) %>% 
   mutate(upper.CL = if_else(upper.CL == Inf, 0, upper.CL))
 # You can also filter and make specific data frames
 seed7

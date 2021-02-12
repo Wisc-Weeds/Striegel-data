@@ -36,7 +36,7 @@ biomass1 <- biomass %>%
     Year = as.factor(Year),
     Trt = as.factor(Trt)) %>% 
   janitor::clean_names() %>% 
-  dplyr::select(site, year, siteyr, block, trt, trtdes, post, residual, biored) %>% 
+  select(site, year, siteyr, block, trt, trtdes, post, residual, biored) %>% 
   mutate(residual = fct_recode(residual, "no" = "none"),
          post = fct_recode(post, "no" = "none"))
 ```

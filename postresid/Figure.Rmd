@@ -1,0 +1,228 @@
+---
+title: "Figure"
+author: "Maxwel Coura Oliveira"
+date: "2/4/2021"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = TRUE,
+  warning = TRUE,
+  error = TRUE)
+```
+
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(patchwork)
+library(gridExtra)
+library(ggthemes)
+```
+
+
+```{r janesville}
+jan_yield <- yield7 %>% 
+  filter(site == "Janesville")
+
+
+jan_control <- control7 %>% 
+  filter(site == "Janesville")
+jan_control
+
+jan_biomass <- biomass7 %>% 
+  filter(site == "Janesville")
+jan_biomass
+
+jan_density <- density7 %>% 
+  filter(site == "Janesville")
+
+jan_seed <- seed7 %>% 
+  filter(site == "Janesville") %>% 
+  mutate_at(c("lower.CL", "upper.CL"), round)
+```
+scale_color_manual(values = c("#494949", "#c5050c"))
+```{r jan-control}
+j1 <- jan_control %>% 
+  mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C"),
+         residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")) %>% 
+#  group_by(post, residual) %>% 
+#  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
+  ggplot(aes(x = fct_reorder(post, response), y = response, color = post)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
+  facet_grid(~ residual) +
+  coord_flip() +
+  theme_light() +
+#  scale_x_reordered() +
+  labs(x = "", title = "") +
+  scale_y_continuous("% giant ragweed control", limits = c(0, 1.03),
+                     labels = scales::label_number(scale = 100)) +
+  theme(axis.text.y = element_text(size=10, face = "bold"),
+        axis.text.x = element_text(size=10),
+        legend.position = "none",
+        strip.text = element_text(color = "black",
+                                   size = 11,
+                                   face = "bold"))
+```
+
+```{r}
+j2 <- jan_biomass %>% 
+  mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C")) %>% 
+  ggplot(aes(x = post, y = response, color = post)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
+  coord_flip() +
+  labs(x = "", title = "") +
+  theme_light() +
+    scale_y_continuous("% giant ragweed biomass reduction", limits = c(0, 1.03),
+                     labels = scales::label_number(scale = 100)) +
+  theme(axis.text.y = element_text(size=10, face = "bold"),
+        axis.text.x = element_text(size=10),
+        legend.position = "none")
+```
+
+
+```{r}
+j3 <- jan_density %>% 
+    mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C"),
+         residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")) %>% 
+#  group_by(post, residual) %>% 
+#  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
+  ggplot(aes(x = fct_reorder(post, response), y = response, color = post)) +
+  geom_point(size = 2) +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
+  facet_grid(~ residual) +
+  coord_flip() +
+  theme_light() +
+#  scale_x_reordered() +
+  labs(x = "", title = "") +
+    scale_y_continuous("% giant ragweed density reduction", limits = c(0, 1.03),
+                     labels = scales::label_number(scale = 100)) +
+   theme(axis.text.y = element_text(size=10, face = "bold"),
+         axis.text.x = element_text(size=10),
+         legend.position = "none",
+         strip.text = element_text(color = "black",
+                                   size = 11,
+                                   face = "bold"))
+```
+
+
+```{r jan yield}
+j4 <- jan_yield %>% 
+    mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C")) %>% 
+  mutate(post = fct_reorder(post, emmean)) %>% 
+  ggplot(aes(x = post, y = emmean)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
+  coord_flip() +
+  theme_light() +
+  labs(x = "", y = expression(paste("Soybean yield (kg ha"^"-1",")")),
+       title = "") +
+    scale_y_continuous( limits = c(0, 4500)) +
+  theme(axis.text.y = element_text(size=10, face = "bold"),
+        axis.text.x = element_text(size=10))
+j4
+```
+
+```{r}
+j5 <- jan_seed %>% 
+  mutate(post = fct_recode(post,
+                           "Early POST" = "A",
+                           "Mid POST" = "B",
+                           "Late POST" = "C"),
+         residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")) %>% 
+#  group_by(post, residual) %>% 
+#  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
+  ggplot(aes(x = fct_reorder(post, rate), y = rate, color = post)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
+  facet_grid(~ residual) +
+  coord_flip() +
+  theme_light() +
+#  scale_x_reordered() +
+  labs(x = "", y = "Number of seeds (x1000)",
+       title = "") +
+  scale_color_manual(values=wes_palette(n=3, name="GrandBudapest")) +
+  scale_y_continuous( 
+                     labels = scales::label_number(scale = 1/1000,
+                                                   accuracy = 1)) +
+  theme(axis.text.y = element_text(size=10, face = "bold"),
+         axis.text.x = element_text(size=10),
+        legend.position = "none",
+         strip.text = element_text(color = "black",
+                                   size = 11,
+                                   face = "bold"))
+j5
+```
+
+```{r}
+j6 <- ggplot(janes_data, aes(x=doy, y = emergence*100, 
+                       color = trt, linetype = trt)) + 
+  geom_point(aes(color = trt, linetype = trt), size=1, alpha = 0.6) + 
+  geom_line(data=nd, aes(x=doy, y=(p*100), color = trt, linetype = trt),
+            size=1, alpha = 1) +
+  theme_light() + 
+  coord_trans(x="log") +
+  theme(axis.text.y = element_text(size=10, face = "bold"),
+         axis.text.x = element_text(size=10),
+         strip.text = element_text(color = "black",
+                                   size = 11,
+                                   face = "bold"),
+        legend.title = element_blank(),
+        legend.position=c(0.8, 0.2)) +
+  labs(y="giant ragweed cumulative emergence (%)", x="Day of year") +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks = c(0, 25, 50, 75, 100),
+                     labels = scales::percent_format(scale = 1, suffix = "")) +
+  scale_color_manual(values = c("#494949", "#c5050c"))
+```
+
+
+gridExtra::tableGrob(jan_seed[c('post', 'residual', 'rate', 
+                                  'lower.CL', 'upper.CL', '.group')],
+                       theme = ttheme_default(base_size = 9,
+                                              base_family = ""))
+
+```{r}
+  (j1 / j2) + 
+  (j3) + (j4) + 
+  (j5) + (j6) +
+  plot_layout(ncol = 2, nrow = 3, 
+              heights = c(3, 3),
+              width = c(2, 1)) +
+  plot_annotation(title = 'Control and biology of giant ragweed in Janesville',
+                  subtitle = 'Data presented averaged over 2 years',
+                  tag_levels = 'A',
+                  theme = theme(plot.title = element_text(size = 18))) 
+  ggsave("janesville.pdf", height = 10, width = 10)
+```
+
+
+
+
+
+
+
+
