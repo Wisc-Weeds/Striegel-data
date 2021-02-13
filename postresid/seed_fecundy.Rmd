@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 library(tidyverse)
 library(lme4)
 library(emmeans)
+library(glmmTMB)
 library(car)
 library(lmerTest)
 ```
@@ -39,13 +40,18 @@ seed1 <- seed %>%
     year = as.factor(year),
     trt = as.factor(trt)) %>% 
   filter(!trt %in% c("1", "2")) %>% 
-  select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
-  mutate(mseed = round(mseed, 0))
+  dplyr::select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
+  mutate(mseed = round(mseed, 0)) %>% 
+  mutate(mseed = case_when(
+    site == "Brooklyn" & post == "C" & residual == "no" ~  1,
+    TRUE                                                ~ mseed  
+  ))
 ```
 
 ```{r nest}
 seed2 <- seed1 %>% 
-  nest(-site)
+  group_by(site) %>% 
+  nest() 
 ```
 
 
@@ -73,7 +79,7 @@ seed4 <- seed3 %>%
 
 ```{r check-anova}
 seed4 %>% 
-  filter(site == "Arlington") %>% 
+  filter(site == "Brooklyn") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
 ```
@@ -141,7 +147,7 @@ seed7 %>%
 #            nudge_x = 0,
 #            nudge_y = -0.3) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
-  facet_grid(residual ~ site) +
+  facet_wrap(residual ~ site, scales = "free_y") +
 #  coord_flip() +
 #  scale_x_reordered() +
   scale_y_continuous("seed production", limits = c(0, 350000),
@@ -149,3 +155,7 @@ seed7 %>%
   theme_bw()
 # this is how you reorder by high to low. Notice that all rates follow same pattern.
 ```
+
+
+
+

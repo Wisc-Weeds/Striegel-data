@@ -36,13 +36,14 @@ emergence1 <- emergence %>%
 
 ```{r nest}
 emergence2 <- emergence1 %>% 
-  nest(-location)
+  group_by(location) %>% 
+  nest()
 ```
 
 
 ```{r drc-model}
 drc_model <- function(df){
-  drm(emergence ~ doy, trt, fct = l3(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data = df)
+  drm(emergence ~ doy, trt, fct = l3(fixed=c(NA, 100, NA), names = c("b", "c", "e")), data = df)
 }
 ```
 
@@ -116,6 +117,11 @@ ggplot(janes_data, aes(x=doy, y = (emergence * 100), color = trt, shape=trt)) +
   scale_fill_manual(values = c("#494949", "#c5050c")) + 
   scale_color_manual(values = c("#494949", "#c5050c")) + 
   #ggtitle("Janesville 2019, giant ragweed") 
+```
+
+```{r}
+EDcomp(janes_model, c(50, 50), type = "relative")
+summary(janes_model)
 ```
 
 

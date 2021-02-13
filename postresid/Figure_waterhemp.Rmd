@@ -223,8 +223,6 @@ b5 <- brook_seed %>%
          residual = fct_recode(residual,
                                "With residual" = "yes",
                                "No residual" = "no")) %>% 
-#  group_by(post, residual) %>% 
-#  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
   ggplot(aes(x = post, y = rate, color = post)) +
   geom_point(size = 2) +
   geom_jitter(data = seed1 %>% 
@@ -243,12 +241,10 @@ b5 <- brook_seed %>%
   scale_color_brewer(palette = "Set1") +
   labs(x = "", y = "Number of seeds (×1000)",
        title = "") +
-#  scale_y_continuous( 
-#                     labels = 
-#                       scales::label_number(scale = 1,
-#                     accuracy = 1)) +
+  scale_y_continuous(labels = scales::label_number(scale = 1/1000, 
+                                                  acaccuracy = 1)) +
   theme(axis.text.y = element_text(size=10, face = "bold"),
-         axis.text.x = element_text(size=10, angle = 45),
+         axis.text.x = element_text(size=10),
              strip.text = element_textbox_highlight(
       size = 12, face = "bold",
       fill = "#c5050c", box.color = "#c5050c", color = "white",
@@ -260,7 +256,7 @@ b5 <- brook_seed %>%
 ```
 
 ```{r}
-label <- "Estimated 50% emergence ratio = 1  *P* = 0.34"
+label <- "50% emergence ratio = 1 <br> *P* = 0.34"
 
 b6 <- ggplot(brook_data, aes(x=doy, y=(emergence*100), color=trt, 
                        linetype = trt)) +
@@ -289,10 +285,8 @@ b6 <- ggplot(brook_data, aes(x=doy, y=(emergence*100), color=trt,
         legend.title = element_blank()) +
   labs(y="% waterhemp emergence", x="Day of year", 
        title = "") +
-#  geom_segment(x = 180, y = 50, xend = 160, yend = 50, show.legend = FALSE,
-#                  arrow = arrow(length = unit(0.5, "cm"))) +
-  geom_richtext(x = 160, y = 50, show.legend = FALSE,
-                    label = label, alpha = 0.5,
+  geom_richtext(x = 150, y = 90, show.legend = FALSE, size = 2,
+                    label = label, alpha = 0.5, color = "black",
                 width = unit(5, "lines"),
                 stat = "unique") +
   scale_x_continuous(limits=c(135,215)) +
@@ -342,10 +336,9 @@ b7 <- ggplot(data = county, mapping = aes(x = long, y = lat, group = group)) +
                  filter(subregion == "dane"), aes(fill = subregion),
                show.legend = FALSE, fill = "#c5050c") +
   geom_point(aes(x = -89.36, y = 42.92), size = 0.5) +
-  annotate("text", x= -89.06, y = 42.72, label = "Brooklyn, Dane County, WI",
+  annotate("text", x= -88.5, y = 47, label = "Brooklyn, Dane County, WI",
            size = 2) +
   theme_test() +
-  scale_x_continuous(limits=c(-93,-87)) +
 #  labs(title = "Rock County - Lancaster, WI") +
   coord_map("orthographic") +
   labs(x ="", y = "") +
