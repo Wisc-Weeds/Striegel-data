@@ -43,7 +43,7 @@ emergence2 <- emergence1 %>%
 
 ```{r drc-model}
 drc_model <- function(df){
-  drm(emergence ~ doy, trt, fct = l3(fixed=c(NA, 100, NA), names = c("b", "c", "e")), data = df)
+  drm(emergence ~ doy, trt, fct = l3(fixed=c(NA, NA, NA), names = c("b", "d", "e")), data = df)
 }
 ```
 
@@ -61,7 +61,7 @@ emergence4 <- emergence3 %>%
 
 
 ```{r}
-plot(emergence4$model[[2]], type = "all")
+plot(emergence4$model[[4]], type = "all")
 ```
 
 # Janesville
@@ -116,7 +116,7 @@ ggplot(janes_data, aes(x=doy, y = (emergence * 100), color = trt, shape=trt)) +
   scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
   scale_fill_manual(values = c("#494949", "#c5050c")) + 
   scale_color_manual(values = c("#494949", "#c5050c")) + 
-  #ggtitle("Janesville 2019, giant ragweed") 
+  ggtitle("Janesville 2019, giant ragweed") 
 ```
 
 ```{r}

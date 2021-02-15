@@ -268,6 +268,8 @@ j5 <- jan_seed %>%
 ```
 
 ```{r}
+label <- "50% emergence ratio = 0.97 <br> *P* = 0.00"
+
 j6 <- ggplot(janes_data, aes(x=doy, y=(emergence*100), color=trt, 
                        linetype = trt)) +
   annotate("rect", xmin = 135, xmax = 152, ymin = 0, ymax = 120, 
@@ -295,6 +297,10 @@ j6 <- ggplot(janes_data, aes(x=doy, y=(emergence*100), color=trt,
         legend.title = element_blank()) +
   labs(y="% giant ragweed emergence", x="Day of year", 
        title = "") +
+  geom_richtext(x = 200, y = 80, show.legend = FALSE, size = 2,
+                    label = label, alpha = 0.5, color = "black",
+                width = unit(5, "lines"),
+                stat = "unique") +
   scale_x_continuous(limits=c(135,215)) +
   scale_y_continuous(breaks=c(0., 25, 50, 75, 100)) +
   scale_fill_manual(values = c("#494949", "#c5050c")) + 
