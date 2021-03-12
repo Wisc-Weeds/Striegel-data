@@ -1,0 +1,292 @@
+des,study,TRT,trt,conc,ams,dic,gly,run,rep,ph,chph,perch
+4X Clarity,3,1,1,4x,none,DGA,none,1,1,7.18,-0.273333,0.036672587
+4X Clarity,3,1,1,4x,none,DGA,none,1,2,7.19,-0.263333,0.035330905
+4X Clarity,3,1,1,4x,none,DGA,none,1,3,7.21,-0.243333,0.032647542
+4X Clarity,3,1,1,4x,none,DGA,none,2,1,7.16,-0.293333,0.03935595
+4X Clarity,3,1,1,4x,none,DGA,none,2,2,7.16,-0.293333,0.03935595
+4X Clarity,3,1,1,4x,none,DGA,none,2,3,7.15,-0.303333,0.040697632
+1X Clarity,3,1,2,1x,none,DGA,none,1,1,7.28,-0.173333,0.02325577
+1X Clarity,3,1,2,1x,none,DGA,none,1,2,7.29,-0.163333,0.021914089
+1X Clarity,3,1,2,1x,none,DGA,none,1,3,7.3,-0.153333,0.020572407
+1X Clarity,3,1,2,1x,none,DGA,none,2,1,7.25,-0.203333,0.027280815
+1X Clarity,3,1,2,1x,none,DGA,none,2,2,7.24,-0.213333,0.028622497
+1X Clarity,3,1,2,1x,none,DGA,none,2,3,7.27,-0.183333,0.024597452
+4X Diflexx,3,2,3,4x,none,DGA+CYP,none,1,1,3.2,-4.253333,0.570661877
+4X Diflexx,3,2,3,4x,none,DGA+CYP,none,1,2,3.22,-4.233333,0.567978514
+4X Diflexx,3,2,3,4x,none,DGA+CYP,none,1,3,3.2,-4.253333,0.570661877
+4X Diflexx,3,2,3,4x,none,DGA+CYP,none,2,1,3.24,-4.213333,0.565295151
+4X Diflexx,3,2,3,4x,none,DGA+CYP,none,2,2,3.24,-4.213333,0.565295151
+4X Diflexx,3,2,3,4x,none,DGA+CYP,none,2,3,3.25,-4.203333,0.563953469
+1X Diflexx,3,2,4,1x,none,DGA+CYP,none,1,1,6.18,-1.273333,0.17084075
+1X Diflexx,3,2,4,1x,none,DGA+CYP,none,1,2,6.18,-1.273333,0.17084075
+1X Diflexx,3,2,4,1x,none,DGA+CYP,none,1,3,6.22,-1.233333,0.165474024
+1X Diflexx,3,2,4,1x,none,DGA+CYP,none,2,1,6.28,-1.173333,0.157423934
+1X Diflexx,3,2,4,1x,none,DGA+CYP,none,2,2,6.21,-1.243333,0.166815705
+1X Diflexx,3,2,4,1x,none,DGA+CYP,none,2,3,6.3,-1.153333,0.15474057
+4X Diflexx Duo,3,3,5,4x,none,DGA+TMB,none,1,1,2.99,-4.463333,0.598837191
+4X Diflexx Duo,3,3,5,4x,none,DGA+TMB,none,1,2,2.97,-4.483333,0.601520555
+4X Diflexx Duo,3,3,5,4x,none,DGA+TMB,none,1,3,2.96,-4.493333,0.602862236
+4X Diflexx Duo,3,3,5,4x,none,DGA+TMB,none,2,1,2.92,-4.533333,0.608228963
+4X Diflexx Duo,3,3,5,4x,none,DGA+TMB,none,2,2,2.94,-4.513333,0.6055456
+4X Diflexx Duo,3,3,5,4x,none,DGA+TMB,none,2,3,2.93,-4.523333,0.606887281
+1X Diflexx Duo,3,3,6,1x,none,DGA+TMB,none,1,1,5.44,-2.013333,0.270125191
+1X Diflexx Duo,3,3,6,1x,none,DGA+TMB,none,1,2,5.4,-2.053333,0.275491918
+1X Diflexx Duo,3,3,6,1x,none,DGA+TMB,none,1,3,5.39,-2.063333,0.276833599
+1X Diflexx Duo,3,3,6,1x,none,DGA+TMB,none,2,1,5.34,-2.113333,0.283542007
+1X Diflexx Duo,3,3,6,1x,none,DGA+TMB,none,2,2,5.33,-2.123333,0.284883689
+1X Diflexx Duo,3,3,6,1x,none,DGA+TMB,none,2,3,5.28,-2.173333,0.291592097
+4X Status,3,4,7,4x,none,NA+DIF,none,1,1,7.76,0.306667,0.041144948
+4X Status,3,4,7,4x,none,NA+DIF,none,1,2,7.77,0.316667,0.04248663
+4X Status,3,4,7,4x,none,NA+DIF,none,1,3,7.84,0.386667,0.051878401
+4X Status,3,4,7,4x,none,NA+DIF,none,2,1,7.73,0.276667,0.037119903
+4X Status,3,4,7,4x,none,NA+DIF,none,2,2,7.8,0.346667,0.046511675
+4X Status,3,4,7,4x,none,NA+DIF,none,2,3,7.87,0.416667,0.055903446
+1X Status,3,4,8,1x,none,NA+DIF,none,1,1,7.56,0.106667,0.014311315
+1X Status,3,4,8,1x,none,NA+DIF,none,1,2,7.58,0.126667,0.016994679
+1X Status,3,4,8,1x,none,NA+DIF,none,1,3,7.67,0.216667,0.029069813
+1X Status,3,4,8,1x,none,NA+DIF,none,2,1,7.63,0.176667,0.023703087
+1X Status,3,4,8,1x,none,NA+DIF,none,2,2,7.63,0.176667,0.023703087
+1X Status,3,4,8,1x,none,NA+DIF,none,2,3,7.62,0.166667,0.022361405
+4X Clarity + Roundup Powermax,3,5,9,4x,none,DGA,GLY-K,1,1,4.61,-2.843333,0.381484767
+4X Clarity + Roundup Powermax,3,5,9,4x,none,DGA,GLY-K,1,2,4.58,-2.873333,0.385509812
+4X Clarity + Roundup Powermax,3,5,9,4x,none,DGA,GLY-K,1,3,4.61,-2.843333,0.381484767
+4X Clarity + Roundup Powermax,3,5,9,4x,none,DGA,GLY-K,2,1,4.69,-2.763333,0.370751314
+4X Clarity + Roundup Powermax,3,5,9,4x,none,DGA,GLY-K,2,2,4.69,-2.763333,0.370751314
+4X Clarity + Roundup Powermax,3,5,9,4x,none,DGA,GLY-K,2,3,4.68,-2.773333,0.372092995
+1X Clarity + Roundup Powermax,3,5,10,1x,none,DGA,GLY-K,1,1,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax,3,5,10,1x,none,DGA,GLY-K,1,2,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax,3,5,10,1x,none,DGA,GLY-K,1,3,4.89,-2.563333,0.343917681
+1X Clarity + Roundup Powermax,3,5,10,1x,none,DGA,GLY-K,2,1,4.99,-2.463333,0.330500865
+1X Clarity + Roundup Powermax,3,5,10,1x,none,DGA,GLY-K,2,2,4.95,-2.503333,0.335867591
+1X Clarity + Roundup Powermax,3,5,10,1x,none,DGA,GLY-K,2,3,4.99,-2.463333,0.330500865
+4X Diflexx + Roundup Powermax,3,6,11,4x,none,DGA+CYP,GLY-K,1,1,4.45,-3.003333,0.402951673
+4X Diflexx + Roundup Powermax,3,6,11,4x,none,DGA+CYP,GLY-K,1,2,4.46,-2.993333,0.401609991
+4X Diflexx + Roundup Powermax,3,6,11,4x,none,DGA+CYP,GLY-K,1,3,4.46,-2.993333,0.401609991
+4X Diflexx + Roundup Powermax,3,6,11,4x,none,DGA+CYP,GLY-K,2,1,4.33,-3.123333,0.419051852
+4X Diflexx + Roundup Powermax,3,6,11,4x,none,DGA+CYP,GLY-K,2,2,4.35,-3.103333,0.416368489
+1X Diflexx + Roundup Powermax,3,6,12,1x,none,DGA+CYP,GLY-K,1,1,4.78,-2.673333,0.358676179
+1X Diflexx + Roundup Powermax,3,6,12,1x,none,DGA+CYP,GLY-K,1,2,4.81,-2.643333,0.354651134
+1X Diflexx + Roundup Powermax,3,6,12,1x,none,DGA+CYP,GLY-K,1,3,4.79,-2.663333,0.357334497
+1X Diflexx + Roundup Powermax,3,6,12,1x,none,DGA+CYP,GLY-K,2,1,4.69,-2.763333,0.370751314
+1X Diflexx + Roundup Powermax,3,6,12,1x,none,DGA+CYP,GLY-K,2,2,4.68,-2.773333,0.372092995
+1X Diflexx + Roundup Powermax,3,6,12,1x,none,DGA+CYP,GLY-K,2,3,4.73,-2.723333,0.365384587
+4X Diflexx Duo + Roundup Powermax,3,7,13,4x,none,DGA+TMB,GLY-K,1,1,4.18,-3.273333,0.439177077
+4X Diflexx Duo + Roundup Powermax,3,7,13,4x,none,DGA+TMB,GLY-K,1,2,4.2,-3.253333,0.436493714
+4X Diflexx Duo + Roundup Powermax,3,7,13,4x,none,DGA+TMB,GLY-K,1,3,4.19,-3.263333,0.437835395
+4X Diflexx Duo + Roundup Powermax,3,7,13,4x,none,DGA+TMB,GLY-K,2,1,4.19,-3.263333,0.437835395
+4X Diflexx Duo + Roundup Powermax,3,7,13,4x,none,DGA+TMB,GLY-K,2,2,4.18,-3.273333,0.439177077
+4X Diflexx Duo + Roundup Powermax,3,7,13,4x,none,DGA+TMB,GLY-K,2,3,4.18,-3.273333,0.439177077
+1X Diflexx Duo + Roundup Powermax,3,7,14,1x,none,DGA+TMB,GLY-K,1,1,4.48,-2.973333,0.398926628
+1X Diflexx Duo + Roundup Powermax,3,7,14,1x,none,DGA+TMB,GLY-K,1,2,4.49,-2.963333,0.397584946
+1X Diflexx Duo + Roundup Powermax,3,7,14,1x,none,DGA+TMB,GLY-K,1,3,4.51,-2.943333,0.394901583
+1X Diflexx Duo + Roundup Powermax,3,7,14,1x,none,DGA+TMB,GLY-K,2,1,4.53,-2.923333,0.39221822
+1X Diflexx Duo + Roundup Powermax,3,7,14,1x,none,DGA+TMB,GLY-K,2,2,4.53,-2.923333,0.39221822
+1X Diflexx Duo + Roundup Powermax,3,7,14,1x,none,DGA+TMB,GLY-K,2,3,4.54,-2.913333,0.390876538
+4X Status + Roundup Powermax,3,8,15,4x,none,NA+DIF,GLY-K,1,1,4.61,-2.843333,0.381484767
+4X Status + Roundup Powermax,3,8,15,4x,none,NA+DIF,GLY-K,1,2,4.62,-2.833333,0.380143085
+4X Status + Roundup Powermax,3,8,15,4x,none,NA+DIF,GLY-K,1,3,4.63,-2.823333,0.378801403
+4X Status + Roundup Powermax,3,8,15,4x,none,NA+DIF,GLY-K,2,1,4.8,-2.653333,0.355992816
+4X Status + Roundup Powermax,3,8,15,4x,none,NA+DIF,GLY-K,2,2,4.81,-2.643333,0.354651134
+4X Status + Roundup Powermax,3,8,15,4x,none,NA+DIF,GLY-K,2,3,4.8,-2.653333,0.355992816
+1X Status + Roundup Powermax,3,8,16,1x,none,NA+DIF,GLY-K,1,1,4.79,-2.663333,0.357334497
+1X Status + Roundup Powermax,3,8,16,1x,none,NA+DIF,GLY-K,1,2,4.84,-2.613333,0.350626089
+1X Status + Roundup Powermax,3,8,16,1x,none,NA+DIF,GLY-K,1,3,4.87,-2.583333,0.346601044
+1X Status + Roundup Powermax,3,8,16,1x,none,NA+DIF,GLY-K,2,1,4.94,-2.513333,0.337209273
+1X Status + Roundup Powermax,3,8,16,1x,none,NA+DIF,GLY-K,2,2,4.96,-2.493333,0.334525909
+1X Status + Roundup Powermax,3,8,16,1x,none,NA+DIF,GLY-K,2,3,5.03,-2.423333,0.325134138
+4X Clarity + Durango DMA,3,9,17,4x,none,DGA,DMA,1,1,4.65,-2.803333,0.37611804
+4X Clarity + Durango DMA,3,9,17,4x,none,DGA,DMA,1,2,4.66,-2.793333,0.374776358
+4X Clarity + Durango DMA,3,9,17,4x,none,DGA,DMA,1,3,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA,3,9,17,4x,none,DGA,DMA,2,1,4.76,-2.693333,0.361359542
+4X Clarity + Durango DMA,3,9,17,4x,none,DGA,DMA,2,2,4.76,-2.693333,0.361359542
+4X Clarity + Durango DMA,3,9,17,4x,none,DGA,DMA,2,3,4.74,-2.713333,0.364042905
+1X Clarity + Durango DMA,3,9,18,1x,none,DGA,DMA,1,1,4.94,-2.513333,0.337209273
+1X Clarity + Durango DMA,3,9,18,1x,none,DGA,DMA,1,2,4.92,-2.533333,0.339892636
+1X Clarity + Durango DMA,3,9,18,1x,none,DGA,DMA,1,3,4.94,-2.513333,0.337209273
+1X Clarity + Durango DMA,3,9,18,1x,none,DGA,DMA,2,1,5.03,-2.423333,0.325134138
+1X Clarity + Durango DMA,3,9,18,1x,none,DGA,DMA,2,2,5.03,-2.423333,0.325134138
+1X Clarity + Durango DMA,3,9,18,1x,none,DGA,DMA,2,3,5.02,-2.433333,0.32647582
+4X Diflexx + Durango DMA,3,10,19,4x,none,DGA+CYP,DMA,1,1,4.59,-2.863333,0.38416813
+4X Diflexx + Durango DMA,3,10,19,4x,none,DGA+CYP,DMA,1,2,4.58,-2.873333,0.385509812
+4X Diflexx + Durango DMA,3,10,19,4x,none,DGA+CYP,DMA,1,3,4.58,-2.873333,0.385509812
+4X Diflexx + Durango DMA,3,10,19,4x,none,DGA+CYP,DMA,2,1,4.35,-3.103333,0.416368489
+4X Diflexx + Durango DMA,3,10,19,4x,none,DGA+CYP,DMA,2,2,4.4,-3.053333,0.409660081
+4X Diflexx + Durango DMA,3,10,19,4x,none,DGA+CYP,DMA,2,3,4.4,-3.053333,0.409660081
+1X Diflexx + Durango DMA,3,10,20,1x,none,DGA+CYP,DMA,1,1,4.9,-2.553333,0.342575999
+1X Diflexx + Durango DMA,3,10,20,1x,none,DGA+CYP,DMA,1,2,4.91,-2.543333,0.341234318
+1X Diflexx + Durango DMA,3,10,20,1x,none,DGA+CYP,DMA,1,3,4.93,-2.523333,0.338550954
+1X Diflexx + Durango DMA,3,10,20,1x,none,DGA+CYP,DMA,2,1,4.72,-2.733333,0.366726269
+1X Diflexx + Durango DMA,3,10,20,1x,none,DGA+CYP,DMA,2,2,4.74,-2.713333,0.364042905
+1X Diflexx + Durango DMA,3,10,20,1x,none,DGA+CYP,DMA,2,3,4.74,-2.713333,0.364042905
+4X Diflexx Duo + Durango DMA,3,11,21,4x,none,DGA+TMB,DMA,1,1,4.34,-3.113333,0.417710171
+4X Diflexx Duo + Durango DMA,3,11,21,4x,none,DGA+TMB,DMA,1,2,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA,3,11,21,4x,none,DGA+TMB,DMA,1,3,4.43,-3.023333,0.405635036
+4X Diflexx Duo + Durango DMA,3,11,21,4x,none,DGA+TMB,DMA,2,1,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA,3,11,21,4x,none,DGA+TMB,DMA,2,2,4.34,-3.113333,0.417710171
+4X Diflexx Duo + Durango DMA,3,11,21,4x,none,DGA+TMB,DMA,2,3,4.34,-3.113333,0.417710171
+1X Diflexx Duo + Durango DMA,3,11,22,1x,none,DGA+TMB,DMA,1,1,4.65,-2.803333,0.37611804
+1X Diflexx Duo + Durango DMA,3,11,22,1x,none,DGA+TMB,DMA,1,2,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,11,22,1x,none,DGA+TMB,DMA,1,3,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,11,22,1x,none,DGA+TMB,DMA,2,1,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,11,22,1x,none,DGA+TMB,DMA,2,2,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,11,22,1x,none,DGA+TMB,DMA,2,3,4.66,-2.793333,0.374776358
+4X Status + Durango DMA,3,12,23,4x,none,NA+DIF,DMA,1,1,4.76,-2.693333,0.361359542
+4X Status + Durango DMA,3,12,23,4x,none,NA+DIF,DMA,1,2,4.75,-2.703333,0.362701224
+4X Status + Durango DMA,3,12,23,4x,none,NA+DIF,DMA,1,3,4.76,-2.693333,0.361359542
+4X Status + Durango DMA,3,12,23,4x,none,NA+DIF,DMA,2,1,4.85,-2.603333,0.349284407
+4X Status + Durango DMA,3,12,23,4x,none,NA+DIF,DMA,2,2,4.84,-2.613333,0.350626089
+4X Status + Durango DMA,3,12,23,4x,none,NA+DIF,DMA,2,3,4.85,-2.603333,0.349284407
+1X Status + Durango DMA,3,12,24,1x,none,NA+DIF,DMA,1,1,4.93,-2.523333,0.338550954
+1X Status + Durango DMA,3,12,24,1x,none,NA+DIF,DMA,1,2,4.93,-2.523333,0.338550954
+1X Status + Durango DMA,3,12,24,1x,none,NA+DIF,DMA,1,3,4.95,-2.503333,0.335867591
+1X Status + Durango DMA,3,12,24,1x,none,NA+DIF,DMA,2,1,4.99,-2.463333,0.330500865
+1X Status + Durango DMA,3,12,24,1x,none,NA+DIF,DMA,2,2,5.01,-2.443333,0.327817501
+1X Status + Durango DMA,3,12,24,1x,none,NA+DIF,DMA,2,3,5.03,-2.423333,0.325134138
+4X Clarity + AMS,3,13,25,4x,yes,DGA,none,1,1,7.19,-0.263333,0.035330905
+4X Clarity + AMS,3,13,25,4x,yes,DGA,none,1,2,7.2,-0.253333,0.033989223
+4X Clarity + AMS,3,13,25,4x,yes,DGA,none,1,3,7.15,-0.303333,0.040697632
+4X Clarity + AMS,3,13,25,4x,yes,DGA,none,2,1,7.16,-0.293333,0.03935595
+4X Clarity + AMS,3,13,25,4x,yes,DGA,none,2,2,7.15,-0.303333,0.040697632
+4X Clarity + AMS,3,13,25,4x,yes,DGA,none,2,3,7.14,-0.313333,0.042039313
+1X Clarity + AMS,3,13,26,1x,yes,DGA,none,1,1,7.25,-0.203333,0.027280815
+1X Clarity + AMS,3,13,26,1x,yes,DGA,none,1,2,7.27,-0.183333,0.024597452
+1X Clarity + AMS,3,13,26,1x,yes,DGA,none,1,3,7.28,-0.173333,0.02325577
+1X Clarity + AMS,3,13,26,1x,yes,DGA,none,2,1,7.2,-0.253333,0.033989223
+1X Clarity + AMS,3,13,26,1x,yes,DGA,none,2,2,7.22,-0.233333,0.03130586
+1X Clarity + AMS,3,13,26,1x,yes,DGA,none,2,3,7.23,-0.223333,0.029964178
+4X Diflexx + AMS,3,14,27,4x,yes,DGA+CYP,none,1,1,3.73,-3.723333,0.49955275
+4X Diflexx + AMS,3,14,27,4x,yes,DGA+CYP,none,1,2,3.71,-3.743333,0.502236114
+4X Diflexx + AMS,3,14,27,4x,yes,DGA+CYP,none,1,3,3.71,-3.743333,0.502236114
+4X Diflexx + AMS,3,14,27,4x,yes,DGA+CYP,none,2,1,3.5,-3.953333,0.530411428
+4X Diflexx + AMS,3,14,27,4x,yes,DGA+CYP,none,2,2,3.52,-3.933333,0.527728065
+4X Diflexx + AMS,3,14,27,4x,yes,DGA+CYP,none,2,3,3.53,-3.923333,0.526386383
+1X Diflexx + AMS,3,14,28,1x,yes,DGA+CYP,none,1,1,6.34,-1.113333,0.149373844
+1X Diflexx + AMS,3,14,28,1x,yes,DGA+CYP,none,1,2,6.34,-1.113333,0.149373844
+1X Diflexx + AMS,3,14,28,1x,yes,DGA+CYP,none,1,3,6.32,-1.133333,0.152057207
+1X Diflexx + AMS,3,14,28,1x,yes,DGA+CYP,none,2,1,6.31,-1.143333,0.153398889
+1X Diflexx + AMS,3,14,28,1x,yes,DGA+CYP,none,2,2,6.3,-1.153333,0.15474057
+1X Diflexx + AMS,3,14,28,1x,yes,DGA+CYP,none,2,3,6.31,-1.143333,0.153398889
+4X Diflexx Duo + AMS,3,15,29,4x,yes,DGA+TMB,none,1,1,3.28,-4.173333,0.559928424
+4X Diflexx Duo + AMS,3,15,29,4x,yes,DGA+TMB,none,1,2,3.26,-4.193333,0.562611787
+4X Diflexx Duo + AMS,3,15,29,4x,yes,DGA+TMB,none,1,3,3.26,-4.193333,0.562611787
+4X Diflexx Duo + AMS,3,15,29,4x,yes,DGA+TMB,none,2,1,3.26,-4.193333,0.562611787
+4X Diflexx Duo + AMS,3,15,29,4x,yes,DGA+TMB,none,2,2,3.27,-4.183333,0.561270106
+4X Diflexx Duo + AMS,3,15,29,4x,yes,DGA+TMB,none,2,3,3.26,-4.193333,0.562611787
+1X Diflexx Duo + AMS,3,15,30,1x,yes,DGA+TMB,none,1,1,5.33,-2.123333,0.284883689
+1X Diflexx Duo + AMS,3,15,30,1x,yes,DGA+TMB,none,1,2,5.33,-2.123333,0.284883689
+1X Diflexx Duo + AMS,3,15,30,1x,yes,DGA+TMB,none,1,3,5.34,-2.113333,0.283542007
+1X Diflexx Duo + AMS,3,15,30,1x,yes,DGA+TMB,none,2,1,5.31,-2.143333,0.287567052
+1X Diflexx Duo + AMS,3,15,30,1x,yes,DGA+TMB,none,2,2,5.25,-2.203333,0.295617142
+1X Diflexx Duo + AMS,3,15,30,1x,yes,DGA+TMB,none,2,3,5.3,-2.153333,0.288908734
+4X Status + AMS,3,16,31,4x,yes,NA+DIF,none,1,1,7.37,-0.083333,0.011180636
+4X Status + AMS,3,16,31,4x,yes,NA+DIF,none,1,2,7.36,-0.093333,0.012522317
+4X Status + AMS,3,16,31,4x,yes,NA+DIF,none,1,3,7.4,-0.053333,0.007155591
+4X Status + AMS,3,16,31,4x,yes,NA+DIF,none,2,1,7.25,-0.203333,0.027280815
+4X Status + AMS,3,16,31,4x,yes,NA+DIF,none,2,2,7.29,-0.163333,0.021914089
+4X Status + AMS,3,16,31,4x,yes,NA+DIF,none,2,3,7.28,-0.173333,0.02325577
+1X Status + AMS,3,16,32,1x,yes,NA+DIF,none,1,1,7.45,-0.003333,0.000447182
+1X Status + AMS,3,16,32,1x,yes,NA+DIF,none,1,2,7.45,-0.003333,0.000447182
+1X Status + AMS,3,16,32,1x,yes,NA+DIF,none,1,3,7.45,-0.003333,0.000447182
+1X Status + AMS,3,16,32,1x,yes,NA+DIF,none,2,1,7.33,-0.123333,0.016547362
+1X Status + AMS,3,16,32,1x,yes,NA+DIF,none,2,2,7.34,-0.113333,0.01520568
+1X Status + AMS,3,16,32,1x,yes,NA+DIF,none,2,3,7.38,-0.073333,0.009838954
+4X Clarity + Roundup Powermax + AMS,3,17,33,4x,yes,DGA,GLY-K,1,1,4.59,-2.863333,0.38416813
+4X Clarity + Roundup Powermax + AMS,3,17,33,4x,yes,DGA,GLY-K,1,2,4.54,-2.913333,0.390876538
+4X Clarity + Roundup Powermax + AMS,3,17,33,4x,yes,DGA,GLY-K,1,3,4.58,-2.873333,0.385509812
+4X Clarity + Roundup Powermax + AMS,3,17,33,4x,yes,DGA,GLY-K,2,1,4.66,-2.793333,0.374776358
+4X Clarity + Roundup Powermax + AMS,3,17,33,4x,yes,DGA,GLY-K,2,2,4.65,-2.803333,0.37611804
+4X Clarity + Roundup Powermax + AMS,3,17,33,4x,yes,DGA,GLY-K,2,3,4.64,-2.813333,0.377459722
+1X Clarity + Roundup Powermax + AMS,3,17,34,1x,yes,DGA,GLY-K,1,1,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax + AMS,3,17,34,1x,yes,DGA,GLY-K,1,2,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax + AMS,3,17,34,1x,yes,DGA,GLY-K,1,3,4.9,-2.553333,0.342575999
+1X Clarity + Roundup Powermax + AMS,3,17,34,1x,yes,DGA,GLY-K,2,1,4.92,-2.533333,0.339892636
+1X Clarity + Roundup Powermax + AMS,3,17,34,1x,yes,DGA,GLY-K,2,2,4.91,-2.543333,0.341234318
+1X Clarity + Roundup Powermax + AMS,3,17,34,1x,yes,DGA,GLY-K,2,3,4.93,-2.523333,0.338550954
+4X Diflexx + Roundup Powermax + AMS,3,18,35,4x,yes,DGA+CYP,GLY-K,1,1,4.43,-3.023333,0.405635036
+4X Diflexx + Roundup Powermax + AMS,3,18,35,4x,yes,DGA+CYP,GLY-K,1,2,4.42,-3.033333,0.406976718
+4X Diflexx + Roundup Powermax + AMS,3,18,35,4x,yes,DGA+CYP,GLY-K,1,3,4.42,-3.033333,0.406976718
+4X Diflexx + Roundup Powermax + AMS,3,18,35,4x,yes,DGA+CYP,GLY-K,2,1,4.35,-3.103333,0.416368489
+4X Diflexx + Roundup Powermax + AMS,3,18,35,4x,yes,DGA+CYP,GLY-K,2,2,4.34,-3.113333,0.417710171
+1X Diflexx + Roundup Powermax + AMS,3,18,36,1x,yes,DGA+CYP,GLY-K,1,1,4.72,-2.733333,0.366726269
+1X Diflexx + Roundup Powermax + AMS,3,18,36,1x,yes,DGA+CYP,GLY-K,1,2,4.73,-2.723333,0.365384587
+1X Diflexx + Roundup Powermax + AMS,3,18,36,1x,yes,DGA+CYP,GLY-K,1,3,4.76,-2.693333,0.361359542
+1X Diflexx + Roundup Powermax + AMS,3,18,36,1x,yes,DGA+CYP,GLY-K,2,1,4.68,-2.773333,0.372092995
+1X Diflexx + Roundup Powermax + AMS,3,18,36,1x,yes,DGA+CYP,GLY-K,2,2,4.7,-2.753333,0.369409632
+1X Diflexx + Roundup Powermax + AMS,3,18,36,1x,yes,DGA+CYP,GLY-K,2,3,4.68,-2.773333,0.372092995
+4X Diflexx Duo + Roundup Powermax + AMS,3,19,37,4x,yes,DGA+TMB,GLY-K,1,1,4.17,-3.283333,0.440518759
+4X Diflexx Duo + Roundup Powermax + AMS,3,19,37,4x,yes,DGA+TMB,GLY-K,1,2,4.17,-3.283333,0.440518759
+4X Diflexx Duo + Roundup Powermax + AMS,3,19,37,4x,yes,DGA+TMB,GLY-K,1,3,4.16,-3.293333,0.44186044
+4X Diflexx Duo + Roundup Powermax + AMS,3,19,37,4x,yes,DGA+TMB,GLY-K,2,1,4.15,-3.303333,0.443202122
+4X Diflexx Duo + Roundup Powermax + AMS,3,19,37,4x,yes,DGA+TMB,GLY-K,2,2,4.15,-3.303333,0.443202122
+4X Diflexx Duo + Roundup Powermax + AMS,3,19,37,4x,yes,DGA+TMB,GLY-K,2,3,4.16,-3.293333,0.44186044
+1X Diflexx Duo + Roundup Powermax + AMS,3,19,38,1x,yes,DGA+TMB,GLY-K,1,1,4.54,-2.913333,0.390876538
+1X Diflexx Duo + Roundup Powermax + AMS,3,19,38,1x,yes,DGA+TMB,GLY-K,1,2,4.53,-2.923333,0.39221822
+1X Diflexx Duo + Roundup Powermax + AMS,3,19,38,1x,yes,DGA+TMB,GLY-K,1,3,4.54,-2.913333,0.390876538
+1X Diflexx Duo + Roundup Powermax + AMS,3,19,38,1x,yes,DGA+TMB,GLY-K,2,1,4.55,-2.903333,0.389534856
+1X Diflexx Duo + Roundup Powermax + AMS,3,19,38,1x,yes,DGA+TMB,GLY-K,2,2,4.55,-2.903333,0.389534856
+1X Diflexx Duo + Roundup Powermax + AMS,3,19,38,1x,yes,DGA+TMB,GLY-K,2,3,4.57,-2.883333,0.386851493
+4X Status + Roundup Powermax + AMS,3,20,39,4x,yes,NA+DIF,GLY-K,1,1,4.48,-2.973333,0.398926628
+4X Status + Roundup Powermax + AMS,3,20,39,4x,yes,NA+DIF,GLY-K,1,2,4.5,-2.953333,0.396243265
+4X Status + Roundup Powermax + AMS,3,20,39,4x,yes,NA+DIF,GLY-K,1,3,4.52,-2.933333,0.393559901
+4X Status + Roundup Powermax + AMS,3,20,39,4x,yes,NA+DIF,GLY-K,2,1,4.7,-2.753333,0.369409632
+4X Status + Roundup Powermax + AMS,3,20,39,4x,yes,NA+DIF,GLY-K,2,2,4.7,-2.753333,0.369409632
+4X Status + Roundup Powermax + AMS,3,20,39,4x,yes,NA+DIF,GLY-K,2,3,4.7,-2.753333,0.369409632
+1X Status + Roundup Powermax + AMS,3,20,40,1x,yes,NA+DIF,GLY-K,1,1,4.78,-2.673333,0.358676179
+1X Status + Roundup Powermax + AMS,3,20,40,1x,yes,NA+DIF,GLY-K,1,2,4.79,-2.663333,0.357334497
+1X Status + Roundup Powermax + AMS,3,20,40,1x,yes,NA+DIF,GLY-K,1,3,4.79,-2.663333,0.357334497
+1X Status + Roundup Powermax + AMS,3,20,40,1x,yes,NA+DIF,GLY-K,2,1,4.98,-2.473333,0.331842546
+1X Status + Roundup Powermax + AMS,3,20,40,1x,yes,NA+DIF,GLY-K,2,2,4.99,-2.463333,0.330500865
+1X Status + Roundup Powermax + AMS,3,20,40,1x,yes,NA+DIF,GLY-K,2,3,4.99,-2.463333,0.330500865
+4X Clarity + Durango DMA + AMS,3,21,41,4x,yes,DGA,DMA,1,1,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA + AMS,3,21,41,4x,yes,DGA,DMA,1,2,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA + AMS,3,21,41,4x,yes,DGA,DMA,1,3,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA + AMS,3,21,41,4x,yes,DGA,DMA,2,1,4.75,-2.703333,0.362701224
+4X Clarity + Durango DMA + AMS,3,21,41,4x,yes,DGA,DMA,2,2,4.74,-2.713333,0.364042905
+4X Clarity + Durango DMA + AMS,3,21,41,4x,yes,DGA,DMA,2,3,4.74,-2.713333,0.364042905
+1X Clarity + Durango DMA + AMS,3,21,42,1x,yes,DGA,DMA,1,1,4.92,-2.533333,0.339892636
+1X Clarity + Durango DMA + AMS,3,21,42,1x,yes,DGA,DMA,1,2,4.93,-2.523333,0.338550954
+1X Clarity + Durango DMA + AMS,3,21,42,1x,yes,DGA,DMA,1,3,4.92,-2.533333,0.339892636
+1X Clarity + Durango DMA + AMS,3,21,42,1x,yes,DGA,DMA,2,1,5.01,-2.443333,0.327817501
+1X Clarity + Durango DMA + AMS,3,21,42,1x,yes,DGA,DMA,2,2,4.99,-2.463333,0.330500865
+1X Clarity + Durango DMA + AMS,3,21,42,1x,yes,DGA,DMA,2,3,4.99,-2.463333,0.330500865
+4X Diflexx + Durango DMA + AMS,3,22,43,4x,yes,DGA+CYP,DMA,1,1,4.59,-2.863333,0.38416813
+4X Diflexx + Durango DMA + AMS,3,22,43,4x,yes,DGA+CYP,DMA,1,2,4.59,-2.863333,0.38416813
+4X Diflexx + Durango DMA + AMS,3,22,43,4x,yes,DGA+CYP,DMA,1,3,4.57,-2.883333,0.386851493
+4X Diflexx + Durango DMA + AMS,3,22,43,4x,yes,DGA+CYP,DMA,2,1,4.46,-2.993333,0.401609991
+4X Diflexx + Durango DMA + AMS,3,22,43,4x,yes,DGA+CYP,DMA,2,2,4.46,-2.993333,0.401609991
+1X Diflexx + Durango DMA + AMS,3,22,44,1x,yes,DGA+CYP,DMA,1,1,4.87,-2.583333,0.346601044
+1X Diflexx + Durango DMA + AMS,3,22,44,1x,yes,DGA+CYP,DMA,1,2,4.89,-2.563333,0.343917681
+1X Diflexx + Durango DMA + AMS,3,22,44,1x,yes,DGA+CYP,DMA,1,3,4.87,-2.583333,0.346601044
+1X Diflexx + Durango DMA + AMS,3,22,44,1x,yes,DGA+CYP,DMA,2,1,4.75,-2.703333,0.362701224
+1X Diflexx + Durango DMA + AMS,3,22,44,1x,yes,DGA+CYP,DMA,2,2,4.77,-2.683333,0.36001786
+1X Diflexx + Durango DMA + AMS,3,22,44,1x,yes,DGA+CYP,DMA,2,3,4.75,-2.703333,0.362701224
+4X Diflexx Duo + Durango DMA + AMS,3,23,45,4x,yes,DGA+TMB,DMA,1,1,4.37,-3.083333,0.413685126
+4X Diflexx Duo + Durango DMA + AMS,3,23,45,4x,yes,DGA+TMB,DMA,1,2,4.35,-3.103333,0.416368489
+4X Diflexx Duo + Durango DMA + AMS,3,23,45,4x,yes,DGA+TMB,DMA,1,3,4.34,-3.113333,0.417710171
+4X Diflexx Duo + Durango DMA + AMS,3,23,45,4x,yes,DGA+TMB,DMA,2,1,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA + AMS,3,23,45,4x,yes,DGA+TMB,DMA,2,2,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA + AMS,3,23,45,4x,yes,DGA+TMB,DMA,2,3,4.31,-3.143333,0.421735216
+1X Diflexx Duo + Durango DMA + AMS,3,23,46,1x,yes,DGA+TMB,DMA,1,1,4.64,-2.813333,0.377459722
+1X Diflexx Duo + Durango DMA + AMS,3,23,46,1x,yes,DGA+TMB,DMA,1,2,4.64,-2.813333,0.377459722
+1X Diflexx Duo + Durango DMA + AMS,3,23,46,1x,yes,DGA+TMB,DMA,1,3,4.65,-2.803333,0.37611804
+1X Diflexx Duo + Durango DMA + AMS,3,23,46,1x,yes,DGA+TMB,DMA,2,1,4.64,-2.813333,0.377459722
+1X Diflexx Duo + Durango DMA + AMS,3,23,46,1x,yes,DGA+TMB,DMA,2,2,4.65,-2.803333,0.37611804
+1X Diflexx Duo + Durango DMA + AMS,3,23,46,1x,yes,DGA+TMB,DMA,2,3,4.65,-2.803333,0.37611804
+4X Status + Durango DMA + AMS,3,24,47,4x,yes,NA+DIF,DMA,1,1,4.74,-2.713333,0.364042905
+4X Status + Durango DMA + AMS,3,24,47,4x,yes,NA+DIF,DMA,1,2,4.74,-2.713333,0.364042905
+4X Status + Durango DMA + AMS,3,24,47,4x,yes,NA+DIF,DMA,1,3,4.73,-2.723333,0.365384587
+4X Status + Durango DMA + AMS,3,24,47,4x,yes,NA+DIF,DMA,2,1,4.84,-2.613333,0.350626089
+4X Status + Durango DMA + AMS,3,24,47,4x,yes,NA+DIF,DMA,2,2,4.83,-2.623333,0.351967771
+4X Status + Durango DMA + AMS,3,24,47,4x,yes,NA+DIF,DMA,2,3,4.82,-2.633333,0.353309452
+1X Status + Durango DMA + AMS,3,24,48,1x,yes,NA+DIF,DMA,1,1,4.95,-2.503333,0.335867591
+1X Status + Durango DMA + AMS,3,24,48,1x,yes,NA+DIF,DMA,1,2,4.95,-2.503333,0.335867591
+1X Status + Durango DMA + AMS,3,24,48,1x,yes,NA+DIF,DMA,1,3,4.96,-2.493333,0.334525909
+1X Status + Durango DMA + AMS,3,24,48,1x,yes,NA+DIF,DMA,2,1,5.09,-2.363333,0.317084048
+1X Status + Durango DMA + AMS,3,24,48,1x,yes,NA+DIF,DMA,2,2,5.07,-2.383333,0.319767411
+1X Status + Durango DMA + AMS,3,24,48,1x,yes,NA+DIF,DMA,2,3,4.99,-2.463333,0.330500865
+Nontreated check,3,,49,none,none,none,none,1,1,7.5,,
+Nontreated check,3,,49,none,none,none,none,1,2,7.43,,
+Nontreated check,3,,49,none,none,none,none,1,3,7.4,,
+Nontreated check,3,,49,none,none,none,none,2,1,7.5,,
+Nontreated check,3,,49,none,none,none,none,2,2,7.47,,
+Nontreated check,3,,49,none,none,none,none,2,3,7.42,,

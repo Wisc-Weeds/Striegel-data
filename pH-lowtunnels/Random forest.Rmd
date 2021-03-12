@@ -1,0 +1,149 @@
+---
+title: "Random forest w tidymodels"
+author: "SS"
+date: "6/4/2020"
+output: html_document
+---
+
+```{r Load packages, include=FALSE}
+library(parsnip)
+library(tidymodels)
+library(vctrs)
+library(hardhat)
+library(tidyverse)
+library(ggplot2)
+library(RColorBrewer)
+library(tidyr)
+library(doParallel)
+library(ranger)
+library(vip)
+```
+
+```{r Load data}
+dat1=read.csv("study 1 RF v2.csv",header=TRUE, na.strings="")
+set.seed(123)
+
+#Split data into training and testing sets. Use the training set to build and tune the model; use the testing set at the very end to evaluate the performance of the model at predicting new data
+s1_split <- initial_split(dat1, strata = ph) #Specify the response variable for the strata
+s1_train <- training(s1_split)
+s1_test <- testing(s1_split)
+```
+
+```{r Build model and tune}
+#Build recipe
+s1_rec <- recipe(ph ~ ., data=s1_train)
+
+#Build model
+tune_spec <- rand_forest(mtry=tune(), trees=1000, min_n=tune()) %>% #Here I am specifying that I would like to tune for the optimal values of mtry and min_n and setting trees=1000. With trees it is only important to have "enough". Look at rand_forest in Help tab if you have questions about what the parameters here represent
+  set_mode("regression") %>%  #Whether the mode is "regression" or "classification" depends on your response variable
+  set_engine("ranger") 
+
+#Build your worflow
+tune_wf <- workflow() %>%
+  add_recipe(s1_rec) %>% #Adding the recipe built above
+  add_model(tune_spec) #Adding the model built above so it knows what we would like to tune
+
+set.seed(234)
+s1_folds <- vfold_cv(s1_train) #Allows training data to randomly permute the explanatory variables 
+
+doParallel::registerDoParallel() #Parallel processor - will help the below code run faster
+set.seed(345)
+tune_res <- tune_grid(tune_wf, resamples=s1_folds, grid=20) #Here we are tuning the parameters we specified in our model & workflow on the folds we created. I specified grid=20 so it would test 20 combinations of mtry and min_n. The larger the grid value, the longer this code will take to run
+
+tune_res %>%
+  select_best("rmse") #Selecting optimal values of mtry and min_n for the best RMSE for the model based off this initial tune. You can change what criterion to select by based on the type of random forest or your personal preference (i.e. I also could have chosen R2)
+tune_res %>%
+  collect_metrics() %>% #You can use this function to view the results for the entire sampling grid
+  filter(.metric =="rmse") %>% #Filtering by the selection criterion of choice
+  #this below selction sets up to construct a ggplot to give us better insight into what tange of values of mtry and min_n are "better" for our selection criterion
+  pivot_longer(min_n:mtry, values_to="value", names_to="parameter") %>% 
+  ggplot(aes(value, mean, color=parameter)) +
+  geom_point(show.legend=FALSE) +
+  facet_wrap(~ parameter)
+#By looking at this plot, we can decide on a range of values to use for mtry and min_n to better tune the model. Think: is my model better if I have larger or smaller values of mtry? and so on...
+```
+
+```{r Second model tune}
+#Building our new sampling grid based off of what range of values we would like to test for the two parameters. The smaller the range we specify, the more precise we can be with specifying the optimal value for the parameters
+rf_grid <- grid_regular(mtry(range=c(0,5)), min_n(range=c(5,35)), levels=5) #you can adjust levels=5 similar to what we had above for grid=x. The larger the levels value, the more combinations you will be running and the longer the code will take below
+
+set.seed(456)
+regular_res <- tune_grid(tune_wf, resamples=s1_folds, grid=rf_grid) #Here again we are tuning the model, this time according the sampling grid we built above instead of specifying the grid size numerically in this code.
+
+regular_res %>%
+  select_best("rmse") #Again, selecting the best model based on RMSE criterion
+regular_res %>%
+  collect_metrics() %>%
+  filter(.metric =="rmse") %>% #Change RMSE if using different selection criterion
+  mutate(min_n = factor(min_n)) %>% #Creating a different ggplot below showing the combinations of mtry and min_n parameters and their relationship with RMSE criterion
+  ggplot(aes(mtry, mean, color = min_n)) +
+  geom_line(alpha=0.5, size=1.5) +
+  geom_point()
+
+#From looking at this it is clear to see that the levels of parameters specified when I ran the select_best function for this tuning do provide the lowest RMSE and therefore is the model I would like to move forward with
+```
+
+```{r Final model}
+best_rmse <- select_best(regular_res, "rmse") #selecting model based on specified criterion
+
+final_rf <- finalize_model(tune_spec, best_rmse) #finalizing model by editing intial model built
+
+final_rf %>%
+  set_engine("ranger", importance="impurity") %>% #There are different values you could list for importance. The impurity measure listed here is Mean Decrease Gini/Gini Measure for classification RF and Increase in MSE for regression. Consult the ranger package for the correct measure to list
+  fit(ph ~ ., data=s1_train) %>% #Fit to training data
+  #vi() %>% #If you would like to obtain the actual importance values estimated by the model, run this code here while avoiding selection of the vip code below. Be sure to hastag it before trying to generate figures below.
+  #Creating a dot plot with importance values for explanatory variables
+  vip(geom="point", horizontal=TRUE, aesthetics=list(color="black", size=3)) + 
+  theme_light() + 
+  theme(plot.title = element_text(hjust=0.5, size=35, face="bold"),
+                     axis.title.x = element_text(size=20, color="black"), 
+                     legend.title = element_blank(),
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, hjust=0, color="black"),
+                     strip.text.x = element_text(size=25, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Variable Importance") +
+  ggsave("pHs1RFv2.1.tiff", units="in", width=6, height=6, dpi=600)
+
+final_rf %>%
+  set_engine("ranger", importance="impurity") %>% #Same as above
+  fit(ph ~ ., data=s1_train) %>% #Same as above
+  #vi() %>% #Same as above
+  #Creating a bar plot with importance values for explanatory variables
+  vip(geom="col", horizontal=TRUE, aesthetics=list(fill=c("#A50F15", "#CB181D", "#EF3B2C","#FB6A4A", "#FC9272"), 
+                                                   width= 0.65)) +
+  theme_light() + 
+  theme(plot.title = element_text(hjust=0.5, size=35, face="bold"),
+                     axis.title.x = element_text(size=20, color="black"), 
+                     legend.title = element_blank(),
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, hjust=0, color="black"),
+                     strip.text.x = element_text(size=25, color="black", face="bold"),
+                     strip.text = element_text(size=13), 
+                     panel.background =element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Variable Importance") +
+  ggsave("pHs1RFv2.2.tiff", units="in", width=6, height=6, dpi=600)
+```
+
+
+```{r Testing the model}
+#Building final workflow
+final_wf <- workflow() %>%
+  add_recipe(s1_rec) %>% #Initial recipe built
+  add_model(final_rf) #Add the final model you built
+
+final_res <- final_wf %>%
+  last_fit(s1_split)#Fit to your split dataset (aka training and testing data)
+
+final_res %>%
+  collect_metrics() #This should be your model selection criterion for the final model selected when fit to the training data and tested on your testing data
+
+final_res %>%
+  collect_predictions() %>% #Predicted response variable values when fit to training and tested on testing data. Gives you an idea of how good your model is at predicting values based on your explanatory variables included in the model
+  bind_cols(s1_test)
+```

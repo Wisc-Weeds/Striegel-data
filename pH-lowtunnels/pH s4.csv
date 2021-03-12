@@ -1,0 +1,127 @@
+des,study,TRT,trt,conc,ams,enl,grass,run,rep,ph,chph,perch
+4X Enlist One,4,1,1,4x,none,one,none,1,1,6.55,-1.011667,0.133788885
+4X Enlist One,4,1,1,4x,none,one,none,1,2,6.54,-1.021667,0.135111345
+4X Enlist One,4,1,1,4x,none,one,none,1,3,6.56,-1.001667,0.132466426
+4X Enlist One,4,1,1,4x,none,one,none,2,1,6.63,-0.931667,0.123209208
+4X Enlist One,4,1,1,4x,none,one,none,2,2,6.62,-0.941667,0.124531667
+4X Enlist One,4,1,1,4x,none,one,none,2,3,6.67,-0.891667,0.117919369
+1X Enlist One,4,1,2,1x,none,one,none,1,1,6.92,-0.641667,0.084857876
+1X Enlist One,4,1,2,1x,none,one,none,1,2,6.91,-0.651667,0.086180336
+1X Enlist One,4,1,2,1x,none,one,none,1,3,6.9,-0.661667,0.087502795
+1X Enlist One,4,1,2,1x,none,one,none,2,1,6.94,-0.621667,0.082212956
+1X Enlist One,4,1,2,1x,none,one,none,2,2,6.96,-0.601667,0.079568037
+1X Enlist One,4,1,2,1x,none,one,none,2,3,6.99,-0.571667,0.075600658
+4X Enlist One + Roundup Powermax,4,2,3,4x,none,one,GLY-K,1,1,4.95,-2.611667,0.34538244
+4X Enlist One + Roundup Powermax,4,2,3,4x,none,one,GLY-K,1,2,4.96,-2.601667,0.34405998
+4X Enlist One + Roundup Powermax,4,2,3,4x,none,one,GLY-K,1,3,4.97,-2.591667,0.342737521
+4X Enlist One + Roundup Powermax,4,2,3,4x,none,one,GLY-K,2,1,4.96,-2.601667,0.34405998
+4X Enlist One + Roundup Powermax,4,2,3,4x,none,one,GLY-K,2,2,4.97,-2.591667,0.342737521
+4X Enlist One + Roundup Powermax,4,2,3,4x,none,one,GLY-K,2,3,5,-2.561667,0.338770142
+1X Enlist One + Roundup Powermax,4,2,4,1x,none,one,GLY-K,1,1,5.02,-2.541667,0.336125222
+1X Enlist One + Roundup Powermax,4,2,4,1x,none,one,GLY-K,1,2,5.02,-2.541667,0.336125222
+1X Enlist One + Roundup Powermax,4,2,4,1x,none,one,GLY-K,1,3,5.01,-2.551667,0.337447682
+1X Enlist One + Roundup Powermax,4,2,4,1x,none,one,GLY-K,2,1,4.92,-2.641667,0.349349819
+1X Enlist One + Roundup Powermax,4,2,4,1x,none,one,GLY-K,2,2,4.92,-2.641667,0.349349819
+1X Enlist One + Roundup Powermax,4,2,4,1x,none,one,GLY-K,2,3,4.95,-2.611667,0.34538244
+4X Enlist One + Durango DMA,4,3,5,4x,none,one,DMA,1,1,4.92,-2.641667,0.349349819
+4X Enlist One + Durango DMA,4,3,5,4x,none,one,DMA,1,2,4.93,-2.631667,0.34802736
+4X Enlist One + Durango DMA,4,3,5,4x,none,one,DMA,1,3,4.93,-2.631667,0.34802736
+4X Enlist One + Durango DMA,4,3,5,4x,none,one,DMA,2,1,4.93,-2.631667,0.34802736
+4X Enlist One + Durango DMA,4,3,5,4x,none,one,DMA,2,2,4.94,-2.621667,0.3467049
+4X Enlist One + Durango DMA,4,3,5,4x,none,one,DMA,2,3,4.93,-2.631667,0.34802736
+1X Enlist One + Durango DMA,4,3,6,1x,none,one,DMA,1,1,5.01,-2.551667,0.337447682
+1X Enlist One + Durango DMA,4,3,6,1x,none,one,DMA,1,2,5.03,-2.531667,0.334802762
+1X Enlist One + Durango DMA,4,3,6,1x,none,one,DMA,1,3,5.03,-2.531667,0.334802762
+1X Enlist One + Durango DMA,4,3,6,1x,none,one,DMA,2,1,4.98,-2.581667,0.341415061
+1X Enlist One + Durango DMA,4,3,6,1x,none,one,DMA,2,2,5.02,-2.541667,0.336125222
+1X Enlist One + Durango DMA,4,3,6,1x,none,one,DMA,2,3,5.02,-2.541667,0.336125222
+4X Enlist One + Select Max,4,4,7,4x,none,one,DIM,1,1,6.43,-1.131667,0.149658402
+4X Enlist One + Select Max,4,4,7,4x,none,one,DIM,1,2,6.47,-1.091667,0.144368563
+4X Enlist One + Select Max,4,4,7,4x,none,one,DIM,1,3,6.46,-1.101667,0.145691023
+4X Enlist One + Select Max,4,4,7,4x,none,one,DIM,2,1,6.57,-0.991667,0.131143966
+4X Enlist One + Select Max,4,4,7,4x,none,one,DIM,2,2,6.5,-1.061667,0.140401184
+4X Enlist One + Select Max,4,4,7,4x,none,one,DIM,2,3,6.53,-1.031667,0.136433805
+1X Enlist One + Select Max,4,4,8,1x,none,one,DIM,1,1,6.47,-1.091667,0.144368563
+1X Enlist One + Select Max,4,4,8,1x,none,one,DIM,1,2,6.46,-1.101667,0.145691023
+1X Enlist One + Select Max,4,4,8,1x,none,one,DIM,1,3,6.46,-1.101667,0.145691023
+1X Enlist One + Select Max,4,4,8,1x,none,one,DIM,2,1,6.65,-0.911667,0.120564288
+1X Enlist One + Select Max,4,4,8,1x,none,one,DIM,2,2,6.64,-0.921667,0.121886748
+1X Enlist One + Select Max,4,4,8,1x,none,one,DIM,2,3,6.62,-0.941667,0.124531667
+4X Enlist Duo,4,5,9,4x,none,duo,meh,1,1,5.72,-1.841667,0.243553042
+4X Enlist Duo,4,5,9,4x,none,duo,meh,1,2,5.73,-1.831667,0.242230582
+4X Enlist Duo,4,5,9,4x,none,duo,meh,1,3,5.73,-1.831667,0.242230582
+4X Enlist Duo,4,5,9,4x,none,duo,meh,2,1,5.65,-1.911667,0.25281026
+4X Enlist Duo,4,5,9,4x,none,duo,meh,2,2,5.66,-1.901667,0.2514878
+4X Enlist Duo,4,5,9,4x,none,duo,meh,2,3,5.68,-1.881667,0.248842881
+1X Enlist Duo,4,5,10,1x,none,duo,meh,1,1,5.83,-1.731667,0.229005985
+1X Enlist Duo,4,5,10,1x,none,duo,meh,1,2,5.82,-1.741667,0.230328445
+1X Enlist Duo,4,5,10,1x,none,duo,meh,1,3,5.82,-1.741667,0.230328445
+1X Enlist Duo,4,5,10,1x,none,duo,meh,2,1,5.82,-1.741667,0.230328445
+1X Enlist Duo,4,5,10,1x,none,duo,meh,2,2,5.79,-1.771667,0.234295824
+1X Enlist Duo,4,5,10,1x,none,duo,meh,2,3,5.81,-1.751667,0.231650904
+4X Enlist One + AMS,4,6,11,4x,yes,one,none,1,1,6.73,-0.831667,0.109984611
+4X Enlist One + AMS,4,6,11,4x,yes,one,none,1,2,6.71,-0.851667,0.11262953
+4X Enlist One + AMS,4,6,11,4x,yes,one,none,1,3,6.71,-0.851667,0.11262953
+4X Enlist One + AMS,4,6,11,4x,yes,one,none,2,1,6.8,-0.761667,0.100727393
+4X Enlist One + AMS,4,6,11,4x,yes,one,none,2,2,6.8,-0.761667,0.100727393
+4X Enlist One + AMS,4,6,11,4x,yes,one,none,2,3,6.77,-0.791667,0.104694772
+1X Enlist One + AMS,4,6,12,1x,yes,one,none,1,1,7,-0.561667,0.074278198
+1X Enlist One + AMS,4,6,12,1x,yes,one,none,1,2,6.97,-0.591667,0.078245577
+1X Enlist One + AMS,4,6,12,1x,yes,one,none,1,3,6.94,-0.621667,0.082212956
+1X Enlist One + AMS,4,6,12,1x,yes,one,none,2,1,7.14,-0.421667,0.055763762
+1X Enlist One + AMS,4,6,12,1x,yes,one,none,2,2,7.15,-0.411667,0.054441302
+1X Enlist One + AMS,4,6,12,1x,yes,one,none,2,3,7.14,-0.421667,0.055763762
+4X Enlist One + Roundup Powermax + AMS,4,7,13,4x,yes,one,GLY-K,1,1,5.04,-2.521667,0.333480303
+4X Enlist One + Roundup Powermax + AMS,4,7,13,4x,yes,one,GLY-K,1,2,5.03,-2.531667,0.334802762
+4X Enlist One + Roundup Powermax + AMS,4,7,13,4x,yes,one,GLY-K,1,3,5.02,-2.541667,0.336125222
+4X Enlist One + Roundup Powermax + AMS,4,7,13,4x,yes,one,GLY-K,2,1,5.05,-2.511667,0.332157843
+4X Enlist One + Roundup Powermax + AMS,4,7,13,4x,yes,one,GLY-K,2,2,5.04,-2.521667,0.333480303
+4X Enlist One + Roundup Powermax + AMS,4,7,13,4x,yes,one,GLY-K,2,3,5.05,-2.511667,0.332157843
+1X Enlist One + Roundup Powermax + AMS,4,7,14,1x,yes,one,GLY-K,1,1,5.03,-2.531667,0.334802762
+1X Enlist One + Roundup Powermax + AMS,4,7,14,1x,yes,one,GLY-K,1,2,5.04,-2.521667,0.333480303
+1X Enlist One + Roundup Powermax + AMS,4,7,14,1x,yes,one,GLY-K,1,3,5.02,-2.541667,0.336125222
+1X Enlist One + Roundup Powermax + AMS,4,7,14,1x,yes,one,GLY-K,2,1,4.97,-2.591667,0.342737521
+1X Enlist One + Roundup Powermax + AMS,4,7,14,1x,yes,one,GLY-K,2,2,5.03,-2.531667,0.334802762
+1X Enlist One + Roundup Powermax + AMS,4,7,14,1x,yes,one,GLY-K,2,3,4.98,-2.581667,0.341415061
+4X Enlist One + Durango DMA + AMS,4,8,15,4x,yes,one,DMA,1,1,4.96,-2.601667,0.34405998
+4X Enlist One + Durango DMA + AMS,4,8,15,4x,yes,one,DMA,1,2,5.03,-2.531667,0.334802762
+4X Enlist One + Durango DMA + AMS,4,8,15,4x,yes,one,DMA,1,3,5.06,-2.501667,0.330835383
+4X Enlist One + Durango DMA + AMS,4,8,15,4x,yes,one,DMA,2,1,5.13,-2.431667,0.321578165
+4X Enlist One + Durango DMA + AMS,4,8,15,4x,yes,one,DMA,2,2,5.12,-2.441667,0.322900625
+4X Enlist One + Durango DMA + AMS,4,8,15,4x,yes,one,DMA,2,3,5.11,-2.451667,0.324223085
+1X Enlist One + Durango DMA + AMS,4,8,16,1x,yes,one,DMA,1,1,5.07,-2.491667,0.329512924
+1X Enlist One + Durango DMA + AMS,4,8,16,1x,yes,one,DMA,1,2,5.07,-2.491667,0.329512924
+1X Enlist One + Durango DMA + AMS,4,8,16,1x,yes,one,DMA,1,3,5.1,-2.461667,0.325545544
+1X Enlist One + Durango DMA + AMS,4,8,16,1x,yes,one,DMA,2,1,5.07,-2.491667,0.329512924
+1X Enlist One + Durango DMA + AMS,4,8,16,1x,yes,one,DMA,2,2,5.05,-2.511667,0.332157843
+1X Enlist One + Durango DMA + AMS,4,8,16,1x,yes,one,DMA,2,3,5.06,-2.501667,0.330835383
+4X Enlist One + Select Max + AMS,4,9,17,4x,yes,one,DIM,1,1,6.03,-1.531667,0.202556791
+4X Enlist One + Select Max + AMS,4,9,17,4x,yes,one,DIM,1,2,6.11,-1.451667,0.191977113
+4X Enlist One + Select Max + AMS,4,9,17,4x,yes,one,DIM,1,3,6.12,-1.441667,0.190654653
+4X Enlist One + Select Max + AMS,4,9,17,4x,yes,one,DIM,2,1,6.13,-1.431667,0.189332194
+4X Enlist One + Select Max + AMS,4,9,17,4x,yes,one,DIM,2,2,6.27,-1.291667,0.170817758
+4X Enlist One + Select Max + AMS,4,9,17,4x,yes,one,DIM,2,3,6.13,-1.431667,0.189332194
+1X Enlist One + Select Max + AMS,4,9,18,1x,yes,one,DIM,1,1,6.69,-0.871667,0.115274449
+1X Enlist One + Select Max + AMS,4,9,18,1x,yes,one,DIM,1,2,6.68,-0.881667,0.116596909
+1X Enlist One + Select Max + AMS,4,9,18,1x,yes,one,DIM,1,3,6.74,-0.821667,0.108662151
+1X Enlist One + Select Max + AMS,4,9,18,1x,yes,one,DIM,2,1,6.71,-0.851667,0.11262953
+1X Enlist One + Select Max + AMS,4,9,18,1x,yes,one,DIM,2,2,6.79,-0.771667,0.102049852
+1X Enlist One + Select Max + AMS,4,9,18,1x,yes,one,DIM,2,3,6.79,-0.771667,0.102049852
+4X Enlist Duo + AMS,4,10,19,4x,yes,duo,meh,1,1,5.72,-1.841667,0.243553042
+4X Enlist Duo + AMS,4,10,19,4x,yes,duo,meh,1,2,5.72,-1.841667,0.243553042
+4X Enlist Duo + AMS,4,10,19,4x,yes,duo,meh,1,3,5.71,-1.851667,0.244875502
+4X Enlist Duo + AMS,4,10,19,4x,yes,duo,meh,2,1,5.63,-1.931667,0.255455179
+4X Enlist Duo + AMS,4,10,19,4x,yes,duo,meh,2,2,5.63,-1.931667,0.255455179
+4X Enlist Duo + AMS,4,10,19,4x,yes,duo,meh,2,3,5.64,-1.921667,0.25413272
+1X Enlist Duo + AMS,4,10,20,1x,yes,duo,meh,1,1,5.81,-1.751667,0.231650904
+1X Enlist Duo + AMS,4,10,20,1x,yes,duo,meh,1,2,5.81,-1.751667,0.231650904
+1X Enlist Duo + AMS,4,10,20,1x,yes,duo,meh,1,3,5.8,-1.761667,0.232973364
+1X Enlist Duo + AMS,4,10,20,1x,yes,duo,meh,2,1,5.78,-1.781667,0.235618284
+1X Enlist Duo + AMS,4,10,20,1x,yes,duo,meh,2,2,5.78,-1.781667,0.235618284
+1X Enlist Duo + AMS,4,10,20,1x,yes,duo,meh,2,3,5.77,-1.791667,0.236940743
+Nontreated check,4,,21,none,none,none,none,1,1,7.54,,
+Nontreated check,4,,21,none,none,none,none,1,2,7.53,,
+Nontreated check,4,,21,none,none,none,none,1,3,7.53,,
+Nontreated check,4,,21,none,none,none,none,2,1,7.59,,
+Nontreated check,4,,21,none,none,none,none,2,2,7.6,,
+Nontreated check,4,,21,none,none,none,none,2,3,7.58,,

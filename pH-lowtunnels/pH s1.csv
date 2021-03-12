@@ -1,0 +1,199 @@
+des,study,TRT,trt,conc,dic,grass,dra,gr15,run,rep,ph,chph,perch
+4X Xtendimax,1,1,1,4x,DGA+VG,none,none,none,1,1,5.69,-1.766670,0.236924
+4X Xtendimax,1,1,1,4x,DGA+VG,none,none,none,1,2,5.67,-1.786670,0.239607
+4X Xtendimax,1,1,1,4x,DGA+VG,none,none,none,1,3,5.67,-1.786670,0.239607
+4X Xtendimax,1,1,1,4x,DGA+VG,none,none,none,2,1,5.69,-1.766670,0.236924
+4X Xtendimax,1,1,1,4x,DGA+VG,none,none,none,2,2,5.7,-1.756670,0.235583
+4X Xtendimax,1,1,1,4x,DGA+VG,none,none,none,2,3,5.69,-1.766670,0.236924
+1X Xtendimax,1,1,2,1x,DGA+VG,none,none,none,1,1,6.43,-1.026670,0.137684
+1X Xtendimax,1,1,2,1x,DGA+VG,none,none,none,1,2,6.45,-1.006670,0.135002
+1X Xtendimax,1,1,2,1x,DGA+VG,none,none,none,1,3,6.45,-1.006670,0.135002
+1X Xtendimax,1,1,2,1x,DGA+VG,none,none,none,2,1,6.45,-1.006670,0.135002
+1X Xtendimax,1,1,2,1x,DGA+VG,none,none,none,2,2,6.46,-0.996670,0.133661
+1X Xtendimax,1,1,2,1x,DGA+VG,none,none,none,2,3,6.46,-0.996670,0.133661
+4X Xtendimax + Durango DMA,1,2,3,4x,DGA+VG,DMA,none,none,1,1,5.05,-2.406670,0.322754
+4X Xtendimax + Durango DMA,1,2,3,4x,DGA+VG,DMA,none,none,1,2,5.05,-2.406670,0.322754
+4X Xtendimax + Durango DMA,1,2,3,4x,DGA+VG,DMA,none,none,1,3,5.05,-2.406670,0.322754
+4X Xtendimax + Durango DMA,1,2,3,4x,DGA+VG,DMA,none,none,2,1,5.09,-2.366670,0.317389
+4X Xtendimax + Durango DMA,1,2,3,4x,DGA+VG,DMA,none,none,2,2,5.09,-2.366670,0.317389
+4X Xtendimax + Durango DMA,1,2,3,4x,DGA+VG,DMA,none,none,2,3,5.09,-2.366670,0.317389
+1X Xtendimax + Durango DMA,1,2,4,1x,DGA+VG,DMA,none,none,1,1,5.15,-2.306670,0.309343
+1X Xtendimax + Durango DMA,1,2,4,1x,DGA+VG,DMA,none,none,1,2,5.26,-2.196670,0.294591
+1X Xtendimax + Durango DMA,1,2,4,1x,DGA+VG,DMA,none,none,1,3,5.17,-2.286670,0.306661
+1X Xtendimax + Durango DMA,1,2,4,1x,DGA+VG,DMA,none,none,2,1,5.18,-2.276670,0.305320
+1X Xtendimax + Durango DMA,1,2,4,1x,DGA+VG,DMA,none,none,2,2,5.18,-2.276670,0.305320
+1X Xtendimax + Durango DMA,1,2,4,1x,DGA+VG,DMA,none,none,2,3,5.19,-2.266670,0.303979
+4X Xtendimax + Roundup Powermax,1,3,5,4x,DGA+VG,GLY-K,none,none,1,1,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax,1,3,5,4x,DGA+VG,GLY-K,none,none,1,2,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax,1,3,5,4x,DGA+VG,GLY-K,none,none,1,3,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax,1,3,5,4x,DGA+VG,GLY-K,none,none,2,1,5.16,-2.296670,0.308002
+4X Xtendimax + Roundup Powermax,1,3,5,4x,DGA+VG,GLY-K,none,none,2,2,5.15,-2.306670,0.309343
+4X Xtendimax + Roundup Powermax,1,3,5,4x,DGA+VG,GLY-K,none,none,2,3,5.15,-2.306670,0.309343
+1X Xtendimax + Roundup Powermax,1,3,6,1x,DGA+VG,GLY-K,none,none,1,1,5.15,-2.306670,0.309343
+1X Xtendimax + Roundup Powermax,1,3,6,1x,DGA+VG,GLY-K,none,none,1,2,5.13,-2.326670,0.312025
+1X Xtendimax + Roundup Powermax,1,3,6,1x,DGA+VG,GLY-K,none,none,1,3,5.14,-2.316670,0.310684
+1X Xtendimax + Roundup Powermax,1,3,6,1x,DGA+VG,GLY-K,none,none,2,1,5.19,-2.266670,0.303979
+1X Xtendimax + Roundup Powermax,1,3,6,1x,DGA+VG,GLY-K,none,none,2,2,5.19,-2.266670,0.303979
+1X Xtendimax + Roundup Powermax,1,3,6,1x,DGA+VG,GLY-K,none,none,2,3,5.19,-2.266670,0.303979
+4X Select Max + Xtendimax,1,4,7,4x,DGA+VG,DIM,none,none,1,1,5.68,-1.776670,0.238266
+4X Select Max + Xtendimax,1,4,7,4x,DGA+VG,DIM,none,none,1,2,5.68,-1.776670,0.238266
+4X Select Max + Xtendimax,1,4,7,4x,DGA+VG,DIM,none,none,1,3,5.58,-1.876670,0.251676
+4X Select Max + Xtendimax,1,4,7,4x,DGA+VG,DIM,none,none,2,1,5.64,-1.816670,0.243630
+4X Select Max + Xtendimax,1,4,7,4x,DGA+VG,DIM,none,none,2,2,5.64,-1.816670,0.243630
+4X Select Max + Xtendimax,1,4,7,4x,DGA+VG,DIM,none,none,2,3,5.64,-1.816670,0.243630
+1X Select Max + Xtendimax,1,4,8,1x,DGA+VG,DIM,none,none,1,1,6.41,-1.046670,0.140367
+1X Select Max + Xtendimax,1,4,8,1x,DGA+VG,DIM,none,none,1,2,6.41,-1.046670,0.140367
+1X Select Max + Xtendimax,1,4,8,1x,DGA+VG,DIM,none,none,1,3,6.41,-1.046670,0.140367
+1X Select Max + Xtendimax,1,4,8,1x,DGA+VG,DIM,none,none,2,1,6.44,-1.016670,0.136343
+1X Select Max + Xtendimax,1,4,8,1x,DGA+VG,DIM,none,none,2,2,6.43,-1.026670,0.137684
+1X Select Max + Xtendimax,1,4,8,1x,DGA+VG,DIM,none,none,2,3,6.42,-1.036670,0.139026
+4X Engenia,1,5,9,4x,BAPMA,none,none,none,1,1,6.55,-0.906670,0.121591
+4X Engenia,1,5,9,4x,BAPMA,none,none,none,1,2,6.54,-0.916670,0.122933
+4X Engenia,1,5,9,4x,BAPMA,none,none,none,1,3,6.52,-0.936670,0.125615
+4X Engenia,1,5,9,4x,BAPMA,none,none,none,2,1,6.66,-0.796670,0.106840
+4X Engenia,1,5,9,4x,BAPMA,none,none,none,2,2,6.63,-0.826670,0.110863
+4X Engenia,1,5,9,4x,BAPMA,none,none,none,2,3,6.62,-0.836670,0.112204
+1X Engenia,1,5,10,1x,BAPMA,none,none,none,1,1,6.65,-0.806670,0.108181
+1X Engenia,1,5,10,1x,BAPMA,none,none,none,1,2,6.65,-0.806670,0.108181
+1X Engenia,1,5,10,1x,BAPMA,none,none,none,1,3,6.65,-0.806670,0.108181
+1X Engenia,1,5,10,1x,BAPMA,none,none,none,2,1,6.72,-0.736670,0.098793
+1X Engenia,1,5,10,1x,BAPMA,none,none,none,2,2,6.72,-0.736670,0.098793
+1X Engenia,1,5,10,1x,BAPMA,none,none,none,2,3,6.71,-0.746670,0.100134
+4X Engenia + Durango DMA,1,6,11,4x,BAPMA,DMA,none,none,1,1,4.73,-2.726670,0.365668
+4X Engenia + Durango DMA,1,6,11,4x,BAPMA,DMA,none,none,1,2,4.72,-2.736670,0.367009
+4X Engenia + Durango DMA,1,6,11,4x,BAPMA,DMA,none,none,1,3,4.72,-2.736670,0.367009
+4X Engenia + Durango DMA,1,6,11,4x,BAPMA,DMA,none,none,2,1,4.81,-2.646670,0.354940
+4X Engenia + Durango DMA,1,6,11,4x,BAPMA,DMA,none,none,2,2,4.81,-2.646670,0.354940
+4X Engenia + Durango DMA,1,6,11,4x,BAPMA,DMA,none,none,2,3,4.8,-2.656670,0.356281
+1X Engenia + Durango DMA,1,6,12,1x,BAPMA,DMA,none,none,1,1,5.14,-2.316670,0.310684
+1X Engenia + Durango DMA,1,6,12,1x,BAPMA,DMA,none,none,1,2,5.14,-2.316670,0.310684
+1X Engenia + Durango DMA,1,6,12,1x,BAPMA,DMA,none,none,1,3,5.14,-2.316670,0.310684
+1X Engenia + Durango DMA,1,6,12,1x,BAPMA,DMA,none,none,2,1,5.04,-2.416670,0.324095
+1X Engenia + Durango DMA,1,6,12,1x,BAPMA,DMA,none,none,2,2,5.04,-2.416670,0.324095
+1X Engenia + Durango DMA,1,6,12,1x,BAPMA,DMA,none,none,2,3,5.05,-2.406670,0.322754
+4X Engenia + Roundup Powermax,1,7,13,4x,BAPMA,GLY-K,none,none,1,1,4.71,-2.746670,0.368350
+4X Engenia + Roundup Powermax,1,7,13,4x,BAPMA,GLY-K,none,none,1,2,4.7,-2.756670,0.369692
+4X Engenia + Roundup Powermax,1,7,13,4x,BAPMA,GLY-K,none,none,1,3,4.7,-2.756670,0.369692
+4X Engenia + Roundup Powermax,1,7,13,4x,BAPMA,GLY-K,none,none,2,1,4.78,-2.676670,0.358963
+4X Engenia + Roundup Powermax,1,7,13,4x,BAPMA,GLY-K,none,none,2,2,4.77,-2.686670,0.360304
+4X Engenia + Roundup Powermax,1,7,13,4x,BAPMA,GLY-K,none,none,2,3,4.76,-2.696670,0.361645
+1X Engenia + Roundup Powermax,1,7,14,1x,BAPMA,GLY-K,none,none,1,1,4.92,-2.536670,0.340188
+1X Engenia + Roundup Powermax,1,7,14,1x,BAPMA,GLY-K,none,none,1,2,4.95,-2.506670,0.336165
+1X Engenia + Roundup Powermax,1,7,14,1x,BAPMA,GLY-K,none,none,1,3,4.93,-2.526670,0.338847
+1X Engenia + Roundup Powermax,1,7,14,1x,BAPMA,GLY-K,none,none,2,1,4.98,-2.476670,0.332141
+1X Engenia + Roundup Powermax,1,7,14,1x,BAPMA,GLY-K,none,none,2,2,5,-2.456670,0.329459
+1X Engenia + Roundup Powermax,1,7,14,1x,BAPMA,GLY-K,none,none,2,3,5,-2.456670,0.329459
+4X Select Max + Engenia,1,8,15,4x,BAPMA,DIM,none,none,1,1,6.59,-0.866670,0.116227
+4X Select Max + Engenia,1,8,15,4x,BAPMA,DIM,none,none,1,2,6.55,-0.906670,0.121591
+4X Select Max + Engenia,1,8,15,4x,BAPMA,DIM,none,none,1,3,6.6,-0.856670,0.114886
+4X Select Max + Engenia,1,8,15,4x,BAPMA,DIM,none,none,2,1,6.57,-0.886670,0.118909
+4X Select Max + Engenia,1,8,15,4x,BAPMA,DIM,none,none,2,2,6.57,-0.886670,0.118909
+4X Select Max + Engenia,1,8,15,4x,BAPMA,DIM,none,none,2,3,6.57,-0.886670,0.118909
+1X Select Max + Engenia,1,8,16,1x,BAPMA,DIM,none,none,1,1,6.66,-0.796670,0.106840
+1X Select Max + Engenia,1,8,16,1x,BAPMA,DIM,none,none,1,2,6.67,-0.786670,0.105498
+1X Select Max + Engenia,1,8,16,1x,BAPMA,DIM,none,none,1,3,6.67,-0.786670,0.105498
+1X Select Max + Engenia,1,8,16,1x,BAPMA,DIM,none,none,2,1,6.65,-0.806670,0.108181
+1X Select Max + Engenia,1,8,16,1x,BAPMA,DIM,none,none,2,2,6.68,-0.776670,0.104157
+1X Select Max + Engenia,1,8,16,1x,BAPMA,DIM,none,none,2,3,6.64,-0.816670,0.109522
+4X Xtendimax + Roundup Powermax + Intact,1,9,17,4x,DGA+VG,GLY-K,yes,none,1,1,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax + Intact,1,9,17,4x,DGA+VG,GLY-K,yes,none,1,2,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax + Intact,1,9,17,4x,DGA+VG,GLY-K,yes,none,1,3,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax + Intact,1,9,17,4x,DGA+VG,GLY-K,yes,none,2,1,5.14,-2.316670,0.310684
+4X Xtendimax + Roundup Powermax + Intact,1,9,17,4x,DGA+VG,GLY-K,yes,none,2,2,5.14,-2.316670,0.310684
+4X Xtendimax + Roundup Powermax + Intact,1,9,17,4x,DGA+VG,GLY-K,yes,none,2,3,5.12,-2.336670,0.313366
+1X Xtendimax + Roundup Powermax + Intact,1,9,18,1x,DGA+VG,GLY-K,yes,none,1,1,5.14,-2.316670,0.310684
+1X Xtendimax + Roundup Powermax + Intact,1,9,18,1x,DGA+VG,GLY-K,yes,none,1,2,5.14,-2.316670,0.310684
+1X Xtendimax + Roundup Powermax + Intact,1,9,18,1x,DGA+VG,GLY-K,yes,none,1,3,5.15,-2.306670,0.309343
+1X Xtendimax + Roundup Powermax + Intact,1,9,18,1x,DGA+VG,GLY-K,yes,none,2,1,5.16,-2.296670,0.308002
+1X Xtendimax + Roundup Powermax + Intact,1,9,18,1x,DGA+VG,GLY-K,yes,none,2,2,5.17,-2.286670,0.306661
+1X Xtendimax + Roundup Powermax + Intact,1,9,18,1x,DGA+VG,GLY-K,yes,none,2,3,5.18,-2.276670,0.305320
+4X Select Max + Xtendimax + Intact,1,10,19,4x,DGA+VG,DIM,yes,none,1,1,5.63,-1.826670,0.244971
+4X Select Max + Xtendimax + Intact,1,10,19,4x,DGA+VG,DIM,yes,none,1,2,5.61,-1.846670,0.247653
+4X Select Max + Xtendimax + Intact,1,10,19,4x,DGA+VG,DIM,yes,none,1,3,5.61,-1.846670,0.247653
+4X Select Max + Xtendimax + Intact,1,10,19,4x,DGA+VG,DIM,yes,none,2,1,5.6,-1.856670,0.248994
+4X Select Max + Xtendimax + Intact,1,10,19,4x,DGA+VG,DIM,yes,none,2,2,5.7,-1.756670,0.235583
+4X Select Max + Xtendimax + Intact,1,10,19,4x,DGA+VG,DIM,yes,none,2,3,5.59,-1.866670,0.250335
+1X Select Max + Xtendimax + Intact,1,10,20,1x,DGA+VG,DIM,yes,none,1,1,6.36,-1.096670,0.147072
+1X Select Max + Xtendimax + Intact,1,10,20,1x,DGA+VG,DIM,yes,none,1,2,6.37,-1.086670,0.145731
+1X Select Max + Xtendimax + Intact,1,10,20,1x,DGA+VG,DIM,yes,none,1,3,6.43,-1.026670,0.137684
+1X Select Max + Xtendimax + Intact,1,10,20,1x,DGA+VG,DIM,yes,none,2,1,6.38,-1.076670,0.144390
+1X Select Max + Xtendimax + Intact,1,10,20,1x,DGA+VG,DIM,yes,none,2,2,6.39,-1.066670,0.143049
+1X Select Max + Xtendimax + Intact,1,10,20,1x,DGA+VG,DIM,yes,none,2,3,6.4,-1.056670,0.141708
+4X Engenia + Roundup Powermax + Intact,1,11,21,4x,BAPMA,GLY-K,yes,none,1,1,4.71,-2.746670,0.368350
+4X Engenia + Roundup Powermax + Intact,1,11,21,4x,BAPMA,GLY-K,yes,none,1,2,4.71,-2.746670,0.368350
+4X Engenia + Roundup Powermax + Intact,1,11,21,4x,BAPMA,GLY-K,yes,none,1,3,4.7,-2.756670,0.369692
+4X Engenia + Roundup Powermax + Intact,1,11,21,4x,BAPMA,GLY-K,yes,none,2,1,4.79,-2.666670,0.357622
+4X Engenia + Roundup Powermax + Intact,1,11,21,4x,BAPMA,GLY-K,yes,none,2,2,4.78,-2.676670,0.358963
+4X Engenia + Roundup Powermax + Intact,1,11,21,4x,BAPMA,GLY-K,yes,none,2,3,4.77,-2.686670,0.360304
+1X Engenia + Roundup Powermax + Intact,1,11,22,1x,BAPMA,GLY-K,yes,none,1,1,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact,1,11,22,1x,BAPMA,GLY-K,yes,none,1,2,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact,1,11,22,1x,BAPMA,GLY-K,yes,none,1,3,4.95,-2.506670,0.336165
+1X Engenia + Roundup Powermax + Intact,1,11,22,1x,BAPMA,GLY-K,yes,none,2,1,4.92,-2.536670,0.340188
+1X Engenia + Roundup Powermax + Intact,1,11,22,1x,BAPMA,GLY-K,yes,none,2,2,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact,1,11,22,1x,BAPMA,GLY-K,yes,none,2,3,4.95,-2.506670,0.336165
+4X Select Max + Engenia + Intact,1,12,23,4x,BAPMA,DIM,yes,none,1,1,6.57,-0.886670,0.118909
+4X Select Max + Engenia + Intact,1,12,23,4x,BAPMA,DIM,yes,none,1,2,6.55,-0.906670,0.121591
+4X Select Max + Engenia + Intact,1,12,23,4x,BAPMA,DIM,yes,none,1,3,6.58,-0.876670,0.117568
+4X Select Max + Engenia + Intact,1,12,23,4x,BAPMA,DIM,yes,none,2,1,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact,1,12,23,4x,BAPMA,DIM,yes,none,2,2,6.57,-0.886670,0.118909
+4X Select Max + Engenia + Intact,1,12,23,4x,BAPMA,DIM,yes,none,2,3,6.56,-0.896670,0.120250
+1X Select Max + Engenia + Intact,1,12,24,1x,BAPMA,DIM,yes,none,1,1,6.68,-0.776670,0.104157
+1X Select Max + Engenia + Intact,1,12,24,1x,BAPMA,DIM,yes,none,1,2,6.68,-0.776670,0.104157
+1X Select Max + Engenia + Intact,1,12,24,1x,BAPMA,DIM,yes,none,1,3,6.67,-0.786670,0.105498
+1X Select Max + Engenia + Intact,1,12,24,1x,BAPMA,DIM,yes,none,2,1,6.66,-0.796670,0.106840
+1X Select Max + Engenia + Intact,1,12,24,1x,BAPMA,DIM,yes,none,2,2,6.67,-0.786670,0.105498
+1X Select Max + Engenia + Intact,1,12,24,1x,BAPMA,DIM,yes,none,2,3,6.69,-0.766670,0.102816
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,25,4x,DGA+VG,GLY-K,yes,yes,1,1,5.18,-2.276670,0.305320
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,25,4x,DGA+VG,GLY-K,yes,yes,1,2,5.15,-2.306670,0.309343
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,25,4x,DGA+VG,GLY-K,yes,yes,1,3,5.14,-2.316670,0.310684
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,25,4x,DGA+VG,GLY-K,yes,yes,2,1,5.19,-2.266670,0.303979
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,25,4x,DGA+VG,GLY-K,yes,yes,2,2,5.18,-2.276670,0.305320
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,25,4x,DGA+VG,GLY-K,yes,yes,2,3,5.18,-2.276670,0.305320
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,26,1x,DGA+VG,GLY-K,yes,yes,1,1,5.15,-2.306670,0.309343
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,26,1x,DGA+VG,GLY-K,yes,yes,1,2,5.16,-2.296670,0.308002
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,26,1x,DGA+VG,GLY-K,yes,yes,1,3,5.17,-2.286670,0.306661
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,26,1x,DGA+VG,GLY-K,yes,yes,2,1,5.22,-2.236670,0.299955
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,26,1x,DGA+VG,GLY-K,yes,yes,2,2,5.23,-2.226670,0.298614
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,13,26,1x,DGA+VG,GLY-K,yes,yes,2,3,5.21,-2.246670,0.301296
+4X Select Max + Xtendimax + Intact + Warrant,1,14,27,4x,DGA+VG,DIM,yes,yes,1,1,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,14,27,4x,DGA+VG,DIM,yes,yes,1,2,5.88,-1.576670,0.211444
+4X Select Max + Xtendimax + Intact + Warrant,1,14,27,4x,DGA+VG,DIM,yes,yes,1,3,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,14,27,4x,DGA+VG,DIM,yes,yes,2,1,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,14,27,4x,DGA+VG,DIM,yes,yes,2,2,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,14,27,4x,DGA+VG,DIM,yes,yes,2,3,5.9,-1.556670,0.208762
+1X Select Max + Xtendimax + Intact + Warrant,1,14,28,1x,DGA+VG,DIM,yes,yes,1,1,6.47,-0.986670,0.132320
+1X Select Max + Xtendimax + Intact + Warrant,1,14,28,1x,DGA+VG,DIM,yes,yes,1,2,6.5,-0.956670,0.128297
+1X Select Max + Xtendimax + Intact + Warrant,1,14,28,1x,DGA+VG,DIM,yes,yes,1,3,6.47,-0.986670,0.132320
+1X Select Max + Xtendimax + Intact + Warrant,1,14,28,1x,DGA+VG,DIM,yes,yes,2,1,6.49,-0.966670,0.129638
+1X Select Max + Xtendimax + Intact + Warrant,1,14,28,1x,DGA+VG,DIM,yes,yes,2,2,6.5,-0.956670,0.128297
+1X Select Max + Xtendimax + Intact + Warrant,1,14,28,1x,DGA+VG,DIM,yes,yes,2,3,6.49,-0.966670,0.129638
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,29,4x,BAPMA,GLY-K,yes,yes,1,1,4.73,-2.726670,0.365668
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,29,4x,BAPMA,GLY-K,yes,yes,1,2,4.73,-2.726670,0.365668
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,29,4x,BAPMA,GLY-K,yes,yes,1,3,4.72,-2.736670,0.367009
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,29,4x,BAPMA,GLY-K,yes,yes,2,1,4.75,-2.706670,0.362986
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,29,4x,BAPMA,GLY-K,yes,yes,2,2,4.76,-2.696670,0.361645
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,29,4x,BAPMA,GLY-K,yes,yes,2,3,4.76,-2.696670,0.361645
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,30,1x,BAPMA,GLY-K,yes,yes,1,1,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,30,1x,BAPMA,GLY-K,yes,yes,1,2,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,30,1x,BAPMA,GLY-K,yes,yes,1,3,4.95,-2.506670,0.336165
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,30,1x,BAPMA,GLY-K,yes,yes,2,1,4.97,-2.486670,0.333482
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,30,1x,BAPMA,GLY-K,yes,yes,2,2,4.98,-2.476670,0.332141
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,30,1x,BAPMA,GLY-K,yes,yes,2,3,4.98,-2.476670,0.332141
+4X Select Max + Engenia + Intact + Zidua SC,1,16,31,4x,BAPMA,DIM,yes,yes,1,1,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact + Zidua SC,1,16,31,4x,BAPMA,DIM,yes,yes,1,2,6.57,-0.886670,0.118909
+4X Select Max + Engenia + Intact + Zidua SC,1,16,31,4x,BAPMA,DIM,yes,yes,1,3,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact + Zidua SC,1,16,31,4x,BAPMA,DIM,yes,yes,2,1,6.59,-0.866670,0.116227
+4X Select Max + Engenia + Intact + Zidua SC,1,16,31,4x,BAPMA,DIM,yes,yes,2,2,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact + Zidua SC,1,16,31,4x,BAPMA,DIM,yes,yes,2,3,6.57,-0.886670,0.118909
+1X Select Max + Engenia + Intact + Zidua SC,1,16,32,1x,BAPMA,DIM,yes,yes,1,1,6.66,-0.796670,0.106840
+1X Select Max + Engenia + Intact + Zidua SC,1,16,32,1x,BAPMA,DIM,yes,yes,1,2,6.69,-0.766670,0.102816
+1X Select Max + Engenia + Intact + Zidua SC,1,16,32,1x,BAPMA,DIM,yes,yes,1,3,6.67,-0.786670,0.105498
+1X Select Max + Engenia + Intact + Zidua SC,1,16,32,1x,BAPMA,DIM,yes,yes,2,1,6.63,-0.826670,0.110863
+1X Select Max + Engenia + Intact + Zidua SC,1,16,32,1x,BAPMA,DIM,yes,yes,2,2,6.66,-0.796670,0.106840
+1X Select Max + Engenia + Intact + Zidua SC,1,16,32,1x,BAPMA,DIM,yes,yes,2,3,6.65,-0.806670,0.108181
+nontreated check,1,,33,none,none,none,none,none,1,1,7.72,,
+nontreated check,1,,33,none,none,none,none,none,1,2,7.59,,
+nontreated check,1,,33,none,none,none,none,none,1,3,7.56,,
+nontreated check,1,,33,none,none,none,none,none,2,1,7.27,,
+nontreated check,1,,33,none,none,none,none,none,2,2,7.38,,
+nontreated check,1,,33,none,none,none,none,none,2,3,7.22,,

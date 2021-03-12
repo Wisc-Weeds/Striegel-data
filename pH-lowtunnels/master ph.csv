@@ -1,0 +1,670 @@
+des,study,trt,run,rep,ph,chph,perch
+4X Xtendimax,1,1,1,1,5.69,-1.766670,0.236924
+4X Xtendimax,1,1,1,2,5.67,-1.786670,0.239607
+4X Xtendimax,1,1,1,3,5.67,-1.786670,0.239607
+4X Xtendimax,1,1,2,1,5.69,-1.766670,0.236924
+4X Xtendimax,1,1,2,2,5.7,-1.756670,0.235583
+4X Xtendimax,1,1,2,3,5.69,-1.766670,0.236924
+4X Xtendimax + Durango DMA,1,2,1,1,5.05,-2.406670,0.322754
+4X Xtendimax + Durango DMA,1,2,1,2,5.05,-2.406670,0.322754
+4X Xtendimax + Durango DMA,1,2,1,3,5.05,-2.406670,0.322754
+4X Xtendimax + Durango DMA,1,2,2,1,5.09,-2.366670,0.317389
+4X Xtendimax + Durango DMA,1,2,2,2,5.09,-2.366670,0.317389
+4X Xtendimax + Durango DMA,1,2,2,3,5.09,-2.366670,0.317389
+4X Xtendimax + Roundup Powermax,1,3,1,1,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax,1,3,1,2,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax,1,3,1,3,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax,1,3,2,1,5.16,-2.296670,0.308002
+4X Xtendimax + Roundup Powermax,1,3,2,2,5.15,-2.306670,0.309343
+4X Xtendimax + Roundup Powermax,1,3,2,3,5.15,-2.306670,0.309343
+4X Xtendimax + Roundup Powermax + Intact,1,4,1,1,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax + Intact,1,4,1,2,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax + Intact,1,4,1,3,5.08,-2.376670,0.318730
+4X Xtendimax + Roundup Powermax + Intact,1,4,2,1,5.14,-2.316670,0.310684
+4X Xtendimax + Roundup Powermax + Intact,1,4,2,2,5.14,-2.316670,0.310684
+4X Xtendimax + Roundup Powermax + Intact,1,4,2,3,5.12,-2.336670,0.313366
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,5,1,1,5.18,-2.276670,0.305320
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,5,1,2,5.15,-2.306670,0.309343
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,5,1,3,5.14,-2.316670,0.310684
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,5,2,1,5.19,-2.266670,0.303979
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,5,2,2,5.18,-2.276670,0.305320
+4X Xtendimax + Roundup Powermax + Intact + Warrant,1,5,2,3,5.18,-2.276670,0.305320
+1X Xtendimax,1,6,1,1,6.43,-1.026670,0.137684
+1X Xtendimax,1,6,1,2,6.45,-1.006670,0.135002
+1X Xtendimax,1,6,1,3,6.45,-1.006670,0.135002
+1X Xtendimax,1,6,2,1,6.45,-1.006670,0.135002
+1X Xtendimax,1,6,2,2,6.46,-0.996670,0.133661
+1X Xtendimax,1,6,2,3,6.46,-0.996670,0.133661
+1X Xtendimax + Durango DMA,1,7,1,1,5.15,-2.306670,0.309343
+1X Xtendimax + Durango DMA,1,7,1,2,5.26,-2.196670,0.294591
+1X Xtendimax + Durango DMA,1,7,1,3,5.17,-2.286670,0.306661
+1X Xtendimax + Durango DMA,1,7,2,1,5.18,-2.276670,0.305320
+1X Xtendimax + Durango DMA,1,7,2,2,5.18,-2.276670,0.305320
+1X Xtendimax + Durango DMA,1,7,2,3,5.19,-2.266670,0.303979
+1X Xtendimax + Roundup Powermax,1,8,1,1,5.15,-2.306670,0.309343
+1X Xtendimax + Roundup Powermax,1,8,1,2,5.13,-2.326670,0.312025
+1X Xtendimax + Roundup Powermax,1,8,1,3,5.14,-2.316670,0.310684
+1X Xtendimax + Roundup Powermax,1,8,2,1,5.19,-2.266670,0.303979
+1X Xtendimax + Roundup Powermax,1,8,2,2,5.19,-2.266670,0.303979
+1X Xtendimax + Roundup Powermax,1,8,2,3,5.19,-2.266670,0.303979
+1X Xtendimax + Roundup Powermax + Intact,1,9,1,1,5.14,-2.316670,0.310684
+1X Xtendimax + Roundup Powermax + Intact,1,9,1,2,5.14,-2.316670,0.310684
+1X Xtendimax + Roundup Powermax + Intact,1,9,1,3,5.15,-2.306670,0.309343
+1X Xtendimax + Roundup Powermax + Intact,1,9,2,1,5.16,-2.296670,0.308002
+1X Xtendimax + Roundup Powermax + Intact,1,9,2,2,5.17,-2.286670,0.306661
+1X Xtendimax + Roundup Powermax + Intact,1,9,2,3,5.18,-2.276670,0.305320
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,10,1,1,5.15,-2.306670,0.309343
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,10,1,2,5.16,-2.296670,0.308002
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,10,1,3,5.17,-2.286670,0.306661
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,10,2,1,5.22,-2.236670,0.299955
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,10,2,2,5.23,-2.226670,0.298614
+1X Xtendimax + Roundup Powermax + Intact + Warrant,1,10,2,3,5.21,-2.246670,0.301296
+nontreated check,1,33,1,1,7.72,,
+nontreated check,1,33,1,2,7.59,,
+nontreated check,1,33,1,3,7.56,,
+nontreated check,1,33,2,1,7.27,,
+nontreated check,1,33,2,2,7.38,,
+nontreated check,1,33,2,3,7.22,,
+4X Engenia,1,11,1,1,6.55,-0.906670,0.121591
+4X Engenia,1,11,1,2,6.54,-0.916670,0.122933
+4X Engenia,1,11,1,3,6.52,-0.936670,0.125615
+4X Engenia,1,11,2,1,6.66,-0.796670,0.106840
+4X Engenia,1,11,2,2,6.63,-0.826670,0.110863
+4X Engenia,1,23,2,3,6.62,-0.836670,0.112204
+4X Engenia + Durango DMA,1,12,1,1,4.73,-2.726670,0.365668
+4X Engenia + Durango DMA,1,12,1,2,4.72,-2.736670,0.367009
+4X Engenia + Durango DMA,1,12,1,3,4.72,-2.736670,0.367009
+4X Engenia + Durango DMA,1,12,2,1,4.81,-2.646670,0.354940
+4X Engenia + Durango DMA,1,12,2,2,4.81,-2.646670,0.354940
+4X Engenia + Durango DMA,1,12,2,3,4.8,-2.656670,0.356281
+4X Engenia + Roundup Powermax,1,13,1,1,4.71,-2.746670,0.368350
+4X Engenia + Roundup Powermax,1,13,1,2,4.7,-2.756670,0.369692
+4X Engenia + Roundup Powermax,1,13,1,3,4.7,-2.756670,0.369692
+4X Engenia + Roundup Powermax,1,13,2,1,4.78,-2.676670,0.358963
+4X Engenia + Roundup Powermax,1,13,2,2,4.77,-2.686670,0.360304
+4X Engenia + Roundup Powermax,1,13,2,3,4.76,-2.696670,0.361645
+4X Engenia + Roundup Powermax + Intact,1,14,1,1,4.71,-2.746670,0.368350
+4X Engenia + Roundup Powermax + Intact,1,14,1,2,4.71,-2.746670,0.368350
+4X Engenia + Roundup Powermax + Intact,1,14,1,3,4.7,-2.756670,0.369692
+4X Engenia + Roundup Powermax + Intact,1,14,2,1,4.79,-2.666670,0.357622
+4X Engenia + Roundup Powermax + Intact,1,14,2,2,4.78,-2.676670,0.358963
+4X Engenia + Roundup Powermax + Intact,1,14,2,3,4.77,-2.686670,0.360304
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,1,1,4.73,-2.726670,0.365668
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,1,2,4.73,-2.726670,0.365668
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,1,3,4.72,-2.736670,0.367009
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,2,1,4.75,-2.706670,0.362986
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,2,2,4.76,-2.696670,0.361645
+4X Engenia + Roundup Powermax + Intact + Zidua SC,1,15,2,3,4.76,-2.696670,0.361645
+1X Engenia,1,16,1,1,6.65,-0.806670,0.108181
+1X Engenia,1,16,1,2,6.65,-0.806670,0.108181
+1X Engenia,1,16,1,3,6.65,-0.806670,0.108181
+1X Engenia,1,16,2,1,6.72,-0.736670,0.098793
+1X Engenia,1,16,2,2,6.72,-0.736670,0.098793
+1X Engenia,1,16,2,3,6.71,-0.746670,0.100134
+1X Engenia + Durango DMA,1,17,1,1,5.14,-2.316670,0.310684
+1X Engenia + Durango DMA,1,17,1,2,5.14,-2.316670,0.310684
+1X Engenia + Durango DMA,1,17,1,3,5.14,-2.316670,0.310684
+1X Engenia + Durango DMA,1,17,2,1,5.04,-2.416670,0.324095
+1X Engenia + Durango DMA,1,17,2,2,5.04,-2.416670,0.324095
+1X Engenia + Durango DMA,1,17,2,3,5.05,-2.406670,0.322754
+1X Engenia + Roundup Powermax,1,18,1,1,4.92,-2.536670,0.340188
+1X Engenia + Roundup Powermax,1,18,1,2,4.95,-2.506670,0.336165
+1X Engenia + Roundup Powermax,1,18,1,3,4.93,-2.526670,0.338847
+1X Engenia + Roundup Powermax,1,18,2,1,4.98,-2.476670,0.332141
+1X Engenia + Roundup Powermax,1,18,2,2,5,-2.456670,0.329459
+1X Engenia + Roundup Powermax,1,18,2,3,5,-2.456670,0.329459
+1X Engenia + Roundup Powermax + Intact,1,19,1,1,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact,1,19,1,2,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact,1,19,1,3,4.95,-2.506670,0.336165
+1X Engenia + Roundup Powermax + Intact,1,19,2,1,4.92,-2.536670,0.340188
+1X Engenia + Roundup Powermax + Intact,1,19,2,2,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact,1,19,2,3,4.95,-2.506670,0.336165
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,20,1,1,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,20,1,2,4.94,-2.516670,0.337506
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,20,1,3,4.95,-2.506670,0.336165
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,20,2,1,4.97,-2.486670,0.333482
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,20,2,2,4.98,-2.476670,0.332141
+1X Engenia + Roundup Powermax + Intact + Zidua SC,1,20,2,3,4.98,-2.476670,0.332141
+4X Select Max + Xtendimax,1,21,1,1,5.68,-1.776670,0.238266
+4X Select Max + Xtendimax,1,21,1,2,5.68,-1.776670,0.238266
+4X Select Max + Xtendimax,1,21,1,3,5.58,-1.876670,0.251676
+4X Select Max + Xtendimax,1,21,2,1,5.64,-1.816670,0.243630
+4X Select Max + Xtendimax,1,21,2,2,5.64,-1.816670,0.243630
+4X Select Max + Xtendimax,1,21,2,3,5.64,-1.816670,0.243630
+4X Select Max + Engenia,1,22,1,1,6.59,-0.866670,0.116227
+4X Select Max + Engenia,1,22,1,2,6.55,-0.906670,0.121591
+4X Select Max + Engenia,1,22,1,3,6.6,-0.856670,0.114886
+4X Select Max + Engenia,1,22,2,1,6.57,-0.886670,0.118909
+4X Select Max + Engenia,1,22,2,2,6.57,-0.886670,0.118909
+4X Select Max + Engenia,1,22,2,3,6.57,-0.886670,0.118909
+4X Select Max + Xtendimax + Intact,1,23,1,1,5.63,-1.826670,0.244971
+4X Select Max + Xtendimax + Intact,1,23,1,2,5.61,-1.846670,0.247653
+4X Select Max + Xtendimax + Intact,1,23,1,3,5.61,-1.846670,0.247653
+4X Select Max + Xtendimax + Intact,1,23,2,1,5.6,-1.856670,0.248994
+4X Select Max + Xtendimax + Intact,1,23,2,2,5.7,-1.756670,0.235583
+4X Select Max + Xtendimax + Intact,1,23,2,3,5.59,-1.866670,0.250335
+4X Select Max + Engenia + Intact,1,24,1,1,6.57,-0.886670,0.118909
+4X Select Max + Engenia + Intact,1,24,1,2,6.55,-0.906670,0.121591
+4X Select Max + Engenia + Intact,1,24,1,3,6.58,-0.876670,0.117568
+4X Select Max + Engenia + Intact,1,24,2,1,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact,1,24,2,2,6.57,-0.886670,0.118909
+4X Select Max + Engenia + Intact,1,24,2,3,6.56,-0.896670,0.120250
+4X Select Max + Xtendimax + Intact + Warrant,1,25,1,1,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,25,1,2,5.88,-1.576670,0.211444
+4X Select Max + Xtendimax + Intact + Warrant,1,25,1,3,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,25,2,1,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,25,2,2,5.9,-1.556670,0.208762
+4X Select Max + Xtendimax + Intact + Warrant,1,25,2,3,5.9,-1.556670,0.208762
+4X Select Max + Engenia + Intact + Zidua SC,1,26,1,1,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact + Zidua SC,1,26,1,2,6.57,-0.886670,0.118909
+4X Select Max + Engenia + Intact + Zidua SC,1,26,1,3,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact + Zidua SC,1,26,2,1,6.59,-0.866670,0.116227
+4X Select Max + Engenia + Intact + Zidua SC,1,26,2,2,6.56,-0.896670,0.120250
+4X Select Max + Engenia + Intact + Zidua SC,1,26,2,3,6.57,-0.886670,0.118909
+1X Select Max + Xtendimax,1,27,1,1,6.41,-1.046670,0.140367
+1X Select Max + Xtendimax,1,27,1,2,6.41,-1.046670,0.140367
+1X Select Max + Xtendimax,1,27,1,3,6.41,-1.046670,0.140367
+1X Select Max + Xtendimax,1,27,2,1,6.44,-1.016670,0.136343
+1X Select Max + Xtendimax,1,27,2,2,6.43,-1.026670,0.137684
+1X Select Max + Xtendimax,1,27,2,3,6.42,-1.036670,0.139026
+1X Select Max + Engenia,1,28,1,1,6.66,-0.796670,0.106840
+1X Select Max + Engenia,1,28,1,2,6.67,-0.786670,0.105498
+1X Select Max + Engenia,1,28,1,3,6.67,-0.786670,0.105498
+1X Select Max + Engenia,1,28,2,1,6.65,-0.806670,0.108181
+1X Select Max + Engenia,1,28,2,2,6.68,-0.776670,0.104157
+1X Select Max + Engenia,1,28,2,3,6.64,-0.816670,0.109522
+1X Select Max + Xtendimax + Intact,1,29,1,1,6.36,-1.096670,0.147072
+1X Select Max + Xtendimax + Intact,1,29,1,2,6.37,-1.086670,0.145731
+1X Select Max + Xtendimax + Intact,1,29,1,3,6.43,-1.026670,0.137684
+1X Select Max + Xtendimax + Intact,1,29,2,1,6.38,-1.076670,0.144390
+1X Select Max + Xtendimax + Intact,1,29,2,2,6.39,-1.066670,0.143049
+1X Select Max + Xtendimax + Intact,1,29,2,3,6.4,-1.056670,0.141708
+1X Select Max + Engenia + Intact,1,30,1,1,6.68,-0.776670,0.104157
+1X Select Max + Engenia + Intact,1,30,1,2,6.68,-0.776670,0.104157
+1X Select Max + Engenia + Intact,1,30,1,3,6.67,-0.786670,0.105498
+1X Select Max + Engenia + Intact,1,30,2,1,6.66,-0.796670,0.106840
+1X Select Max + Engenia + Intact,1,30,2,2,6.67,-0.786670,0.105498
+1X Select Max + Engenia + Intact,1,30,2,3,6.69,-0.766670,0.102816
+1X Select Max + Xtendimax + Intact + Warrant,1,31,1,1,6.47,-0.986670,0.132320
+1X Select Max + Xtendimax + Intact + Warrant,1,31,1,2,6.5,-0.956670,0.128297
+1X Select Max + Xtendimax + Intact + Warrant,1,31,1,3,6.47,-0.986670,0.132320
+1X Select Max + Xtendimax + Intact + Warrant,1,31,2,1,6.49,-0.966670,0.129638
+1X Select Max + Xtendimax + Intact + Warrant,1,31,2,2,6.5,-0.956670,0.128297
+1X Select Max + Xtendimax + Intact + Warrant,1,31,2,3,6.49,-0.966670,0.129638
+1X Select Max + Engenia + Intact + Zidua SC,1,32,1,1,6.66,-0.796670,0.106840
+1X Select Max + Engenia + Intact + Zidua SC,1,32,1,2,6.69,-0.766670,0.102816
+1X Select Max + Engenia + Intact + Zidua SC,1,32,1,3,6.67,-0.786670,0.105498
+1X Select Max + Engenia + Intact + Zidua SC,1,32,2,1,6.63,-0.826670,0.110863
+1X Select Max + Engenia + Intact + Zidua SC,1,32,2,2,6.66,-0.796670,0.106840
+1X Select Max + Engenia + Intact + Zidua SC,1,32,2,3,6.65,-0.806670,0.108181
+4X Xtendimax + Intact,2,1,1,1,5.49,-2.208333,0.287
+4X Xtendimax + Intact,2,1,1,2,5.48,-2.218333,0.288
+4X Xtendimax + Intact,2,1,1,3,5.48,-2.218333,0.288
+4X Xtendimax + Intact,2,1,2,1,5.47,-2.228333,0.289
+4X Xtendimax + Intact,2,1,2,2,5.47,-2.228333,0.289
+4X Xtendimax + Intact,2,1,2,3,5.46,-2.238333,0.291
+4X Xtendimax + Intact + Roundup Powermax,2,2,1,1,4.8,-2.898333,0.376
+4X Xtendimax + Intact + Roundup Powermax,2,2,1,2,4.8,-2.898333,0.376
+4X Xtendimax + Intact + Roundup Powermax,2,2,1,3,4.8,-2.898333,0.376
+4X Xtendimax + Intact + Roundup Powermax,2,2,2,1,4.8,-2.898333,0.376
+4X Xtendimax + Intact + Roundup Powermax,2,2,2,2,4.8,-2.898333,0.376
+4X Xtendimax + Intact + Roundup Powermax,2,2,2,3,4.8,-2.898333,0.376
+4X Xtendimax + Intact + MON 51817,2,3,1,1,6.1,-1.598333,0.208
+4X Xtendimax + Intact + MON 51817,2,3,1,2,6.11,-1.588333,0.206
+4X Xtendimax + Intact + MON 51817,2,3,1,3,6.11,-1.588333,0.206
+4X Xtendimax + Intact + MON 51817,2,3,2,1,6.12,-1.578333,0.205
+4X Xtendimax + Intact + MON 51817,2,3,2,2,6.13,-1.568333,0.204
+4X Xtendimax + Intact + MON 51817,2,3,2,3,6.12,-1.578333,0.205
+4X Xtendimax + Intact + Roundup Powermax + MON 51817,2,4,1,1,5.43,-2.268333,0.295
+4X Xtendimax + Intact + Roundup Powermax + MON 51817,2,4,1,2,5.42,-2.278333,0.296
+4X Xtendimax + Intact + Roundup Powermax + MON 51817,2,4,1,3,5.42,-2.278333,0.296
+4X Xtendimax + Intact + Roundup Powermax + MON 51817,2,4,2,1,5.42,-2.278333,0.296
+4X Xtendimax + Intact + Roundup Powermax + MON 51817,2,4,2,2,5.41,-2.288333,0.297
+4X Xtendimax + Intact + Roundup Powermax + MON 51817,2,4,2,3,5.4,-2.298333,0.299
+1X Xtendimax + Intact,2,5,1,1,6.16,-1.538333,0.200
+1X Xtendimax + Intact,2,5,1,2,6.17,-1.528333,0.199
+1X Xtendimax + Intact,2,5,1,3,6.18,-1.518333,0.197
+1X Xtendimax + Intact,2,5,2,1,6.17,-1.528333,0.199
+1X Xtendimax + Intact,2,5,2,2,6.18,-1.518333,0.197
+1X Xtendimax + Intact,2,5,2,3,6.16,-1.538333,0.200
+1X Xtendimax + Intact + Roundup Powermax,2,6,1,1,4.93,-2.768333,0.360
+1X Xtendimax + Intact + Roundup Powermax,2,6,1,2,4.93,-2.768333,0.360
+1X Xtendimax + Intact + Roundup Powermax,2,6,1,3,4.95,-2.748333,0.357
+1X Xtendimax + Intact + Roundup Powermax,2,6,2,1,4.96,-2.738333,0.356
+1X Xtendimax + Intact + Roundup Powermax,2,6,2,2,4.98,-2.718333,0.353
+1X Xtendimax + Intact + Roundup Powermax,2,6,2,3,4.98,-2.718333,0.353
+1X Xtendimax + Intact + MON 51817,2,7,1,1,6.3,-1.398333,0.182
+1X Xtendimax + Intact + MON 51817,2,7,1,2,6.27,-1.428333,0.186
+1X Xtendimax + Intact + MON 51817,2,7,1,3,6.3,-1.398333,0.182
+1X Xtendimax + Intact + MON 51817,2,7,2,1,6.31,-1.388333,0.180
+1X Xtendimax + Intact + MON 51817,2,7,2,2,6.32,-1.378333,0.179
+1X Xtendimax + Intact + MON 51817,2,7,2,3,6.32,-1.378333,0.179
+1X Xtendimax + Intact + Roundup Powermax + MON 51817,2,8,1,1,5.32,-2.378333,0.309
+1X Xtendimax + Intact + Roundup Powermax + MON 51817,2,8,1,2,5.32,-2.378333,0.309
+1X Xtendimax + Intact + Roundup Powermax + MON 51817,2,8,1,3,5.34,-2.358333,0.306
+1X Xtendimax + Intact + Roundup Powermax + MON 51817,2,8,2,1,5.35,-2.348333,0.305
+1X Xtendimax + Intact + Roundup Powermax + MON 51817,2,8,2,2,5.35,-2.348333,0.305
+1X Xtendimax + Intact + Roundup Powermax + MON 51817,2,8,2,3,5.36,-2.338333,0.304
+nontreated,2,9,1,1,7.74,,
+nontreated,2,9,1,2,7.76,,
+nontreated,2,9,1,3,7.68,,
+nontreated,2,9,2,1,7.68,,
+nontreated,2,9,2,2,7.64,,
+nontreated,2,9,2,3,7.69,,
+4X Status,3,1,1,1,7.76,0.306667,0.041144948
+4X Status,3,1,1,2,7.77,0.316667,0.04248663
+4X Status,3,1,1,3,7.84,0.386667,0.051878401
+4X Status,3,1,2,1,7.73,0.276667,0.037119903
+4X Status,3,1,2,2,7.8,0.346667,0.046511675
+4X Status,3,1,2,3,7.87,0.416667,0.055903446
+4X Status + Durango DMA,3,2,1,1,4.76,-2.693333,0.361359542
+4X Status + Durango DMA,3,2,1,2,4.75,-2.703333,0.362701224
+4X Status + Durango DMA,3,2,1,3,4.76,-2.693333,0.361359542
+4X Status + Durango DMA,3,2,2,1,4.85,-2.603333,0.349284407
+4X Status + Durango DMA,3,2,2,2,4.84,-2.613333,0.350626089
+4X Status + Durango DMA,3,2,2,3,4.85,-2.603333,0.349284407
+4X Status + Roundup Powermax,3,3,1,1,4.61,-2.843333,0.381484767
+4X Status + Roundup Powermax,3,3,1,2,4.62,-2.833333,0.380143085
+4X Status + Roundup Powermax,3,3,1,3,4.63,-2.823333,0.378801403
+4X Status + Roundup Powermax,3,3,2,1,4.8,-2.653333,0.355992816
+4X Status + Roundup Powermax,3,3,2,2,4.81,-2.643333,0.354651134
+4X Status + Roundup Powermax,3,3,2,3,4.8,-2.653333,0.355992816
+4X Status + AMS,3,4,1,1,7.37,-0.083333,0.011180636
+4X Status + AMS,3,4,1,2,7.36,-0.093333,0.012522317
+4X Status + AMS,3,4,1,3,7.4,-0.053333,0.007155591
+4X Status + AMS,3,4,2,1,7.25,-0.203333,0.027280815
+4X Status + AMS,3,4,2,2,7.29,-0.163333,0.021914089
+4X Status + AMS,3,4,2,3,7.28,-0.173333,0.02325577
+4X Status + Durango DMA + AMS,3,5,1,1,4.74,-2.713333,0.364042905
+4X Status + Durango DMA + AMS,3,5,1,2,4.74,-2.713333,0.364042905
+4X Status + Durango DMA + AMS,3,5,1,3,4.73,-2.723333,0.365384587
+4X Status + Durango DMA + AMS,3,5,2,1,4.84,-2.613333,0.350626089
+4X Status + Durango DMA + AMS,3,5,2,2,4.83,-2.623333,0.351967771
+4X Status + Durango DMA + AMS,3,5,2,3,4.82,-2.633333,0.353309452
+4X Status + Roundup Powermax + AMS,3,6,1,1,4.48,-2.973333,0.398926628
+4X Status + Roundup Powermax + AMS,3,6,1,2,4.5,-2.953333,0.396243265
+4X Status + Roundup Powermax + AMS,3,6,1,3,4.52,-2.933333,0.393559901
+4X Status + Roundup Powermax + AMS,3,6,2,1,4.7,-2.753333,0.369409632
+4X Status + Roundup Powermax + AMS,3,6,2,2,4.7,-2.753333,0.369409632
+4X Status + Roundup Powermax + AMS,3,6,2,3,4.7,-2.753333,0.369409632
+1X Status,3,7,1,1,7.56,0.106667,0.014311315
+1X Status,3,7,1,2,7.58,0.126667,0.016994679
+1X Status,3,7,1,3,7.67,0.216667,0.029069813
+1X Status,3,7,2,1,7.63,0.176667,0.023703087
+1X Status,3,7,2,2,7.63,0.176667,0.023703087
+1X Status,3,7,2,3,7.62,0.166667,0.022361405
+1X Status + Durango DMA,3,8,1,1,4.93,-2.523333,0.338550954
+1X Status + Durango DMA,3,8,1,2,4.93,-2.523333,0.338550954
+1X Status + Durango DMA,3,8,1,3,4.95,-2.503333,0.335867591
+1X Status + Durango DMA,3,8,2,1,4.99,-2.463333,0.330500865
+1X Status + Durango DMA,3,8,2,2,5.01,-2.443333,0.327817501
+1X Status + Durango DMA,3,8,2,3,5.03,-2.423333,0.325134138
+1X Status + Roundup Powermax,3,9,1,1,4.79,-2.663333,0.357334497
+1X Status + Roundup Powermax,3,9,1,2,4.84,-2.613333,0.350626089
+1X Status + Roundup Powermax,3,9,1,3,4.87,-2.583333,0.346601044
+1X Status + Roundup Powermax,3,9,2,1,4.94,-2.513333,0.337209273
+1X Status + Roundup Powermax,3,9,2,2,4.96,-2.493333,0.334525909
+1X Status + Roundup Powermax,3,9,2,3,5.03,-2.423333,0.325134138
+1X Status + AMS,3,10,1,1,7.45,-0.003333,0.000447182
+1X Status + AMS,3,10,1,2,7.45,-0.003333,0.000447182
+1X Status + AMS,3,10,1,3,7.45,-0.003333,0.000447182
+1X Status + AMS,3,10,2,1,7.33,-0.123333,0.016547362
+1X Status + AMS,3,10,2,2,7.34,-0.113333,0.01520568
+1X Status + AMS,3,10,2,3,7.38,-0.073333,0.009838954
+1X Status + Durango DMA + AMS,3,11,1,1,4.95,-2.503333,0.335867591
+1X Status + Durango DMA + AMS,3,11,1,2,4.95,-2.503333,0.335867591
+1X Status + Durango DMA + AMS,3,11,1,3,4.96,-2.493333,0.334525909
+1X Status + Durango DMA + AMS,3,11,2,1,5.09,-2.363333,0.317084048
+1X Status + Durango DMA + AMS,3,11,2,2,5.07,-2.383333,0.319767411
+1X Status + Durango DMA + AMS,3,11,2,3,4.99,-2.463333,0.330500865
+1X Status + Roundup Powermax + AMS,3,12,1,1,4.78,-2.673333,0.358676179
+1X Status + Roundup Powermax + AMS,3,12,1,2,4.79,-2.663333,0.357334497
+1X Status + Roundup Powermax + AMS,3,12,1,3,4.79,-2.663333,0.357334497
+1X Status + Roundup Powermax + AMS,3,12,2,1,4.98,-2.473333,0.331842546
+1X Status + Roundup Powermax + AMS,3,12,2,2,4.99,-2.463333,0.330500865
+1X Status + Roundup Powermax + AMS,3,12,2,3,4.99,-2.463333,0.330500865
+4X Clarity,3,13,1,1,7.18,-0.273333,0.036672587
+4X Clarity,3,13,1,2,7.19,-0.263333,0.035330905
+4X Clarity,3,13,1,3,7.21,-0.243333,0.032647542
+4X Clarity,3,13,2,1,7.16,-0.293333,0.03935595
+4X Clarity,3,13,2,2,7.16,-0.293333,0.03935595
+4X Clarity,3,13,2,3,7.15,-0.303333,0.040697632
+4X Clarity + Durango DMA,3,14,1,1,4.65,-2.803333,0.37611804
+4X Clarity + Durango DMA,3,14,1,2,4.66,-2.793333,0.374776358
+4X Clarity + Durango DMA,3,14,1,3,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA,3,14,2,1,4.76,-2.693333,0.361359542
+4X Clarity + Durango DMA,3,14,2,2,4.76,-2.693333,0.361359542
+4X Clarity + Durango DMA,3,14,2,3,4.74,-2.713333,0.364042905
+4X Clarity + Roundup Powermax,3,15,1,1,4.61,-2.843333,0.381484767
+4X Clarity + Roundup Powermax,3,15,1,2,4.58,-2.873333,0.385509812
+4X Clarity + Roundup Powermax,3,15,1,3,4.61,-2.843333,0.381484767
+4X Clarity + Roundup Powermax,3,15,2,1,4.69,-2.763333,0.370751314
+4X Clarity + Roundup Powermax,3,15,2,2,4.69,-2.763333,0.370751314
+4X Clarity + Roundup Powermax,3,15,2,3,4.68,-2.773333,0.372092995
+4X Clarity + AMS,3,16,1,1,7.19,-0.263333,0.035330905
+4X Clarity + AMS,3,16,1,2,7.2,-0.253333,0.033989223
+4X Clarity + AMS,3,16,1,3,7.15,-0.303333,0.040697632
+4X Clarity + AMS,3,16,2,1,7.16,-0.293333,0.03935595
+4X Clarity + AMS,3,16,2,2,7.15,-0.303333,0.040697632
+4X Clarity + AMS,3,16,2,3,7.14,-0.313333,0.042039313
+4X Clarity + Durango DMA + AMS,3,17,1,1,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA + AMS,3,17,1,2,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA + AMS,3,17,1,3,4.67,-2.783333,0.373434677
+4X Clarity + Durango DMA + AMS,3,17,2,1,4.75,-2.703333,0.362701224
+4X Clarity + Durango DMA + AMS,3,17,2,2,4.74,-2.713333,0.364042905
+4X Clarity + Durango DMA + AMS,3,17,2,3,4.74,-2.713333,0.364042905
+4X Clarity + Roundup Powermax + AMS,3,18,1,1,4.59,-2.863333,0.38416813
+4X Clarity + Roundup Powermax + AMS,3,18,1,2,4.54,-2.913333,0.390876538
+4X Clarity + Roundup Powermax + AMS,3,18,1,3,4.58,-2.873333,0.385509812
+4X Clarity + Roundup Powermax + AMS,3,18,2,1,4.66,-2.793333,0.374776358
+4X Clarity + Roundup Powermax + AMS,3,18,2,2,4.65,-2.803333,0.37611804
+4X Clarity + Roundup Powermax + AMS,3,18,2,3,4.64,-2.813333,0.377459722
+1X Clarity,3,19,1,1,7.28,-0.173333,0.02325577
+1X Clarity,3,19,1,2,7.29,-0.163333,0.021914089
+1X Clarity,3,19,1,3,7.3,-0.153333,0.020572407
+1X Clarity,3,19,2,1,7.25,-0.203333,0.027280815
+1X Clarity,3,19,2,2,7.24,-0.213333,0.028622497
+1X Clarity,3,19,2,3,7.27,-0.183333,0.024597452
+1X Clarity + Durango DMA,3,20,1,1,4.94,-2.513333,0.337209273
+1X Clarity + Durango DMA,3,20,1,2,4.92,-2.533333,0.339892636
+1X Clarity + Durango DMA,3,20,1,3,4.94,-2.513333,0.337209273
+1X Clarity + Durango DMA,3,20,2,1,5.03,-2.423333,0.325134138
+1X Clarity + Durango DMA,3,20,2,2,5.03,-2.423333,0.325134138
+1X Clarity + Durango DMA,3,20,2,3,5.02,-2.433333,0.32647582
+1X Clarity + Roundup Powermax,3,21,1,1,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax,3,21,1,2,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax,3,21,1,3,4.89,-2.563333,0.343917681
+1X Clarity + Roundup Powermax,3,21,2,1,4.99,-2.463333,0.330500865
+1X Clarity + Roundup Powermax,3,21,2,2,4.95,-2.503333,0.335867591
+1X Clarity + Roundup Powermax,3,21,2,3,4.99,-2.463333,0.330500865
+1X Clarity + AMS,3,22,1,1,7.25,-0.203333,0.027280815
+1X Clarity + AMS,3,22,1,2,7.27,-0.183333,0.024597452
+1X Clarity + AMS,3,22,1,3,7.28,-0.173333,0.02325577
+1X Clarity + AMS,3,22,2,1,7.2,-0.253333,0.033989223
+1X Clarity + AMS,3,22,2,2,7.22,-0.233333,0.03130586
+1X Clarity + AMS,3,22,2,3,7.23,-0.223333,0.029964178
+1X Clarity + Durango DMA + AMS,3,23,1,1,4.92,-2.533333,0.339892636
+1X Clarity + Durango DMA + AMS,3,23,1,2,4.93,-2.523333,0.338550954
+1X Clarity + Durango DMA + AMS,3,23,1,3,4.92,-2.533333,0.339892636
+1X Clarity + Durango DMA + AMS,3,23,2,1,5.01,-2.443333,0.327817501
+1X Clarity + Durango DMA + AMS,3,23,2,2,4.99,-2.463333,0.330500865
+1X Clarity + Durango DMA + AMS,3,23,2,3,4.99,-2.463333,0.330500865
+1X Clarity + Roundup Powermax + AMS,3,24,1,1,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax + AMS,3,24,1,2,4.88,-2.573333,0.345259362
+1X Clarity + Roundup Powermax + AMS,3,24,1,3,4.9,-2.553333,0.342575999
+1X Clarity + Roundup Powermax + AMS,3,24,2,1,4.92,-2.533333,0.339892636
+1X Clarity + Roundup Powermax + AMS,3,24,2,2,4.91,-2.543333,0.341234318
+1X Clarity + Roundup Powermax + AMS,3,24,2,3,4.93,-2.523333,0.338550954
+4X Diflexx,3,25,1,1,3.2,-4.253333,0.570661877
+4X Diflexx,3,25,1,2,3.22,-4.233333,0.567978514
+4X Diflexx,3,25,1,3,3.2,-4.253333,0.570661877
+4X Diflexx,3,25,2,1,3.24,-4.213333,0.565295151
+4X Diflexx,3,25,2,2,3.24,-4.213333,0.565295151
+4X Diflexx,3,25,2,3,3.25,-4.203333,0.563953469
+4X Diflexx + Durango DMA,3,26,1,1,4.59,-2.863333,0.38416813
+4X Diflexx + Durango DMA,3,26,1,2,4.58,-2.873333,0.385509812
+4X Diflexx + Durango DMA,3,26,1,3,4.58,-2.873333,0.385509812
+4X Diflexx + Durango DMA,3,26,2,1,4.35,-3.103333,0.416368489
+4X Diflexx + Durango DMA,3,26,2,2,4.4,-3.053333,0.409660081
+4X Diflexx + Durango DMA,3,26,2,3,4.4,-3.053333,0.409660081
+4X Diflexx + Roundup Powermax,3,27,1,1,4.45,-3.003333,0.402951673
+4X Diflexx + Roundup Powermax,3,27,1,2,4.46,-2.993333,0.401609991
+4X Diflexx + Roundup Powermax,3,27,1,3,4.46,-2.993333,0.401609991
+4X Diflexx + Roundup Powermax,3,27,2,1,4.33,-3.123333,0.419051852
+4X Diflexx + Roundup Powermax,3,27,2,2,4.35,-3.103333,0.416368489
+4X Diflexx + AMS,3,28,1,1,3.73,-3.723333,0.49955275
+4X Diflexx + AMS,3,28,1,2,3.71,-3.743333,0.502236114
+4X Diflexx + AMS,3,28,1,3,3.71,-3.743333,0.502236114
+4X Diflexx + AMS,3,28,2,1,3.5,-3.953333,0.530411428
+4X Diflexx + AMS,3,28,2,2,3.52,-3.933333,0.527728065
+4X Diflexx + AMS,3,28,2,3,3.53,-3.923333,0.526386383
+4X Diflexx + Durango DMA + AMS,3,29,1,1,4.59,-2.863333,0.38416813
+4X Diflexx + Durango DMA + AMS,3,29,1,2,4.59,-2.863333,0.38416813
+4X Diflexx + Durango DMA + AMS,3,29,1,3,4.57,-2.883333,0.386851493
+4X Diflexx + Durango DMA + AMS,3,29,2,1,4.46,-2.993333,0.401609991
+4X Diflexx + Durango DMA + AMS,3,29,2,2,4.46,-2.993333,0.401609991
+4X Diflexx + Roundup Powermax + AMS,3,30,1,1,4.43,-3.023333,0.405635036
+4X Diflexx + Roundup Powermax + AMS,3,30,1,2,4.42,-3.033333,0.406976718
+4X Diflexx + Roundup Powermax + AMS,3,30,1,3,4.42,-3.033333,0.406976718
+4X Diflexx + Roundup Powermax + AMS,3,30,2,1,4.35,-3.103333,0.416368489
+4X Diflexx + Roundup Powermax + AMS,3,30,2,2,4.34,-3.113333,0.417710171
+4X Diflexx Duo,3,31,1,1,2.99,-4.463333,0.598837191
+4X Diflexx Duo,3,31,1,2,2.97,-4.483333,0.601520555
+4X Diflexx Duo,3,31,1,3,2.96,-4.493333,0.602862236
+4X Diflexx Duo,3,31,2,1,2.92,-4.533333,0.608228963
+4X Diflexx Duo,3,31,2,2,2.94,-4.513333,0.6055456
+4X Diflexx Duo,3,31,2,3,2.93,-4.523333,0.606887281
+1X Diflexx,3,32,1,1,6.18,-1.273333,0.17084075
+1X Diflexx,3,32,1,2,6.18,-1.273333,0.17084075
+1X Diflexx,3,32,1,3,6.22,-1.233333,0.165474024
+1X Diflexx,3,32,2,1,6.28,-1.173333,0.157423934
+1X Diflexx,3,32,2,2,6.21,-1.243333,0.166815705
+1X Diflexx,3,32,2,3,6.3,-1.153333,0.15474057
+1X Diflexx + Durango DMA,3,33,1,1,4.9,-2.553333,0.342575999
+1X Diflexx + Durango DMA,3,33,1,2,4.91,-2.543333,0.341234318
+1X Diflexx + Durango DMA,3,33,1,3,4.93,-2.523333,0.338550954
+1X Diflexx + Durango DMA,3,33,2,1,4.72,-2.733333,0.366726269
+1X Diflexx + Durango DMA,3,33,2,2,4.74,-2.713333,0.364042905
+1X Diflexx + Durango DMA,3,33,2,3,4.74,-2.713333,0.364042905
+1X Diflexx + Roundup Powermax,3,34,1,1,4.78,-2.673333,0.358676179
+1X Diflexx + Roundup Powermax,3,34,1,2,4.81,-2.643333,0.354651134
+1X Diflexx + Roundup Powermax,3,34,1,3,4.79,-2.663333,0.357334497
+1X Diflexx + Roundup Powermax,3,34,2,1,4.69,-2.763333,0.370751314
+1X Diflexx + Roundup Powermax,3,34,2,2,4.68,-2.773333,0.372092995
+1X Diflexx + Roundup Powermax,3,34,2,3,4.73,-2.723333,0.365384587
+1X Diflexx + AMS,3,35,1,1,6.34,-1.113333,0.149373844
+1X Diflexx + AMS,3,35,1,2,6.34,-1.113333,0.149373844
+1X Diflexx + AMS,3,35,1,3,6.32,-1.133333,0.152057207
+1X Diflexx + AMS,3,35,2,1,6.31,-1.143333,0.153398889
+1X Diflexx + AMS,3,35,2,2,6.3,-1.153333,0.15474057
+1X Diflexx + AMS,3,35,2,3,6.31,-1.143333,0.153398889
+1X Diflexx + Durango DMA + AMS,3,36,1,1,4.87,-2.583333,0.346601044
+1X Diflexx + Durango DMA + AMS,3,36,1,2,4.89,-2.563333,0.343917681
+1X Diflexx + Durango DMA + AMS,3,36,1,3,4.87,-2.583333,0.346601044
+1X Diflexx + Durango DMA + AMS,3,36,2,1,4.75,-2.703333,0.362701224
+1X Diflexx + Durango DMA + AMS,3,36,2,2,4.77,-2.683333,0.36001786
+1X Diflexx + Durango DMA + AMS,3,36,2,3,4.75,-2.703333,0.362701224
+1X Diflexx + Roundup Powermax + AMS,3,37,1,1,4.72,-2.733333,0.366726269
+1X Diflexx + Roundup Powermax + AMS,3,37,1,2,4.73,-2.723333,0.365384587
+1X Diflexx + Roundup Powermax + AMS,3,37,1,3,4.76,-2.693333,0.361359542
+1X Diflexx + Roundup Powermax + AMS,3,37,2,1,4.68,-2.773333,0.372092995
+1X Diflexx + Roundup Powermax + AMS,3,37,2,2,4.7,-2.753333,0.369409632
+1X Diflexx + Roundup Powermax + AMS,3,37,2,3,4.68,-2.773333,0.372092995
+1X Diflexx Duo,3,38,1,1,5.44,-2.013333,0.270125191
+1X Diflexx Duo,3,38,1,2,5.4,-2.053333,0.275491918
+1X Diflexx Duo,3,38,1,3,5.39,-2.063333,0.276833599
+1X Diflexx Duo,3,38,2,1,5.34,-2.113333,0.283542007
+1X Diflexx Duo,3,38,2,2,5.33,-2.123333,0.284883689
+1X Diflexx Duo,3,38,2,3,5.28,-2.173333,0.291592097
+4X Diflexx Duo + Durango DMA,3,39,1,1,4.34,-3.113333,0.417710171
+4X Diflexx Duo + Durango DMA,3,39,1,2,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA,3,39,1,3,4.43,-3.023333,0.405635036
+4X Diflexx Duo + Durango DMA,3,39,2,1,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA,3,39,2,2,4.34,-3.113333,0.417710171
+4X Diflexx Duo + Durango DMA,3,39,2,3,4.34,-3.113333,0.417710171
+4X Diflexx Duo + Roundup Powermax,3,40,1,1,4.18,-3.273333,0.439177077
+4X Diflexx Duo + Roundup Powermax,3,40,1,2,4.2,-3.253333,0.436493714
+4X Diflexx Duo + Roundup Powermax,3,40,1,3,4.19,-3.263333,0.437835395
+4X Diflexx Duo + Roundup Powermax,3,40,2,1,4.19,-3.263333,0.437835395
+4X Diflexx Duo + Roundup Powermax,3,40,2,2,4.18,-3.273333,0.439177077
+4X Diflexx Duo + Roundup Powermax,3,40,2,3,4.18,-3.273333,0.439177077
+4X Diflexx Duo + AMS,3,41,1,1,3.28,-4.173333,0.559928424
+4X Diflexx Duo + AMS,3,41,1,2,3.26,-4.193333,0.562611787
+4X Diflexx Duo + AMS,3,41,1,3,3.26,-4.193333,0.562611787
+4X Diflexx Duo + AMS,3,41,2,1,3.26,-4.193333,0.562611787
+4X Diflexx Duo + AMS,3,41,2,2,3.27,-4.183333,0.561270106
+4X Diflexx Duo + AMS,3,41,2,3,3.26,-4.193333,0.562611787
+4X Diflexx Duo + Durango DMA + AMS,3,42,1,1,4.37,-3.083333,0.413685126
+4X Diflexx Duo + Durango DMA + AMS,3,42,1,2,4.35,-3.103333,0.416368489
+4X Diflexx Duo + Durango DMA + AMS,3,42,1,3,4.34,-3.113333,0.417710171
+4X Diflexx Duo + Durango DMA + AMS,3,42,2,1,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA + AMS,3,42,2,2,4.33,-3.123333,0.419051852
+4X Diflexx Duo + Durango DMA + AMS,3,42,2,3,4.31,-3.143333,0.421735216
+4X Diflexx Duo + Roundup Powermax + AMS,3,43,1,1,4.17,-3.283333,0.440518759
+4X Diflexx Duo + Roundup Powermax + AMS,3,43,1,2,4.17,-3.283333,0.440518759
+4X Diflexx Duo + Roundup Powermax + AMS,3,43,1,3,4.16,-3.293333,0.44186044
+4X Diflexx Duo + Roundup Powermax + AMS,3,43,2,1,4.15,-3.303333,0.443202122
+4X Diflexx Duo + Roundup Powermax + AMS,3,43,2,2,4.15,-3.303333,0.443202122
+4X Diflexx Duo + Roundup Powermax + AMS,3,43,2,3,4.16,-3.293333,0.44186044
+1X Diflexx Duo + Durango DMA,3,44,1,1,4.65,-2.803333,0.37611804
+1X Diflexx Duo + Durango DMA,3,44,1,2,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,44,1,3,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,44,2,1,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,44,2,2,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Durango DMA,3,44,2,3,4.66,-2.793333,0.374776358
+1X Diflexx Duo + Roundup Powermax,3,45,1,1,4.48,-2.973333,0.398926628
+1X Diflexx Duo + Roundup Powermax,3,45,1,2,4.49,-2.963333,0.397584946
+1X Diflexx Duo + Roundup Powermax,3,45,1,3,4.51,-2.943333,0.394901583
+1X Diflexx Duo + Roundup Powermax,3,45,2,1,4.53,-2.923333,0.39221822
+1X Diflexx Duo + Roundup Powermax,3,45,2,2,4.53,-2.923333,0.39221822
+1X Diflexx Duo + Roundup Powermax,3,45,2,3,4.54,-2.913333,0.390876538
+1X Diflexx Duo + AMS,3,46,1,1,5.33,-2.123333,0.284883689
+1X Diflexx Duo + AMS,3,46,1,2,5.33,-2.123333,0.284883689
+1X Diflexx Duo + AMS,3,46,1,3,5.34,-2.113333,0.283542007
+1X Diflexx Duo + AMS,3,46,2,1,5.31,-2.143333,0.287567052
+1X Diflexx Duo + AMS,3,46,2,2,5.25,-2.203333,0.295617142
+1X Diflexx Duo + AMS,3,46,2,3,5.3,-2.153333,0.288908734
+1X Diflexx Duo + Durango DMA + AMS,3,47,1,1,4.64,-2.813333,0.377459722
+1X Diflexx Duo + Durango DMA + AMS,3,47,1,2,4.64,-2.813333,0.377459722
+1X Diflexx Duo + Durango DMA + AMS,3,47,1,3,4.65,-2.803333,0.37611804
+1X Diflexx Duo + Durango DMA + AMS,3,47,2,1,4.64,-2.813333,0.377459722
+1X Diflexx Duo + Durango DMA + AMS,3,47,2,2,4.65,-2.803333,0.37611804
+1X Diflexx Duo + Durango DMA + AMS,3,47,2,3,4.65,-2.803333,0.37611804
+1X Diflexx Duo + Roundup Powermax + AMS,3,48,1,1,4.54,-2.913333,0.390876538
+1X Diflexx Duo + Roundup Powermax + AMS,3,48,1,2,4.53,-2.923333,0.39221822
+1X Diflexx Duo + Roundup Powermax + AMS,3,48,1,3,4.54,-2.913333,0.390876538
+1X Diflexx Duo + Roundup Powermax + AMS,3,48,2,1,4.55,-2.903333,0.389534856
+1X Diflexx Duo + Roundup Powermax + AMS,3,48,2,2,4.55,-2.903333,0.389534856
+1X Diflexx Duo + Roundup Powermax + AMS,3,48,2,3,4.57,-2.883333,0.386851493
+Nontreated check,3,49,1,1,7.5,,
+Nontreated check,3,49,1,2,7.43,,
+Nontreated check,3,49,1,3,7.4,,
+Nontreated check,3,49,2,1,7.5,,
+Nontreated check,3,49,2,2,7.47,,
+Nontreated check,3,49,2,3,7.42,,
+4X Enlist One,4,1,1,1,6.55,-1.011667,0.133788885
+4X Enlist One,4,1,1,2,6.54,-1.021667,0.135111345
+4X Enlist One,4,1,1,3,6.56,-1.001667,0.132466426
+4X Enlist One,4,1,2,1,6.63,-0.931667,0.123209208
+4X Enlist One,4,1,2,2,6.62,-0.941667,0.124531667
+4X Enlist One,4,1,2,3,6.67,-0.891667,0.117919369
+4X Enlist One + Durango DMA,4,2,1,1,4.92,-2.641667,0.349349819
+4X Enlist One + Durango DMA,4,2,1,2,4.93,-2.631667,0.34802736
+4X Enlist One + Durango DMA,4,2,1,3,4.93,-2.631667,0.34802736
+4X Enlist One + Durango DMA,4,2,2,1,4.93,-2.631667,0.34802736
+4X Enlist One + Durango DMA,4,2,2,2,4.94,-2.621667,0.3467049
+4X Enlist One + Durango DMA,4,2,2,3,4.93,-2.631667,0.34802736
+4X Enlist One + Roundup Powermax,4,3,1,1,4.95,-2.611667,0.34538244
+4X Enlist One + Roundup Powermax,4,3,1,2,4.96,-2.601667,0.34405998
+4X Enlist One + Roundup Powermax,4,3,1,3,4.97,-2.591667,0.342737521
+4X Enlist One + Roundup Powermax,4,3,2,1,4.96,-2.601667,0.34405998
+4X Enlist One + Roundup Powermax,4,3,2,2,4.97,-2.591667,0.342737521
+4X Enlist One + Roundup Powermax,4,3,2,3,5,-2.561667,0.338770142
+4X Enlist One + Select Max,4,4,1,1,6.43,-1.131667,0.149658402
+4X Enlist One + Select Max,4,4,1,2,6.47,-1.091667,0.144368563
+4X Enlist One + Select Max,4,4,1,3,6.46,-1.101667,0.145691023
+4X Enlist One + Select Max,4,4,2,1,6.57,-0.991667,0.131143966
+4X Enlist One + Select Max,4,4,2,2,6.5,-1.061667,0.140401184
+4X Enlist One + Select Max,4,4,2,3,6.53,-1.031667,0.136433805
+4X Enlist One + AMS,4,5,1,1,6.73,-0.831667,0.109984611
+4X Enlist One + AMS,4,5,1,2,6.71,-0.851667,0.11262953
+4X Enlist One + AMS,4,5,1,3,6.71,-0.851667,0.11262953
+4X Enlist One + AMS,4,5,2,1,6.8,-0.761667,0.100727393
+4X Enlist One + AMS,4,5,2,2,6.8,-0.761667,0.100727393
+4X Enlist One + AMS,4,5,2,3,6.77,-0.791667,0.104694772
+4X Enlist One + Durango DMA + AMS,4,6,1,1,4.96,-2.601667,0.34405998
+4X Enlist One + Durango DMA + AMS,4,6,1,2,5.03,-2.531667,0.334802762
+4X Enlist One + Durango DMA + AMS,4,6,1,3,5.06,-2.501667,0.330835383
+4X Enlist One + Durango DMA + AMS,4,6,2,1,5.13,-2.431667,0.321578165
+4X Enlist One + Durango DMA + AMS,4,6,2,2,5.12,-2.441667,0.322900625
+4X Enlist One + Durango DMA + AMS,4,6,2,3,5.11,-2.451667,0.324223085
+4X Enlist One + Roundup Powermax + AMS,4,7,1,1,5.04,-2.521667,0.333480303
+4X Enlist One + Roundup Powermax + AMS,4,7,1,2,5.03,-2.531667,0.334802762
+4X Enlist One + Roundup Powermax + AMS,4,7,1,3,5.02,-2.541667,0.336125222
+4X Enlist One + Roundup Powermax + AMS,4,7,2,1,5.05,-2.511667,0.332157843
+4X Enlist One + Roundup Powermax + AMS,4,7,2,2,5.04,-2.521667,0.333480303
+4X Enlist One + Roundup Powermax + AMS,4,7,2,3,5.05,-2.511667,0.332157843
+4X Enlist One + Select Max + AMS,4,8,1,1,6.03,-1.531667,0.202556791
+4X Enlist One + Select Max + AMS,4,8,1,2,6.11,-1.451667,0.191977113
+4X Enlist One + Select Max + AMS,4,8,1,3,6.12,-1.441667,0.190654653
+4X Enlist One + Select Max + AMS,4,8,2,1,6.54,-1.021667,0.135111345
+4X Enlist One + Select Max + AMS,4,8,2,2,6.27,-1.291667,0.170817758
+4X Enlist One + Select Max + AMS,4,8,2,3,6.13,-1.431667,0.189332194
+4X Enlist Duo,4,9,1,1,5.72,-1.841667,0.243553042
+4X Enlist Duo,4,9,1,2,5.73,-1.831667,0.242230582
+4X Enlist Duo,4,9,1,3,5.73,-1.831667,0.242230582
+4X Enlist Duo,4,9,2,1,5.65,-1.911667,0.25281026
+4X Enlist Duo,4,9,2,2,5.66,-1.901667,0.2514878
+4X Enlist Duo,4,9,2,3,5.68,-1.881667,0.248842881
+4X Enlist Duo + AMS,4,10,1,1,5.72,-1.841667,0.243553042
+4X Enlist Duo + AMS,4,10,1,2,5.72,-1.841667,0.243553042
+4X Enlist Duo + AMS,4,10,1,3,5.71,-1.851667,0.244875502
+4X Enlist Duo + AMS,4,10,2,1,5.63,-1.931667,0.255455179
+4X Enlist Duo + AMS,4,10,2,2,5.63,-1.931667,0.255455179
+4X Enlist Duo + AMS,4,10,2,3,5.64,-1.921667,0.25413272
+1X Enlist One,4,11,1,1,6.92,-0.641667,0.084857876
+1X Enlist One,4,11,1,2,6.91,-0.651667,0.086180336
+1X Enlist One,4,11,1,3,6.9,-0.661667,0.087502795
+1X Enlist One,4,11,2,1,6.94,-0.621667,0.082212956
+1X Enlist One,4,11,2,2,6.96,-0.601667,0.079568037
+1X Enlist One,4,11,2,3,6.99,-0.571667,0.075600658
+1X Enlist One + Durango DMA,4,12,1,1,5.01,-2.551667,0.337447682
+1X Enlist One + Durango DMA,4,12,1,2,5.03,-2.531667,0.334802762
+1X Enlist One + Durango DMA,4,12,1,3,5.03,-2.531667,0.334802762
+1X Enlist One + Durango DMA,4,12,2,1,4.98,-2.581667,0.341415061
+1X Enlist One + Durango DMA,4,12,2,2,5.02,-2.541667,0.336125222
+1X Enlist One + Durango DMA,4,12,2,3,5.02,-2.541667,0.336125222
+1X Enlist One + Roundup Powermax,4,13,1,1,5.02,-2.541667,0.336125222
+1X Enlist One + Roundup Powermax,4,13,1,2,5.02,-2.541667,0.336125222
+1X Enlist One + Roundup Powermax,4,13,1,3,5.01,-2.551667,0.337447682
+1X Enlist One + Roundup Powermax,4,13,2,1,4.92,-2.641667,0.349349819
+1X Enlist One + Roundup Powermax,4,13,2,2,4.92,-2.641667,0.349349819
+1X Enlist One + Roundup Powermax,4,13,2,3,4.95,-2.611667,0.34538244
+1X Enlist One + Select Max,4,14,1,1,6.47,-1.091667,0.144368563
+1X Enlist One + Select Max,4,14,1,2,6.46,-1.101667,0.145691023
+1X Enlist One + Select Max,4,14,1,3,6.46,-1.101667,0.145691023
+1X Enlist One + Select Max,4,14,2,1,6.65,-0.911667,0.120564288
+1X Enlist One + Select Max,4,14,2,2,6.64,-0.921667,0.121886748
+1X Enlist One + Select Max,4,14,2,3,6.62,-0.941667,0.124531667
+1X Enlist One + AMS,4,15,1,1,7,-0.561667,0.074278198
+1X Enlist One + AMS,4,15,1,2,6.97,-0.591667,0.078245577
+1X Enlist One + AMS,4,15,1,3,6.94,-0.621667,0.082212956
+1X Enlist One + AMS,4,15,2,1,7.14,-0.421667,0.055763762
+1X Enlist One + AMS,4,15,2,2,7.15,-0.411667,0.054441302
+1X Enlist One + AMS,4,15,2,3,7.14,-0.421667,0.055763762
+1X Enlist One + Durango DMA + AMS,4,16,1,1,5.07,-2.491667,0.329512924
+1X Enlist One + Durango DMA + AMS,4,16,1,2,5.07,-2.491667,0.329512924
+1X Enlist One + Durango DMA + AMS,4,16,1,3,5.1,-2.461667,0.325545544
+1X Enlist One + Durango DMA + AMS,4,16,2,1,5.07,-2.491667,0.329512924
+1X Enlist One + Durango DMA + AMS,4,16,2,2,5.05,-2.511667,0.332157843
+1X Enlist One + Durango DMA + AMS,4,16,2,3,5.06,-2.501667,0.330835383
+1X Enlist One + Roundup Powermax + AMS,4,17,1,1,5.03,-2.531667,0.334802762
+1X Enlist One + Roundup Powermax + AMS,4,17,1,2,5.04,-2.521667,0.333480303
+1X Enlist One + Roundup Powermax + AMS,4,17,1,3,5.02,-2.541667,0.336125222
+1X Enlist One + Roundup Powermax + AMS,4,17,2,1,4.97,-2.591667,0.342737521
+1X Enlist One + Roundup Powermax + AMS,4,17,2,2,5.03,-2.531667,0.334802762
+1X Enlist One + Roundup Powermax + AMS,4,17,2,3,4.98,-2.581667,0.341415061
+1X Enlist One + Select Max + AMS,4,18,1,1,6.69,-0.871667,0.115274449
+1X Enlist One + Select Max + AMS,4,18,1,2,6.68,-0.881667,0.116596909
+1X Enlist One + Select Max + AMS,4,18,1,3,6.74,-0.821667,0.108662151
+1X Enlist One + Select Max + AMS,4,18,2,1,6.71,-0.851667,0.11262953
+1X Enlist One + Select Max + AMS,4,18,2,2,6.79,-0.771667,0.102049852
+1X Enlist One + Select Max + AMS,4,18,2,3,6.79,-0.771667,0.102049852
+1X Enlist Duo,4,19,1,1,5.83,-1.731667,0.229005985
+1X Enlist Duo,4,19,1,2,5.82,-1.741667,0.230328445
+1X Enlist Duo,4,19,1,3,5.82,-1.741667,0.230328445
+1X Enlist Duo,4,19,2,1,5.82,-1.741667,0.230328445
+1X Enlist Duo,4,19,2,2,5.79,-1.771667,0.234295824
+1X Enlist Duo,4,19,2,3,5.81,-1.751667,0.231650904
+1X Enlist Duo + AMS,4,20,1,1,5.81,-1.751667,0.231650904
+1X Enlist Duo + AMS,4,20,1,2,5.81,-1.751667,0.231650904
+1X Enlist Duo + AMS,4,20,1,3,5.8,-1.761667,0.232973364
+1X Enlist Duo + AMS,4,20,2,1,5.78,-1.781667,0.235618284
+1X Enlist Duo + AMS,4,20,2,2,5.78,-1.781667,0.235618284
+1X Enlist Duo + AMS,4,20,2,3,5.77,-1.791667,0.236940743
+Nontreated check,4,21,1,1,7.54,,
+Nontreated check,4,21,1,2,7.53,,
+Nontreated check,4,21,1,3,7.53,,
+Nontreated check,4,21,2,1,7.59,,
+Nontreated check,4,21,2,2,7.6,,
+Nontreated check,4,21,2,3,7.58,,
