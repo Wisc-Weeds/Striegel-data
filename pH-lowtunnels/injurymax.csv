@@ -1,0 +1,169 @@
+Trial,App,Rating,Plot,Trt,rep,Trt Des,herb,gly,Transect,Distance,injury
+SB25a,early,21 DAT,101,1,1,Check,none,no,3,0,0
+SB25a,early,21 DAT,103,3,1,Xtendimax,DGA+VG,no,1,0,5
+SB25a,early,21 DAT,105,5,1,Xtendimax + Gly,DGA+VG,yes,4,0,6
+SB25a,early,21 DAT,107,7,1,Status,NA+DIF,no,4,0,5
+SB25a,early,21 DAT,109,9,1,Status + Gly,NA+DIF,yes,4,0,3
+SB25a,early,21 DAT,111,11,1,Enlist One,"2,4-D",no,4,0,5
+SB25a,early,21 DAT,113,13,1,Enlist Duo,"2,4-D",yes,4,0,4
+SB25a,early,21 DAT,201,3,2,Xtendimax,DGA+VG,no,4,0,5
+SB25a,early,21 DAT,203,1,2,Check,none,no,4,0,5
+SB25a,early,21 DAT,205,9,2,Status + Gly,NA+DIF,yes,3,0,3
+SB25a,early,21 DAT,208,13,2,Enlist Duo,"2,4-D",yes,4,0,15
+SB25a,early,21 DAT,211,11,2,Enlist One,"2,4-D",no,1,0,7
+SB25a,early,21 DAT,213,5,2,Xtendimax + Gly,DGA+VG,yes,4,0,7
+SB25a,early,21 DAT,214,7,2,Status,NA+DIF,no,4,0,7
+SB25a,early,21 DAT,302,11,3,Enlist One,"2,4-D",no,4,0,4
+SB25a,early,21 DAT,303,13,3,Enlist Duo,"2,4-D",yes,1,0,6
+SB25a,early,21 DAT,306,7,3,Status,NA+DIF,no,4,0,7
+SB25a,early,21 DAT,308,5,3,Xtendimax + Gly,DGA+VG,yes,4,0,25
+SB25a,early,21 DAT,309,3,3,Xtendimax,DGA+VG,no,4,0,4
+SB25a,early,21 DAT,311,1,3,Check,none,no,4,0,4
+SB25a,early,21 DAT,312,9,3,Status + Gly,NA+DIF,yes,4,0,5
+SB25b,early,21 DAT,101,1,1,Check,none,no,1,0,0
+SB25b,early,21 DAT,103,3,1,Xtendimax,DGA+VG,no,3,0,12
+SB25b,early,21 DAT,105,5,1,Xtendimax + Gly,DGA+VG,yes,3,0,9
+SB25b,early,21 DAT,107,7,1,Status,NA+DIF,no,2,0,3
+SB25b,early,21 DAT,109,9,1,Status + Gly,NA+DIF,yes,3,0,6
+SB25b,early,21 DAT,111,11,1,Enlist One,"2,4-D",no,3,0,0
+SB25b,early,21 DAT,113,13,1,Enlist Duo,"2,4-D",yes,4,0,3
+SB25b,early,21 DAT,204,9,2,Status + Gly,NA+DIF,yes,2,0,4
+SB25b,early,21 DAT,205,11,2,Enlist One,"2,4-D",no,2,0,4
+SB25b,early,21 DAT,207,3,2,Xtendimax,DGA+VG,no,2,0,18
+SB25b,early,21 DAT,209,1,2,Check,none,no,2,0,3
+SB25b,early,21 DAT,210,5,2,Xtendimax + Gly,DGA+VG,yes,2,0,18
+SB25b,early,21 DAT,211,7,2,Status,NA+DIF,no,2,0,20
+SB25b,early,21 DAT,212,13,2,Enlist Duo,"2,4-D",yes,2,0,3
+SB25b,early,21 DAT,303,7,3,Status,NA+DIF,no,2,0,0
+SB25b,early,21 DAT,304,1,3,Check,none,no,3,0,4
+SB25b,early,21 DAT,307,11,3,Enlist One,"2,4-D",no,1,0,20
+SB25b,early,21 DAT,308,13,3,Enlist Duo,"2,4-D",yes,3,0,1
+SB25b,early,21 DAT,310,5,3,Xtendimax + Gly,DGA+VG,yes,1,0,30
+SB25b,early,21 DAT,313,3,3,Xtendimax,DGA+VG,no,1,0,21
+SB25b,early,21 DAT,314,9,3,Status + Gly,NA+DIF,yes,1,0,0
+SB25a,early,28 DAT,101,1,1,Check,none,no,3,0,0
+SB25a,early,28 DAT,103,3,1,Xtendimax,DGA+VG,no,1,0,0
+SB25a,early,28 DAT,105,5,1,Xtendimax + Gly,DGA+VG,yes,4,0,2
+SB25a,early,28 DAT,107,7,1,Status,NA+DIF,no,4,0,1
+SB25a,early,28 DAT,109,9,1,Status + Gly,NA+DIF,yes,4,0,0
+SB25a,early,28 DAT,111,11,1,Enlist One,"2,4-D",no,4,0,2
+SB25a,early,28 DAT,113,13,1,Enlist Duo,"2,4-D",yes,4,0,0
+SB25a,early,28 DAT,201,3,2,Xtendimax,DGA+VG,no,4,0,2
+SB25a,early,28 DAT,203,1,2,Check,none,no,4,0,2
+SB25a,early,28 DAT,205,9,2,Status + Gly,NA+DIF,yes,3,0,2
+SB25a,early,28 DAT,208,13,2,Enlist Duo,"2,4-D",yes,4,0,7
+SB25a,early,28 DAT,211,11,2,Enlist One,"2,4-D",no,1,0,0
+SB25a,early,28 DAT,213,5,2,Xtendimax + Gly,DGA+VG,yes,4,0,5
+SB25a,early,28 DAT,214,7,2,Status,NA+DIF,no,4,0,2
+SB25a,early,28 DAT,302,11,3,Enlist One,"2,4-D",no,4,0,0
+SB25a,early,28 DAT,303,13,3,Enlist Duo,"2,4-D",yes,1,0,2
+SB25a,early,28 DAT,306,7,3,Status,NA+DIF,no,4,0,2
+SB25a,early,28 DAT,308,5,3,Xtendimax + Gly,DGA+VG,yes,4,0,12
+SB25a,early,28 DAT,309,3,3,Xtendimax,DGA+VG,no,4,0,2
+SB25a,early,28 DAT,311,1,3,Check,none,no,4,0,0
+SB25a,early,28 DAT,312,9,3,Status + Gly,NA+DIF,yes,4,0,2
+SB25b,early,28 DAT,101,1,1,Check,none,no,1,0,0
+SB25b,early,28 DAT,103,3,1,Xtendimax,DGA+VG,no,3,0,15
+SB25b,early,28 DAT,105,5,1,Xtendimax + Gly,DGA+VG,yes,3,0,10
+SB25b,early,28 DAT,107,7,1,Status,NA+DIF,no,2,0,0
+SB25b,early,28 DAT,109,9,1,Status + Gly,NA+DIF,yes,3,0,2
+SB25b,early,28 DAT,111,11,1,Enlist One,"2,4-D",no,3,0,0
+SB25b,early,28 DAT,113,13,1,Enlist Duo,"2,4-D",yes,4,0,2
+SB25b,early,28 DAT,204,9,2,Status + Gly,NA+DIF,yes,2,0,0
+SB25b,early,28 DAT,205,11,2,Enlist One,"2,4-D",no,2,0,2
+SB25b,early,28 DAT,207,3,2,Xtendimax,DGA+VG,no,2,0,15
+SB25b,early,28 DAT,209,1,2,Check,none,no,2,0,2
+SB25b,early,28 DAT,210,5,2,Xtendimax + Gly,DGA+VG,yes,2,0,17
+SB25b,early,28 DAT,211,7,2,Status,NA+DIF,no,2,0,10
+SB25b,early,28 DAT,212,13,2,Enlist Duo,"2,4-D",yes,2,0,2
+SB25b,early,28 DAT,303,7,3,Status,NA+DIF,no,2,0,0
+SB25b,early,28 DAT,304,1,3,Check,none,no,3,0,0
+SB25b,early,28 DAT,307,11,3,Enlist One,"2,4-D",no,1,0,30
+SB25b,early,28 DAT,308,13,3,Enlist Duo,"2,4-D",yes,3,0,0
+SB25b,early,28 DAT,310,5,3,Xtendimax + Gly,DGA+VG,yes,1,0,20
+SB25b,early,28 DAT,313,3,3,Xtendimax,DGA+VG,no,1,0,12
+SB25b,early,28 DAT,314,9,3,Status + Gly,NA+DIF,yes,1,0,0
+SB25a,late,21 DAT,102,2,1,Check,none,no,4,0,0
+SB25a,late,21 DAT,104,4,1,Xtendimax,DGA+VG,no,4,0,10
+SB25a,late,21 DAT,106,6,1,Xtendimax + Gly,DGA+VG,yes,1,0,5
+SB25a,late,21 DAT,108,8,1,Status,NA+DIF,no,3,0,15
+SB25a,late,21 DAT,110,10,1,Status + Gly,NA+DIF,yes,3,0,1
+SB25a,late,21 DAT,112,12,1,Enlist One,"2,4-D",no,2,0,1
+SB25a,late,21 DAT,114,14,1,Enlist Duo,"2,4-D",yes,4,0,0
+SB25a,late,21 DAT,202,6,2,Xtendimax + Gly,DGA+VG,yes,2,0,20
+SB25a,late,21 DAT,204,10,2,Status + Gly,NA+DIF,yes,2,0,7
+SB25a,late,21 DAT,206,14,2,Enlist Duo,"2,4-D",yes,4,0,0
+SB25a,late,21 DAT,207,12,2,Enlist One,"2,4-D",no,2,0,0
+SB25a,late,21 DAT,209,2,2,Check,none,no,4,0,2
+SB25a,late,21 DAT,210,8,2,Status,NA+DIF,no,2,0,0
+SB25a,late,21 DAT,212,4,2,Xtendimax,DGA+VG,no,2,0,17
+SB25a,late,21 DAT,301,6,3,Xtendimax + Gly,DGA+VG,yes,2,0,5
+SB25a,late,21 DAT,304,2,3,Check,none,no,2,0,8
+SB25a,late,21 DAT,305,12,3,Enlist One,"2,4-D",no,2,0,0
+SB25a,late,21 DAT,307,4,3,Xtendimax,DGA+VG,no,3,0,7
+SB25a,late,21 DAT,310,10,3,Status + Gly,NA+DIF,yes,2,0,1
+SB25a,late,21 DAT,313,14,3,Enlist Duo,"2,4-D",yes,2,0,0
+SB25a,late,21 DAT,314,8,3,Status,NA+DIF,no,2,0,0
+SB25a,late,28 DAT,102,2,1,Check,none,no,4,0,0
+SB25a,late,28 DAT,104,4,1,Xtendimax,DGA+VG,no,4,0,12
+SB25a,late,28 DAT,106,6,1,Xtendimax + Gly,DGA+VG,yes,1,0,4
+SB25a,late,28 DAT,108,8,1,Status,NA+DIF,no,3,0,15
+SB25a,late,28 DAT,110,10,1,Status + Gly,NA+DIF,yes,3,0,1
+SB25a,late,28 DAT,112,12,1,Enlist One,"2,4-D",no,2,0,0
+SB25a,late,28 DAT,114,14,1,Enlist Duo,"2,4-D",yes,4,0,0
+SB25a,late,28 DAT,202,6,2,Xtendimax + Gly,DGA+VG,yes,2,0,12
+SB25a,late,28 DAT,204,10,2,Status + Gly,NA+DIF,yes,2,0,13
+SB25a,late,28 DAT,206,14,2,Enlist Duo,"2,4-D",yes,4,0,0
+SB25a,late,28 DAT,207,12,2,Enlist One,"2,4-D",no,2,0,1
+SB25a,late,28 DAT,209,2,2,Check,none,no,4,0,0
+SB25a,late,28 DAT,210,8,2,Status,NA+DIF,no,2,0,0
+SB25a,late,28 DAT,212,4,2,Xtendimax,DGA+VG,no,2,0,15
+SB25a,late,28 DAT,301,6,3,Xtendimax + Gly,DGA+VG,yes,2,0,1
+SB25a,late,28 DAT,304,2,3,Check,none,no,2,0,10
+SB25a,late,28 DAT,305,12,3,Enlist One,"2,4-D",no,2,0,1
+SB25a,late,28 DAT,307,4,3,Xtendimax,DGA+VG,no,3,0,1
+SB25a,late,28 DAT,310,10,3,Status + Gly,NA+DIF,yes,2,0,0
+SB25a,late,28 DAT,313,14,3,Enlist Duo,"2,4-D",yes,2,0,1
+SB25a,late,28 DAT,314,8,3,Status,NA+DIF,no,2,0,0
+SB25b,late,21 DAT,102,2,1,Check,none,no,2,0,0
+SB25b,late,21 DAT,104,4,1,Xtendimax,DGA+VG,no,1,0,20
+SB25b,late,21 DAT,106,6,1,Xtendimax + Gly,DGA+VG,yes,3,0,25
+SB25b,late,21 DAT,108,8,1,Status,NA+DIF,no,2,0,15
+SB25b,late,21 DAT,110,10,1,Status + Gly,NA+DIF,yes,2,0,14
+SB25b,late,21 DAT,112,12,1,Enlist One,"2,4-D",no,2,0,0
+SB25b,late,21 DAT,114,14,1,Enlist Duo,"2,4-D",yes,2,0,0
+SB25b,late,21 DAT,201,10,2,Status + Gly,NA+DIF,yes,1,0,15
+SB25b,late,21 DAT,202,14,2,Enlist Duo,"2,4-D",yes,1,0,0
+SB25b,late,21 DAT,203,2,2,Check,none,no,1,0,0
+SB25b,late,21 DAT,206,12,2,Enlist One,"2,4-D",no,1,0,0
+SB25b,late,21 DAT,208,6,2,Xtendimax + Gly,DGA+VG,yes,1,0,13
+SB25b,late,21 DAT,213,4,2,Xtendimax,DGA+VG,no,4,0,25
+SB25b,late,21 DAT,214,8,2,Status,NA+DIF,no,4,0,15
+SB25b,late,21 DAT,301,10,3,Status + Gly,NA+DIF,yes,1,0,10
+SB25b,late,21 DAT,302,6,3,Xtendimax + Gly,DGA+VG,yes,1,0,4
+SB25b,late,21 DAT,305,12,3,Enlist One,"2,4-D",no,1,0,0
+SB25b,late,21 DAT,306,14,3,Enlist Duo,"2,4-D",yes,1,0,0
+SB25b,late,21 DAT,309,2,3,Check,none,no,1,0,0
+SB25b,late,21 DAT,311,4,3,Xtendimax,DGA+VG,no,2,0,8
+SB25b,late,21 DAT,312,8,3,Status,NA+DIF,no,3,0,2
+SB25b,late,28 DAT,102,2,1,Check,none,no,2,0,0
+SB25b,late,28 DAT,104,4,1,Xtendimax,DGA+VG,no,1,0,14
+SB25b,late,28 DAT,106,6,1,Xtendimax + Gly,DGA+VG,yes,3,0,15
+SB25b,late,28 DAT,108,8,1,Status,NA+DIF,no,2,0,20
+SB25b,late,28 DAT,110,10,1,Status + Gly,NA+DIF,yes,2,0,10
+SB25b,late,28 DAT,112,12,1,Enlist One,"2,4-D",no,2,0,0
+SB25b,late,28 DAT,114,14,1,Enlist Duo,"2,4-D",yes,2,0,0
+SB25b,late,28 DAT,201,10,2,Status + Gly,NA+DIF,yes,1,0,12
+SB25b,late,28 DAT,202,14,2,Enlist Duo,"2,4-D",yes,1,0,0
+SB25b,late,28 DAT,203,2,2,Check,none,no,1,0,0
+SB25b,late,28 DAT,206,12,2,Enlist One,"2,4-D",no,1,0,0
+SB25b,late,28 DAT,208,6,2,Xtendimax + Gly,DGA+VG,yes,1,0,10
+SB25b,late,28 DAT,213,4,2,Xtendimax,DGA+VG,no,4,0,20
+SB25b,late,28 DAT,214,8,2,Status,NA+DIF,no,4,0,24
+SB25b,late,28 DAT,301,10,3,Status + Gly,NA+DIF,yes,1,0,20
+SB25b,late,28 DAT,302,6,3,Xtendimax + Gly,DGA+VG,yes,1,0,10
+SB25b,late,28 DAT,305,12,3,Enlist One,"2,4-D",no,1,0,0
+SB25b,late,28 DAT,306,14,3,Enlist Duo,"2,4-D",yes,1,0,0
+SB25b,late,28 DAT,309,2,3,Check,none,no,1,0,0
+SB25b,late,28 DAT,311,4,3,Xtendimax,DGA+VG,no,2,0,20
+SB25b,late,28 DAT,312,8,3,Status,NA+DIF,no,3,0,12

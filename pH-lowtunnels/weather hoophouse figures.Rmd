@@ -1,0 +1,209 @@
+---
+title: "hoophouse weather figures"
+author: "SS"
+date: "11/20/2019"
+output: html_document
+---
+
+```{r include=FALSE}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(bestNormalize)
+library(glmmTMB)
+library(ggpubr)
+library(nortest)
+```
+
+```{r include=FALSE}
+data=read.csv("E R1 weather.csv")
+str(data)
+```
+
+```{r echo=FALSE}
+a <- range(50,100)
+b <- range(0,15)
+scale_factor <- diff(a)/diff(b)
+data$iwind <- ((data$iwind - b[1]) * scale_factor) + a[1]
+trans <- ~ ((. - a[1]) / scale_factor) + b[1]
+
+ggplot(data, aes(x = hours)) +
+  #scale_y_continuous(limits=c(0,30)) +
+  geom_line(aes(y=i30cm.temp, color="Air temperature"), size=1.5) +
+  geom_line(aes(y=iwind, color="Wind speed"), size=1.5) +
+  ggtitle("Early Application, Run 1") +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"), 
+                     plot.title = element_text(size=25, color="black", face="bold"),
+                     legend.position=c(0.85,0.88),
+                     legend.text = element_text(color="black", size = 14), 
+                     legend.title = element_text(color="black", size=18, face="bold"),
+                     legend.background = element_blank(),
+                     legend.key = element_blank(),
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(breaks=c(0,6,12,18,24,30,36,42,48)) +
+  scale_y_continuous(sec.axis=sec_axis(trans = trans, name="Wind speed (mph)"), limits=c(50,100)) +
+  #scale_color_manual(values=c("lightcyan4", "firebrick4")) +
+  scale_color_manual(values=c("#646569", "#c5050c")) +
+  labs(y="Air temperature (°F)", x="Time following application (hours)", color="Parameter") +
+  ggsave("E R1 weather_imp-lab V2.pdf", units="in", width=8, height=6, dpi=600)
+```
+
+```{r include=FALSE}
+data2=read.csv("E R2 weather.csv")
+str(data2)
+```
+
+```{r echo=FALSE}
+a <- range(50,100)
+b <- range(0,15)
+scale_factor2 <- diff(a)/diff(b)
+data2$iwind <- ((data2$iwind - b[1]) * scale_factor2) + a[1]
+trans2 <- ~ ((. - a[1]) / scale_factor2) + b[1]
+
+ggplot(data2, aes(x = hours)) +
+  geom_line(aes(y=i30cm.temp, color="Air temperature"), size=1.5) +
+  geom_line(aes(y=iwind, color="Wind speed"), size=1.5) +
+  ggtitle("Early Application, Run 2") +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"), 
+                     plot.title = element_text(size=25, color="black", face="bold"),
+                     legend.position=c(0.84,0.88),
+                     legend.text = element_text(color="black", size = 14), 
+                     legend.title = element_text(color="black", size=18, face="bold"),
+                     legend.background = element_blank(),
+                     legend.key = element_blank(),
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(breaks=c(0,6,12,18,24,30,36,42,48)) +
+  scale_y_continuous(sec.axis=sec_axis(trans = trans2, name="Wind speed (mph)"), limits=c(50,100)) +
+  #scale_color_manual(values=c("lightcyan4", "firebrick4")) +
+  scale_color_manual(values=c("#646569", "#c5050c")) +
+  labs(y="Air temperature (°F)", x="Time following application (hours)", color="Parameter") +
+  ggsave("E R2 weather_imp-lab V2.pdf", units="in", width=8, height=6, dpi=600)
+```
+
+```{r include=FALSE}
+data3=read.csv("L R1 weather.csv")
+str(data3)
+```
+
+```{r echo=FALSE}
+a <- range(50,100)
+b <- range(0,15)
+scale_factor3 <- diff(a)/diff(b)
+data3$iwind <- ((data3$iwind - b[1]) * scale_factor3) + a[1]
+trans3 <- ~ ((. - a[1]) / scale_factor3) + b[1]
+
+ggplot(data3, aes(x = hours)) +
+  geom_line(aes(y=i30cm.temp, color="Air temperature"), size=1.5) +
+  geom_line(aes(y=iwind, color="Wind speed"), size=1.5) +
+  ggtitle("Late Application, Run 1") +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"),
+                     plot.title = element_text(size=25, color="black", face="bold"),
+                     legend.position=c(0.85,0.9),
+                     legend.text = element_text(color="black", size = 14), 
+                     legend.title = element_text(color="black", size=18, face="bold"),
+                     legend.background = element_blank(),
+                     legend.key = element_blank(),
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(breaks=c(0,6,12,18,24,30,36,42,48)) +
+  scale_y_continuous(sec.axis=sec_axis(trans=trans3, name="Wind speed (mph)"), limits=c(50,100)) +
+  #scale_color_manual(values=c("lightcyan4", "firebrick4")) +
+  scale_color_manual(values=c("#646569", "#c5050c")) +
+  labs(y="Air temperature (°F)", x="Time following application (hours)", color="Parameter") +
+  ggsave("L R1 weather_imp-lab V2.pdf", units="in", width=8, height=6, dpi=600)
+```
+
+```{r include=FALSE}
+data4=read.csv("L R2 weather.csv")
+str(data4)
+plot(i30cm.temp~iair.temp+isoil.temp, data=data4)
+```
+
+```{r echo=FALSE}
+a <- range(50,100)
+b <- range(0,15)
+scale_factor4 <- diff(a)/diff(b)
+data4$iwind <- ((data4$iwind - b[1]) * scale_factor4) + a[1]
+trans4 <- ~ ((. - a[1]) / scale_factor4) + b[1]
+
+ggplot(data4, aes(x = hours)) +
+  geom_line(aes(y=i30cm.temp, color="Air temperature"), size=1.5) +
+  geom_line(aes(y=iwind, color="Wind speed"), size=1.5) +
+  ggtitle("Late Application, Run 2") +
+  theme_bw() + theme(axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"), 
+                     plot.title = element_text(size=25, color="black", face="bold"),
+                     legend.position=c(0.85,0.9),
+                     legend.text = element_text(color="black", size = 14), 
+                     legend.title = element_text(color="black", size=18, face="bold"),
+                     legend.background = element_blank(),
+                     legend.key = element_blank(),
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(breaks=c(0,6,12,18,24,30,36,42,48)) +
+  scale_y_continuous(sec.axis=sec_axis(trans=trans4, name="Wind speed (mph)"), limits=c(50,100)) +
+  #scale_color_manual(values=c("lightcyan4", "firebrick4")) +
+  scale_color_manual(values=c("#646569", "#c5050c")) +
+  labs(y="Air temperature (°F)", x="Time following application (hours)", color="Parameter") +
+  ggsave("L R2 weather_imp-lab V2.pdf", units="in", width=8, height=6, dpi=600)
+```
+
+```{r}
+data5=read.csv("first 3 runs w.csv")
+str(data5)
+#formula to calculate missing 30 cm air temp data in last run
+model = lm(i30cm.temp~iair.temp+isoil.temp, data=data5)
+plot(i30cm.temp~iair.temp+isoil.temp, data=data5)
+summary(model)
+```
+
+```{r Random forest weather explanatory}
+dat1=read.csv("audps w weather.csv",header=TRUE, na.strings="")
+str(dat1)
+test=randomForest(y=dat1[,2],x=dat1[,3:21], ntree=5000, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test)
+varImpPlot(test,main="",n.var=19)
+
+test2=randomForest(y=dat1[,2],x=dat1[,6:21], ntree=5000, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test2)
+varImpPlot(test2,main="",n.var=16)
+
+test3=randomForest(y=dat1[,2],x=dat1[,3:13], ntree=5000, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test3)
+varImpPlot(test3,main="",n.var=11)
+
+test4=randomForest(y=dat1[,2],x=dat1[,6:13], ntree=5000, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test4)
+varImpPlot(test4,main="",n.var=8)
+summary(test4)
+
+test5=randomForest(y=dat1[,2],x=dat1[,14:21], ntree=5000, importance=TRUE, mtry=2, proximity=TRUE)
+importance(test5)
+varImpPlot(test5,main="",n.var=8)
+```

@@ -1,0 +1,85 @@
+Trial,run,app,Rating,Plot,rep,Trt,Trt Des,herb,gly,Transect,audps,AUDPS
+SB25a,1,early,28 DAT,101,1,1,Check,none,none,3,0,0.01
+SB25a,1,early,28 DAT,103,1,3,Xtendimax,Xtendimax,no,1,0,0.01
+SB25a,1,early,28 DAT,105,1,5,Xtendimax + Gly,Xtendimax,yes,4,4,2.25
+SB25a,1,early,28 DAT,107,1,7,Status,Status,no,4,2,0.25
+SB25a,1,early,28 DAT,109,1,9,Status + Gly,Status,yes,4,0,0.01
+SB25a,1,early,28 DAT,111,1,11,Enlist One,Enlist,no,4,4,2.25
+SB25a,1,early,28 DAT,113,1,13,Enlist Duo,Enlist,yes,4,0,0.01
+SB25a,1,early,28 DAT,201,2,3,Xtendimax,Xtendimax,no,4,5,3.25
+SB25a,1,early,28 DAT,203,2,1,Check,none,none,4,5,3.25
+SB25a,1,early,28 DAT,205,2,9,Status + Gly,Status,yes,3,4,2.25
+SB25a,1,early,28 DAT,208,2,13,Enlist Duo,Enlist,yes,4,8,6.25
+SB25a,1,early,28 DAT,211,2,11,Enlist One,Enlist,no,1,0,0.01
+SB25a,1,early,28 DAT,213,2,5,Xtendimax + Gly,Xtendimax,yes,4,19,17.25
+SB25a,1,early,28 DAT,214,2,7,Status,Status,no,4,3,1.25
+SB25a,1,early,28 DAT,302,3,11,Enlist One,Enlist,no,4,0,0.01
+SB25a,1,early,28 DAT,303,3,13,Enlist Duo,Enlist,yes,1,7,5.25
+SB25a,1,early,28 DAT,306,3,7,Status,Status,no,4,9,7.25
+SB25a,1,early,28 DAT,308,3,5,Xtendimax + Gly,Xtendimax,yes,4,30,28.25
+SB25a,1,early,28 DAT,309,3,3,Xtendimax,Xtendimax,no,4,4,2.25
+SB25a,1,early,28 DAT,311,3,1,Check,none,none,4,0,0.01
+SB25a,1,early,28 DAT,312,3,9,Status + Gly,Status,yes,4,6,4.25
+SB25b,2,early,28 DAT,101,1,1,Check,none,none,1,0,0.01
+SB25b,2,early,28 DAT,103,1,3,Xtendimax,Xtendimax,no,3,16,14.25
+SB25b,2,early,28 DAT,105,1,5,Xtendimax + Gly,Xtendimax,yes,3,18,16.25
+SB25b,2,early,28 DAT,107,1,7,Status,Status,no,2,0,0.01
+SB25b,2,early,28 DAT,109,1,9,Status + Gly,Status,yes,3,4,2.25
+SB25b,2,early,28 DAT,111,1,11,Enlist One,Enlist,no,3,0,0.01
+SB25b,2,early,28 DAT,113,1,13,Enlist Duo,Enlist,yes,4,3,1.25
+SB25b,2,early,28 DAT,204,2,9,Status + Gly,Status,yes,3,3,1.25
+SB25b,2,early,28 DAT,205,2,11,Enlist One,Enlist,no,2,2,0.25
+SB25b,2,early,28 DAT,207,2,3,Xtendimax,Xtendimax,no,2,16,14.25
+SB25b,2,early,28 DAT,209,2,1,Check,none,none,2,5,3.25
+SB25b,2,early,28 DAT,210,2,5,Xtendimax + Gly,Xtendimax,yes,2,30,28.25
+SB25b,2,early,28 DAT,211,2,7,Status,Status,no,2,10,8.25
+SB25b,2,early,28 DAT,212,2,13,Enlist Duo,Enlist,yes,2,2,0.25
+SB25b,2,early,28 DAT,303,3,7,Status,Status,no,2,0,0.01
+SB25b,2,early,28 DAT,304,3,1,Check,none,none,3,0,0.01
+SB25b,2,early,28 DAT,307,3,11,Enlist One,Enlist,no,1,30,28.25
+SB25b,2,early,28 DAT,308,3,13,Enlist Duo,Enlist,yes,3,0,0.01
+SB25b,2,early,28 DAT,310,3,5,Xtendimax + Gly,Xtendimax,yes,1,84,82.25
+SB25b,2,early,28 DAT,313,3,3,Xtendimax,Xtendimax,no,1,64,62.25
+SB25b,2,early,28 DAT,314,3,9,Status + Gly,Status,yes,1,0,0.01
+SB25a,1,late,28 DAT,102,1,2,Check,none,none,4,0,0.01
+SB25a,1,late,28 DAT,104,1,4,Xtendimax,Xtendimax,no,4,12,10.25
+SB25a,1,late,28 DAT,106,1,6,Xtendimax + Gly,Xtendimax,yes,1,12,10.25
+SB25a,1,late,28 DAT,108,1,8,Status,Status,no,3,16,14.25
+SB25a,1,late,28 DAT,110,1,10,Status + Gly,Status,yes,3,2,0.25
+SB25a,1,late,28 DAT,112,1,12,Enlist One,Enlist,no,2,0,0.01
+SB25a,1,late,28 DAT,114,1,14,Enlist Duo,Enlist,yes,4,0,0.01
+SB25a,1,late,28 DAT,202,2,6,Xtendimax + Gly,Xtendimax,yes,2,18,16.25
+SB25a,1,late,28 DAT,204,2,10,Status + Gly,Status,yes,2,13,11.25
+SB25a,1,late,28 DAT,206,2,14,Enlist Duo,Enlist,yes,4,0,0.01
+SB25a,1,late,28 DAT,207,2,12,Enlist One,Enlist,no,2,2,0.25
+SB25a,1,late,28 DAT,209,2,2,Check,none,none,4,0,0.01
+SB25a,1,late,28 DAT,210,2,8,Status,Status,no,2,0,0.01
+SB25a,1,late,28 DAT,212,2,4,Xtendimax,Xtendimax,no,2,15,13.25
+SB25a,1,late,28 DAT,301,3,6,Xtendimax + Gly,Xtendimax,yes,2,2,0.25
+SB25a,1,late,28 DAT,304,3,2,Check,none,none,2,11,9.25
+SB25a,1,late,28 DAT,305,3,12,Enlist One,Enlist,no,2,1,0.01
+SB25a,1,late,28 DAT,307,3,4,Xtendimax,Xtendimax,no,3,1,0.01
+SB25a,1,late,28 DAT,310,3,10,Status + Gly,Status,yes,2,0,0.01
+SB25a,1,late,28 DAT,313,3,14,Enlist Duo,Enlist,yes,2,2,0.25
+SB25a,1,late,28 DAT,314,3,8,Status,Status,no,2,0,0.01
+SB25b,2,late,28 DAT,102,1,2,Check,none,none,2,0,0.01
+SB25b,2,late,28 DAT,104,1,4,Xtendimax,Xtendimax,no,1,36,34.25
+SB25b,2,late,28 DAT,106,1,6,Xtendimax + Gly,Xtendimax,yes,3,42,40.25
+SB25b,2,late,28 DAT,108,1,8,Status,Status,no,2,32,30.25
+SB25b,2,late,28 DAT,110,1,10,Status + Gly,Status,yes,2,14,12.25
+SB25b,2,late,28 DAT,112,1,12,Enlist One,Enlist,no,2,0,0.01
+SB25b,2,late,28 DAT,114,1,14,Enlist Duo,Enlist,yes,2,0,0.01
+SB25b,2,late,28 DAT,201,2,10,Status + Gly,Status,yes,1,42,40.25
+SB25b,2,late,28 DAT,202,2,14,Enlist Duo,Enlist,yes,1,0,0.01
+SB25b,2,late,28 DAT,203,2,2,Check,none,none,1,0,0.01
+SB25b,2,late,28 DAT,206,2,12,Enlist One,Enlist,no,1,0,0.01
+SB25b,2,late,28 DAT,208,2,6,Xtendimax + Gly,Xtendimax,yes,1,40,38.25
+SB25b,2,late,28 DAT,213,2,4,Xtendimax,Xtendimax,no,4,51,49.25
+SB25b,2,late,28 DAT,214,2,8,Status,Status,no,4,27,25.25
+SB25b,2,late,28 DAT,301,3,10,Status + Gly,Status,yes,1,70,68.25
+SB25b,2,late,28 DAT,302,3,6,Xtendimax + Gly,Xtendimax,yes,1,26,24.25
+SB25b,2,late,28 DAT,305,3,12,Enlist One,Enlist,no,1,0,0.01
+SB25b,2,late,28 DAT,306,3,14,Enlist Duo,Enlist,yes,1,0,0.01
+SB25b,2,late,28 DAT,309,3,2,Check,none,none,1,0,0.01
+SB25b,2,late,28 DAT,311,3,4,Xtendimax,Xtendimax,no,2,36,34.25
+SB25b,2,late,28 DAT,312,3,8,Status,Status,no,3,17,15.25

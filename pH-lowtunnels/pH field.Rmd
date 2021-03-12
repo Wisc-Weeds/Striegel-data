@@ -1,0 +1,396 @@
+---
+title: "2019 Hoophouse Data"
+author: "SS"
+date: "10/2/2019"
+output:
+  html_document: default
+  word_document: default
+---
+
+```{r include=FALSE}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(bestNormalize)
+library(glmmTMB)
+library(ggpubr)
+library(nortest)
+library(zoo)
+library(predictmeans)
+library(agricolae)
+```
+
+```{r include=FALSE}
+Data <- read.csv("injury.csv", header=T)
+str(Data)
+dim(Data)
+Data$Trt= as.factor(Data$Trt)
+str(Data)
+```
+
+#Plotting Raw Data
+
+SB25a - Run 1 or R1; SB25b - Run 2 or R2
+
+Treatments:1 & 2 - Nontreated Check; 3 & 4 - Xtendimax; 5 & 6 - Xtendimax + Roundup Powermax; 7 & 8 - Status; 9 & 10 - Status + Roundup Powermax; 11 & 12 - Enlist One; 13 & 14 - Enlist DUO
+
+Figure Legend: Maroon = Nontreated Check; Navy = No GLY; Grey = GLY
+
+```{r}
+#Filter to plot, rough plot of injury over distance
+data = Data %>%
+  filter(Trial=="SB25b", Rating=="28 DAT", Plot=="301")
+plot(data$Distance, data$injury)
+
+#ggplot of injury over distance for filtered "data" above
+ggplot(data, aes(x = Distance, y=injury, group=Distance, fill=injury)) +
+  geom_point() + 
+  theme_bw() + theme(plot.title =  element_text(size=30, color="black", face="bold"),
+                     axis.title.y = element_text(size=18, color="black", face="bold"),
+                     axis.title.x = element_text(size=18, color="black"), 
+                     legend.position="none",
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Injury (%)", x="Distance from Plot Center (m)") +
+  scale_x_continuous(breaks=c(0,0.3,0.6,0.9,1.2,1.5,1.8,2.1,2.4,2.7, 3)) +
+  scale_y_continuous(limits=c(0, 25)) +
+  ggsave("Sup1.tiff", units="in", width=8, height=6, dpi=600)
+```
+
+#Injury Figures for posters/supplemental for paper(on raw injury data)
+
+SB25a Early, 28 DAT
+```{r}
+data1 = Data%>%
+  filter(Trial=="SB25a", App=="Early", Rating=="28 DAT")
+data1 <- subset(data1, herb!="none")
+table(data1$herb)
+table(droplevels(data1)$herb)
+str(data1)
+
+ggplot(data1, aes(x = Distance, y=injury, group=Distance, fill=injury)) +
+  geom_boxplot(fill="mistyrose4") + geom_jitter(alpha=0.2, color="red4") + 
+  facet_grid(herb ~ .) + 
+  ggtitle("Early application, experiment 1") +
+  theme_bw() + theme(plot.title =  element_text(size=25, hjust=0.5, color="black", face="bold"),
+                     axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"), 
+                     legend.position="none",
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Injury (%)", x="Distance from plot center (m)") +
+  scale_x_continuous(breaks=c(0,0.3,0.6,0.9,1.2,1.5,1.8,2.1,2.4,2.7, 3)) +
+  scale_y_continuous(limits=c(0, 30)) +
+  ggsave("R1Early.tiff", units="in", width=10, height=8, dpi=600)
+```
+
+SB25b Early, 28 DAT
+```{r}
+data2 = Data%>%
+  filter(Trial=="SB25b", App=="Early", Rating=="28 DAT")
+data2 <- subset(data2, herb!="none")
+table(data2$herb)
+table(droplevels(data2)$herb)
+str(data2)
+
+ggplot(data2, aes(x = Distance, y=injury, group=Distance, fill=injury)) +
+  geom_boxplot(fill="mistyrose4") + geom_jitter(alpha=0.2, color="red4") + 
+  facet_grid(herb ~ .) + 
+  ggtitle("Early application, experiment 2") +
+  theme_bw() + theme(plot.title =  element_text(size=25, hjust=0.5, color="black", face="bold"),
+                     axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"), 
+                     legend.position="none",
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Injury (%)", x="Distance from plot center (m)") +
+  scale_x_continuous(breaks=c(0,0.3,0.6,0.9,1.2,1.5,1.8,2.1,2.4,2.7, 3)) +
+  scale_y_continuous(limits=c(0, 30)) +
+  ggsave("R2Early.tiff", units="in", width=10, height=8, dpi=600)
+```
+
+SB25a Late, 28 DAT
+```{r}
+data3 = Data%>%
+  filter(Trial=="SB25a", App=="Late", Rating=="28 DAT")
+data3 <- subset(data3, herb!="none")
+table(data3$herb)
+table(droplevels(data3)$herb)
+str(data3)
+
+ggplot(data3, aes(x = Distance, y=injury, group=Distance, fill=injury)) +
+  geom_boxplot(fill="mistyrose4") + geom_jitter(alpha=0.2, color="red4") + 
+  facet_grid(herb ~ .) + 
+  ggtitle("Late application, experiment 1") +
+  theme_bw() + theme(plot.title =  element_text(size=25, hjust=0.5, color="black", face="bold"),
+                     axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"), 
+                     legend.position="none",
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Injury (%)", x="Distance from plot center (m)")  +
+  scale_x_continuous(breaks=c(0,0.3,0.6,0.9,1.2,1.5,1.8,2.1,2.4,2.7, 3)) +
+  scale_y_continuous(limits=c(0, 30)) +
+  ggsave("R1Late.tiff", units="in", width=10, height=8, dpi=600)
+```
+
+SB25b Late, 28 DAT
+```{r}
+data4 = Data%>%
+  filter(Trial=="SB25b", App=="Late", Rating=="28 DAT")
+data4 <- subset(data4, herb!="none")
+table(data4$herb)
+table(droplevels(data4)$herb)
+str(data4)
+
+ggplot(data4, aes(x = Distance, y=injury, group=Distance, fill=injury)) +
+  geom_boxplot(fill="mistyrose4") + geom_jitter(alpha=0.2, color="red4") + 
+  facet_grid(herb ~ .) + 
+  ggtitle("Late application, experiment 2") +
+  theme_bw() + theme(plot.title =  element_text(size=25, hjust=0.5, color="black", face="bold"),
+                     axis.title.y = element_text(size=25, color="black", face="bold"),
+                     axis.title.x = element_text(size=25, color="black"), 
+                     legend.position="none",
+                     axis.text.x = element_text(size=15, color="black"),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="Injury (%)", x="Distance from plot center (m)") +
+  scale_x_continuous(breaks=c(0,0.3,0.6,0.9,1.2,1.5,1.8,2.1,2.4,2.7, 3)) +
+  scale_y_continuous(limits=c(0, 30)) +
+  ggsave("R2Late.tiff", units="in", width=10, height=8, dpi=600)
+```
+
+#Area Under Disease Progress Stairs Calculations
+
+Using agricolae's "audps" function for calculation.
+
+```{r AUDPS calculations}
+#Filter data to plot level
+data = Data %>%
+  filter(Trial=="SB25b", Rating=="28 DAT", Plot=="312")
+#check to make sure data looks right before calculation
+plot(data$Distance, data$injury)
+#Calculation below. Specify "absolute" or "relative" for type=. Transcribe value in datafile, repeat process for all other plots.
+audps(data$injury, data$Distance, type="absolute")
+```
+
+
+#AUDPS analysis
+
+```{r AUDPS analysis}
+#upload new data file
+Data2 <- read.csv("audps.csv", header=T)
+str(Data2)
+Data2$Trt= as.factor(Data2$Trt)
+Data2$run=as.factor(Data2$run)
+Data2$rep=as.factor(Data2$rep)
+str(Data2)
+
+mean <-round(tapply(Data2$audps,Data2$Trt.Des, mean),2)
+mean
+#went back into datafile and mean for Check was 1.75 so that number was subtracted from each plot and reset to 0 for anything <0, renamed variable AUDPS and imported data file again
+
+Data2 <- read.csv("audps.csv", header=T)
+str(Data2)
+Data2$Trt= as.factor(Data2$Trt)
+Data2$run=as.factor(Data2$run)
+Data2$rep=as.factor(Data2$rep)
+str(Data2)
+```
+
+```{r Model assumptions}
+Data2 <- subset(Data2, Trt.Des!="Check")
+table(Data2$Trt.Des)
+table(droplevels(Data2)$Trt.Des)
+str(Data2)
+Data2 <- subset(Data2, herb!="none")
+table(Data2$herb)
+table(droplevels(Data2)$herb)
+str(Data2)
+Data2 <- subset(Data2, gly!="none")
+table(Data2$gly)
+table(droplevels(Data2)$gly)
+str(Data2)
+Data2$app
+
+Data2 <- Data2 %>%   
+  mutate(tAUDPS = sqrt(AUDPS))
+
+#First, run the model
+model=lmer(sqrt(AUDPS) ~ run*app*herb*gly + (1|run:rep), data=Data2)
+
+#Assess assumptions
+#normality - statistical tests and graphical checks
+residuals = resid(model)
+shapiro.test(residuals)
+pearson.test(residuals)
+qqnorm(residuals); qqline(residuals, col=2)
+hist(residuals,freq=F, xlab="Residuals", ylab="Frequency", main="")
+#equal variance - statistical tests and graphical checks
+leveneTest(tAUDPS ~ herb*gly, data=Data2)
+plot(model)
+
+#then, proceed with analysis
+summary(model)
+anova(model, test.statistic = "F")
+
+#model2=lmer(sqrt(AUDPS) ~ run*app*herb + (1|run:rep), data=Data2)
+#summary(model2)
+#anova(model2, test.statistic = "F")
+```
+
+```{r}
+lsm <- emmeans(model, ~ herb | app*run,  type="response", adjust="tukey", contr="pairwise")
+lsm
+
+cld <- CLD(lsm, adjust="tukey", reversed=TRUE, Letters= letters)
+cld
+```
+
+
+#AUIDS figures by herbicide for specified/filtered application timing and run combinations for posters
+
+```{r}
+cld1 = cld%>%
+  filter(app=="early", run=="1")
+
+ggplot(cld1, aes(x = herb, y=response, label=.group, fill=herb)) +
+  geom_bar(stat="identity", width = 0.6, color="black") + 
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  ggtitle("Early Application, Run 1") +
+  scale_fill_manual(values=c("#646569", "#adadad", "#c5050c"), name="", 
+                    labels=c("2,4-D", "NA+DIF", "DGA+VG")) +
+  theme_bw() + theme(plot.title =  element_text(size=25, color="black", face="bold"),
+                     axis.title.y = element_text(size=20, color="black", face="bold"),
+                     #axis.title.x = element_text(size=25, color="black", face="bold"),
+                     legend.position="bottom", legend.direction = "horizontal", 
+                     legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 20), 
+                     legend.title = element_blank(),
+                     axis.text.x = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="AUIDS", x="") +
+  scale_y_continuous(limits=c(0,50)) +
+  ggsave("R1EarlyV2.tiff", units="in", width=10, height=8, dpi=600)
+```
+
+```{r}
+cld2 = cld%>%
+  filter(app=="early", run=="2")
+
+ggplot(cld2, aes(x = herb, y=response, label=.group, fill=herb)) +
+  geom_bar(stat="identity", width = 0.6, color="black") + 
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  ggtitle("Early Application, Run 2") +
+  scale_fill_manual(values=c("#646569", "#adadad", "#c5050c"), name="", 
+                    labels=c("2,4-D", "NA+DIF", "DGA+VG")) +
+  theme_bw() + theme(plot.title =  element_text(size=25, color="black", face="bold"),
+                     axis.title.y = element_text(size=20, color="black", face="bold"),
+                     #axis.title.x = element_text(size=25, color="black", face="bold"),
+                     legend.position="bottom", legend.direction = "horizontal", 
+                     legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 20), 
+                     legend.title = element_blank(),
+                     axis.text.x = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="AUIDS", x="") +
+  scale_y_continuous(breaks=c(0,10,20,30,40,50)) +
+  ggsave("R2EarlyV2.tiff", units="in", width=10, height=8, dpi=600)
+```
+
+```{r}
+cld3 = cld%>%
+  filter(app=="late", run=="1")
+
+ggplot(cld3, aes(x = herb, y=response, label=.group, fill=herb)) +
+  geom_bar(stat="identity", width = 0.6, color="black") + 
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  ggtitle("Late Application, Run 1") +
+  scale_fill_manual(values=c("#646569", "#adadad", "#c5050c"), name="", 
+                    labels=c("2,4-D", "NA+DIF", "DGA+VG")) +
+  theme_bw() + theme(plot.title =  element_text(size=25, color="black", face="bold"),
+                     axis.title.y = element_text(size=20, color="black", face="bold"),
+                     #axis.title.x = element_text(size=25, color="black", face="bold"),
+                     legend.position="bottom", legend.direction = "horizontal", 
+                     legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 20), 
+                     legend.title = element_blank(),
+                     axis.text.x = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="AUIDS", x="") +
+  scale_y_continuous(limits=c(0,50)) +
+  ggsave("R1LateV2.tiff", units="in", width=10, height=8, dpi=600)
+```
+
+```{r}
+cld4 = cld%>%
+  filter(app=="late", run=="2")
+
+ggplot(cld4, aes(x = herb, y=response, label=.group, fill=herb)) +
+  geom_bar(stat="identity", width = 0.6, color="black") + 
+  geom_errorbar(aes(ymin  =  lower.CL, ymax  =  upper.CL), width =  0.1, size  =  0.7) +
+  ggtitle("Late Application, Run 2") +
+  scale_fill_manual(values=c("#646569", "#adadad", "#c5050c"), name="", 
+                    labels=c("2,4-D", "NA+DIF", "DGA+VG")) +
+  theme_bw() + theme(plot.title =  element_text(size=25, color="black", face="bold"),
+                     axis.title.y = element_text(size=20, color="black", face="bold"),
+                     #axis.title.x = element_text(size=25, color="black", face="bold"),
+                     legend.position="bottom", legend.direction = "horizontal", 
+                     legend.box = "horizontal", 
+                     legend.text = element_text(color="black", size = 20), 
+                     legend.title = element_blank(),
+                     axis.text.x = element_blank(),
+                     axis.title.x = element_blank(),
+                     axis.text.y = element_text(size=15, color="black"), 
+                     strip.text.y = element_text(size=25, color="black", face="bold"),
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  labs(y="AUIDS", x="") +
+  scale_y_continuous(breaks=c(0,10,20,30,40,50)) +
+  ggsave("R2LateV2.tiff", units="in", width=10, height=8, dpi=600)
+```
+
