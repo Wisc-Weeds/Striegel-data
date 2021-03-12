@@ -81,9 +81,9 @@ control4 <- control3 %>%
 
 ```{r check-anova}
 control4 %>% 
-  filter(site == "Lancaster") %>% 
+  filter(site == "Brooklyn") %>% 
   unnest(anova)
-# You can check your ANOVA by filtering for each pop and rate
+# You can check your ANOVA by filtering
 ```
 
 

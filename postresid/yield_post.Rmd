@@ -71,7 +71,7 @@ yield4 <- yield3 %>%
 
 ```{r check-anova}
 yield4 %>% 
-  filter(site == "Arlington") %>% 
+  filter(site == "Janesville") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
 ```

@@ -40,7 +40,7 @@ seed1 <- seed %>%
     year = as.factor(year),
     trt = as.factor(trt)) %>% 
   filter(!trt %in% c("1", "2")) %>% 
-  dplyr::select(site, year, block, trt, trt_des, post, residual, mseed) %>% 
+  dplyr::select(site, year, block, trt, trt_des, post, residual, mseed, seedvia, viaseed) %>% 
   mutate(mseed = round(mseed, 0)) %>% 
   mutate(mseed = case_when(
     site == "Brooklyn" & post == "C" & residual == "no" ~  1,
@@ -79,7 +79,7 @@ seed4 <- seed3 %>%
 
 ```{r check-anova}
 seed4 %>% 
-  filter(site == "Brooklyn") %>% 
+  filter(site == "Janesville") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering for each pop and rate
 ```

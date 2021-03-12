@@ -1,129 +1,129 @@
-Site,Year,Siteyr,Plot,Block,Trt,Trt Des,POST,residual,est plants per plot area,seeds per plant,iAMBTR,mAMBTR,viaAMBTR,iAMBEL,mAMBEL,viaAMBEL,iAMATU,mAMATU,viaAMATU,mseed
-Janesville,2018,ROK18,101,1,4,M POST,B,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,102,1,1,Check,none,,186,294,218.74,2354.46,0.6,,,,,,,2354.46
-Janesville,2018,ROK18,103,1,5,L POST,C,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,104,1,6,E POST with residual,A,yes,1,186,0.74,8.01,0.6333,,,,,,,8.01
-Janesville,2018,ROK18,105,1,3,E POST,A,no,2,170,1.36,14.64,0.9333,,,,,,,14.64
-Janesville,2018,ROK18,107,1,8,L POST with residual,C,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,108,1,2,PRE,none,,70,137,38.36,412.9,0.7,,,,,,,412.9
-Janesville,2018,ROK18,110,1,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,201,2,5,L POST,C,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,203,2,3,E POST,A,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,204,2,8,L POST with residual,C,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,206,2,1,Check,none,,93,307.5,114.39,1231.28,0.6,,,,,,,1231.28
-Janesville,2018,ROK18,207,2,4,M POST,B,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,208,2,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,209,2,6,E POST with residual,A,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,210,2,2,PRE,none,,116,412,191.17,2057.72,0.8667,,,,,,,2057.72
-Janesville,2018,ROK18,301,3,2,PRE,none,,116,256,118.78,1278.58,0.4,,,,,,,1278.58
-Janesville,2018,ROK18,302,3,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,305,3,5,L POST,C,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,306,3,8,L POST with residual,C,yes,1,3,0.01,0.13,0.3333,,,,,,,0.13
-Janesville,2018,ROK18,307,3,6,E POST with residual,A,yes,2,562,4.5,48.39,0.3333,,,,,,,48.39
-Janesville,2018,ROK18,308,3,1,Check,none,,209,281,234.92,2528.62,0.6667,,,,,,,2528.62
-Janesville,2018,ROK18,309,3,3,E POST,A,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,310,3,4,M POST,B,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,401,4,1,Check,none,,465,343,637.98,6867.16,0.8,,,,,,,6867.16
-Janesville,2018,ROK18,402,4,8,L POST with residual,C,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,403,4,6,E POST with residual,A,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,404,4,4,M POST,B,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,405,4,2,PRE,none,,465,263,489.18,5265.49,0.7333,,,,,,,5265.49
-Janesville,2018,ROK18,406,4,3,E POST,A,no,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,407,4,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0
-Janesville,2018,ROK18,409,4,5,L POST,C,no,0,0,0,0,,,,,,,,0
-Arlington,2019,ARL19,101,1,1,Check,none,,,5739,,,,5739,61772,0.86,,,,61772
-Arlington,2019,ARL19,102,1,2,PRE,none,,,1802,,,,901,9696,0.87,,,,9696
-Arlington,2019,ARL19,103,1,3,E POST,A,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,104,1,4,M POST,B,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,105,1,5,L POST,C,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,106,1,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,107,1,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,108,1,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,201,2,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,202,2,5,L POST,C,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,203,2,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,204,2,1,Check,none,,,6654,,,,9981,107430,0.76,,,,107430
-Arlington,2019,ARL19,205,2,2,PRE,none,,,4208,,,,2104,22647,0.79,,,,22647
-Arlington,2019,ARL19,206,2,4,M POST,B,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,207,2,3,E POST,A,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,208,2,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,301,3,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,302,3,1,Check,none,,,7569,,,,15139,162955,0.94,,,,162955
-Arlington,2019,ARL19,303,3,4,M POST,B,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,304,3,5,L POST,C,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,305,3,3,E POST,A,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,306,3,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,307,3,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,308,3,2,PRE,none,,,2816,,,,2816,30312,0.86,,,,30312
-Arlington,2019,ARL19,401,4,4,M POST,B,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,402,4,3,E POST,A,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,403,4,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,404,4,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,405,4,2,PRE,none,,,6401,,,,6401,68903,0.93,,,,68903
-Arlington,2019,ARL19,406,4,5,L POST,C,no,,0,,,,0,0,,,,,0
-Arlington,2019,ARL19,407,4,1,Check,none,,,4523,,,,11307,121705,0.93,,,,121705
-Arlington,2019,ARL19,408,4,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0
-Janesville,2019,ROK19,101,1,1,Check,none,,,335,1840,19803,0.3333,,,,,,,19803
-Janesville,2019,ROK19,102,1,2,PRE,none,,,132,526,5662,0.4333,,,,,,,5662
-Janesville,2019,ROK19,103,1,3,E POST,A,no,,349,698,7513,0.7,,,,,,,7513
-Janesville,2019,ROK19,104,1,4,M POST,B,no,,80,40,431,0.2,,,,,,,431
-Janesville,2019,ROK19,105,1,5,L POST,C,no,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,106,1,6,E POST with residual,A,yes,,118,118,1265,0.7333,,,,,,,1265
-Janesville,2019,ROK19,107,1,7,M POST with residual,B,yes,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,108,1,8,L POST with residual,C,yes,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,201,2,6,E POST with residual,A,yes,,390,779,8385,0.5667,,,,,,,8385
-Janesville,2019,ROK19,202,2,5,L POST,C,no,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,203,2,7,M POST with residual,B,yes,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,204,2,2,PRE,none,,,100,149,1607,0.5333,,,,,,,1607
-Janesville,2019,ROK19,205,2,8,L POST with residual,C,yes,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,206,2,1,Check,none,,,431,1076,11585,0.6667,,,,,,,11585
-Janesville,2019,ROK19,207,2,3,E POST,A,no,,286,572,6157,0.4333,,,,,,,6157
-Janesville,2019,ROK19,208,2,4,M POST,B,no,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,301,3,7,M POST with residual,B,yes,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,302,3,1,Check,none,,,244,976,10506,0.6667,,,,,,,10506
-Janesville,2019,ROK19,303,3,4,M POST,B,no,,124,62,667,0.4,,,,,,,667
-Janesville,2019,ROK19,304,3,6,E POST with residual,A,yes,,174,261,2809,0.4333,,,,,,,2809
-Janesville,2019,ROK19,305,3,3,E POST,A,no,,457,913,9827,0.4,,,,,,,9827
-Janesville,2019,ROK19,306,3,8,L POST with residual,C,yes,,19,19,205,0.35,,,,,,,205
-Janesville,2019,ROK19,307,3,5,L POST,C,no,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,308,3,2,PRE,none,,,261,912,9814,0.4333,,,,,,,9814
-Janesville,2019,ROK19,401,4,8,L POST with residual,C,yes,,159,80,856,0.5333,,,,,,,856
-Janesville,2019,ROK19,402,4,3,E POST,A,no,,647,647,6959,0.6,,,,,,,6959
-Janesville,2019,ROK19,403,4,6,E POST with residual,A,yes,,205,409,4402,0.5,,,,,,,4402
-Janesville,2019,ROK19,404,4,7,M POST with residual,B,yes,,64,32,342,0.7667,,,,,,,342
-Janesville,2019,ROK19,405,4,5,L POST,C,no,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,406,4,2,PRE,none,,,225,449,4833,0.5666,,,,,,,4833
-Janesville,2019,ROK19,407,4,4,M POST,B,no,,0,0,0,,,,,,,,0
-Janesville,2019,ROK19,408,4,1,Check,none,,,186,465,5005,0.6333,,,,,,,5005
-Brooklyn,2019,BRO19,101,1,1,Check,none,,,1393,,,,,,,21942,236181,0.09,236181
-Brooklyn,2019,BRO19,102,1,2,PRE,none,,,6406,,,,,,,20821,224115,0.04,224115
-Brooklyn,2019,BRO19,103,1,3,E POST,A,no,,8751,,,,,,,43755,470977,0.01,470977
-Brooklyn,2019,BRO19,104,1,4,M POST,B,no,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,105,1,5,L POST,C,no,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,106,1,6,E POST with residual,A,yes,,2800,,,,,,,6300,67812,0.13,67812
-Brooklyn,2019,BRO19,107,1,7,M POST with residual,B,yes,,4246,,,,,,,10614,114252,0.18,114252
-Brooklyn,2019,BRO19,108,1,8,L POST with residual,C,yes,,12328,,,,,,,21573,232215,0.06,232215
-Brooklyn,2019,BRO19,201,2,4,M POST,B,no,,3711,,,,,,,3711,39941,0.04,39941
-Brooklyn,2019,BRO19,202,2,5,L POST,C,no,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,203,2,7,M POST with residual,B,yes,,193,,,,,,,97,1039,0.01,1039
-Brooklyn,2019,BRO19,204,2,1,Check,none,,,2528,,,,,,,49927,537412,0.06,537412
-Brooklyn,2019,BRO19,205,2,8,L POST with residual,C,yes,,961,,,,,,,480,5171,0.11,5171
-Brooklyn,2019,BRO19,206,2,3,E POST,A,no,,3934,,,,,,,12787,137636,0.02,137636
-Brooklyn,2019,BRO19,207,2,2,PRE,none,,,11397,,,,,,,14247,153350,0.11,153350
-Brooklyn,2019,BRO19,208,2,6,E POST with residual,A,yes,,13874,,,,,,,24279,261342,0.02,261342
-Brooklyn,2019,BRO19,301,3,6,E POST with residual,A,yes,,4557,,,,,,,2278,24523,,24523
-Brooklyn,2019,BRO19,302,3,3,E POST,A,no,,1142,,,,,,,3141,33813,0.07,33813
-Brooklyn,2019,BRO19,303,3,8,L POST with residual,C,yes,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,304,3,4,M POST,B,no,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,305,3,2,PRE,none,,,19071,,,,,,,76282,821094,0.03,821094
-Brooklyn,2019,BRO19,306,3,5,L POST,C,no,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,307,3,7,M POST with residual,B,yes,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,308,3,1,Check,none,,,3707,,,,,,,80634,867934,0.07,867934
-Brooklyn,2019,BRO19,401,4,2,PRE,none,,,1753,,,,,,,5258,56597,0.04,56597
-Brooklyn,2019,BRO19,402,4,1,Check,none,,,1393,,,,,,,37266,401133,0.06,401133
-Brooklyn,2019,BRO19,403,4,5,L POST,C,no,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,404,4,6,E POST with residual,A,yes,,990,,,,,,,1237,13319,0.04,13319
-Brooklyn,2019,BRO19,405,4,7,M POST with residual,B,yes,,0,,,,,,,0,0,,0
-Brooklyn,2019,BRO19,406,4,8,L POST with residual,C,yes,,7127,,,,,,,1782,19179,,19179
-Brooklyn,2019,BRO19,407,4,4,M POST,B,no,,629,,,,,,,314,3384,0.01,3384
-Brooklyn,2019,BRO19,408,4,3,E POST,A,no,,912,,,,,,,3650,39287,0.01,39287
+Site,Year,Siteyr,Plot,Block,Trt,Trt Des,POST,residual,est plants per plot area,seeds per plant,iAMBTR,mAMBTR,viaAMBTR,iAMBEL,mAMBEL,viaAMBEL,iAMATU,mAMATU,viaAMATU,mseed,seedvia,viaseed
+Janesville,2018,ROK18,101,1,4,M POST,B,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,102,1,1,Check,none,,186,294,218.74,2354.46,0.6,,,,,,,2354.46,0.6,1413
+Janesville,2018,ROK18,103,1,5,L POST,C,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,104,1,6,E POST with residual,A,yes,1,186,0.74,8.01,0.6333,,,,,,,8.01,0.6333,5
+Janesville,2018,ROK18,105,1,3,E POST,A,no,2,170,1.36,14.64,0.9333,,,,,,,14.64,0.9333,14
+Janesville,2018,ROK18,107,1,8,L POST with residual,C,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,108,1,2,PRE,none,,70,137,38.36,412.9,0.7,,,,,,,412.9,0.7,289
+Janesville,2018,ROK18,110,1,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,201,2,5,L POST,C,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,203,2,3,E POST,A,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,204,2,8,L POST with residual,C,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,206,2,1,Check,none,,93,307.5,114.39,1231.28,0.6,,,,,,,1231.28,0.6,739
+Janesville,2018,ROK18,207,2,4,M POST,B,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,208,2,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,209,2,6,E POST with residual,A,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,210,2,2,PRE,none,,116,412,191.17,2057.72,0.8667,,,,,,,2057.72,0.8667,1783
+Janesville,2018,ROK18,301,3,2,PRE,none,,116,256,118.78,1278.58,0.4,,,,,,,1278.58,0.4,511
+Janesville,2018,ROK18,302,3,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,305,3,5,L POST,C,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,306,3,8,L POST with residual,C,yes,1,3,0.01,0.13,0.3333,,,,,,,0.13,0.3333,0
+Janesville,2018,ROK18,307,3,6,E POST with residual,A,yes,2,562,4.5,48.39,0.3333,,,,,,,48.39,0.3333,16
+Janesville,2018,ROK18,308,3,1,Check,none,,209,281,234.92,2528.62,0.6667,,,,,,,2528.62,0.6667,1686
+Janesville,2018,ROK18,309,3,3,E POST,A,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,310,3,4,M POST,B,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,401,4,1,Check,none,,465,343,637.98,6867.16,0.8,,,,,,,6867.16,0.8,5494
+Janesville,2018,ROK18,402,4,8,L POST with residual,C,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,403,4,6,E POST with residual,A,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,404,4,4,M POST,B,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,405,4,2,PRE,none,,465,263,489.18,5265.49,0.7333,,,,,,,5265.49,0.7333,3861
+Janesville,2018,ROK18,406,4,3,E POST,A,no,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,407,4,7,M POST with residual,B,yes,0,0,0,0,,,,,,,,0,,0
+Janesville,2018,ROK18,409,4,5,L POST,C,no,0,0,0,0,,,,,,,,0,,0
+Arlington,2019,ARL19,101,1,1,Check,none,,,5739,,,,5739,61772,0.86,,,,61772,0.86,53124
+Arlington,2019,ARL19,102,1,2,PRE,none,,,1802,,,,901,9696,0.87,,,,9696,0.87,8436
+Arlington,2019,ARL19,103,1,3,E POST,A,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,104,1,4,M POST,B,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,105,1,5,L POST,C,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,106,1,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,107,1,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,108,1,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,201,2,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,202,2,5,L POST,C,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,203,2,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,204,2,1,Check,none,,,6654,,,,9981,107430,0.76,,,,107430,0.76,81647
+Arlington,2019,ARL19,205,2,2,PRE,none,,,4208,,,,2104,22647,0.79,,,,22647,0.79,17891
+Arlington,2019,ARL19,206,2,4,M POST,B,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,207,2,3,E POST,A,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,208,2,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,301,3,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,302,3,1,Check,none,,,7569,,,,15139,162955,0.94,,,,162955,0.94,153178
+Arlington,2019,ARL19,303,3,4,M POST,B,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,304,3,5,L POST,C,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,305,3,3,E POST,A,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,306,3,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,307,3,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,308,3,2,PRE,none,,,2816,,,,2816,30312,0.86,,,,30312,0.86,26068
+Arlington,2019,ARL19,401,4,4,M POST,B,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,402,4,3,E POST,A,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,403,4,7,M POST with residual,B,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,404,4,8,L POST with residual,C,yes,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,405,4,2,PRE,none,,,6401,,,,6401,68903,0.93,,,,68903,0.93,64080
+Arlington,2019,ARL19,406,4,5,L POST,C,no,,0,,,,0,0,,,,,0,,0
+Arlington,2019,ARL19,407,4,1,Check,none,,,4523,,,,11307,121705,0.93,,,,121705,0.93,113186
+Arlington,2019,ARL19,408,4,6,E POST with residual,A,yes,,0,,,,0,0,,,,,0,,0
+Janesville,2019,ROK19,101,1,1,Check,none,,,335,1840,19803,0.3333,,,,,,,19803,0.3333,6600
+Janesville,2019,ROK19,102,1,2,PRE,none,,,132,526,5662,0.4333,,,,,,,5662,0.4333,2453
+Janesville,2019,ROK19,103,1,3,E POST,A,no,,349,698,7513,0.7,,,,,,,7513,0.7,5259
+Janesville,2019,ROK19,104,1,4,M POST,B,no,,80,40,431,0.2,,,,,,,431,0.2,86
+Janesville,2019,ROK19,105,1,5,L POST,C,no,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,106,1,6,E POST with residual,A,yes,,118,118,1265,0.7333,,,,,,,1265,0.7333,928
+Janesville,2019,ROK19,107,1,7,M POST with residual,B,yes,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,108,1,8,L POST with residual,C,yes,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,201,2,6,E POST with residual,A,yes,,390,779,8385,0.5667,,,,,,,8385,0.5667,4752
+Janesville,2019,ROK19,202,2,5,L POST,C,no,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,203,2,7,M POST with residual,B,yes,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,204,2,2,PRE,none,,,100,149,1607,0.5333,,,,,,,1607,0.5333,857
+Janesville,2019,ROK19,205,2,8,L POST with residual,C,yes,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,206,2,1,Check,none,,,431,1076,11585,0.6667,,,,,,,11585,0.6667,7724
+Janesville,2019,ROK19,207,2,3,E POST,A,no,,286,572,6157,0.4333,,,,,,,6157,0.4333,2668
+Janesville,2019,ROK19,208,2,4,M POST,B,no,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,301,3,7,M POST with residual,B,yes,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,302,3,1,Check,none,,,244,976,10506,0.6667,,,,,,,10506,0.6667,7004
+Janesville,2019,ROK19,303,3,4,M POST,B,no,,124,62,667,0.4,,,,,,,667,0.4,267
+Janesville,2019,ROK19,304,3,6,E POST with residual,A,yes,,174,261,2809,0.4333,,,,,,,2809,0.4333,1217
+Janesville,2019,ROK19,305,3,3,E POST,A,no,,457,913,9827,0.4,,,,,,,9827,0.4,3931
+Janesville,2019,ROK19,306,3,8,L POST with residual,C,yes,,19,19,205,0.35,,,,,,,205,0.35,72
+Janesville,2019,ROK19,307,3,5,L POST,C,no,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,308,3,2,PRE,none,,,261,912,9814,0.4333,,,,,,,9814,0.4333,4252
+Janesville,2019,ROK19,401,4,8,L POST with residual,C,yes,,159,80,856,0.5333,,,,,,,856,0.5333,457
+Janesville,2019,ROK19,402,4,3,E POST,A,no,,647,647,6959,0.6,,,,,,,6959,0.6,4175
+Janesville,2019,ROK19,403,4,6,E POST with residual,A,yes,,205,409,4402,0.5,,,,,,,4402,0.5,2201
+Janesville,2019,ROK19,404,4,7,M POST with residual,B,yes,,64,32,342,0.7667,,,,,,,342,0.7667,262
+Janesville,2019,ROK19,405,4,5,L POST,C,no,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,406,4,2,PRE,none,,,225,449,4833,0.5666,,,,,,,4833,0.5666,2738
+Janesville,2019,ROK19,407,4,4,M POST,B,no,,0,0,0,,,,,,,,0,,0
+Janesville,2019,ROK19,408,4,1,Check,none,,,186,465,5005,0.6333,,,,,,,5005,0.6333,3170
+Brooklyn,2019,BRO19,101,1,1,Check,none,,,1393,,,,,,,21942,236181,0.09,236181,0.09,21256
+Brooklyn,2019,BRO19,102,1,2,PRE,none,,,6406,,,,,,,20821,224115,0.04,224115,0.04,8965
+Brooklyn,2019,BRO19,103,1,3,E POST,A,no,,8751,,,,,,,43755,470977,0.01,470977,0.01,4710
+Brooklyn,2019,BRO19,104,1,4,M POST,B,no,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,105,1,5,L POST,C,no,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,106,1,6,E POST with residual,A,yes,,2800,,,,,,,6300,67812,0.13,67812,0.13,8816
+Brooklyn,2019,BRO19,107,1,7,M POST with residual,B,yes,,4246,,,,,,,10614,114252,0.18,114252,0.18,20565
+Brooklyn,2019,BRO19,108,1,8,L POST with residual,C,yes,,12328,,,,,,,21573,232215,0.06,232215,0.06,13933
+Brooklyn,2019,BRO19,201,2,4,M POST,B,no,,3711,,,,,,,3711,39941,0.04,39941,0.04,1598
+Brooklyn,2019,BRO19,202,2,5,L POST,C,no,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,203,2,7,M POST with residual,B,yes,,193,,,,,,,97,1039,0.01,1039,0.01,10
+Brooklyn,2019,BRO19,204,2,1,Check,none,,,2528,,,,,,,49927,537412,0.06,537412,0.06,32245
+Brooklyn,2019,BRO19,205,2,8,L POST with residual,C,yes,,961,,,,,,,480,5171,0.11,5171,0.11,569
+Brooklyn,2019,BRO19,206,2,3,E POST,A,no,,3934,,,,,,,12787,137636,0.02,137636,0.02,2753
+Brooklyn,2019,BRO19,207,2,2,PRE,none,,,11397,,,,,,,14247,153350,0.11,153350,0.11,16869
+Brooklyn,2019,BRO19,208,2,6,E POST with residual,A,yes,,13874,,,,,,,24279,261342,0.02,261342,0.02,5227
+Brooklyn,2019,BRO19,301,3,6,E POST with residual,A,yes,,4557,,,,,,,2278,24523,,24523,,0
+Brooklyn,2019,BRO19,302,3,3,E POST,A,no,,1142,,,,,,,3141,33813,0.07,33813,0.07,2367
+Brooklyn,2019,BRO19,303,3,8,L POST with residual,C,yes,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,304,3,4,M POST,B,no,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,305,3,2,PRE,none,,,19071,,,,,,,76282,821094,0.03,821094,0.03,24633
+Brooklyn,2019,BRO19,306,3,5,L POST,C,no,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,307,3,7,M POST with residual,B,yes,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,308,3,1,Check,none,,,3707,,,,,,,80634,867934,0.07,867934,0.07,60755
+Brooklyn,2019,BRO19,401,4,2,PRE,none,,,1753,,,,,,,5258,56597,0.04,56597,0.04,2264
+Brooklyn,2019,BRO19,402,4,1,Check,none,,,1393,,,,,,,37266,401133,0.06,401133,0.06,24068
+Brooklyn,2019,BRO19,403,4,5,L POST,C,no,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,404,4,6,E POST with residual,A,yes,,990,,,,,,,1237,13319,0.04,13319,0.04,533
+Brooklyn,2019,BRO19,405,4,7,M POST with residual,B,yes,,0,,,,,,,0,0,,0,,0
+Brooklyn,2019,BRO19,406,4,8,L POST with residual,C,yes,,7127,,,,,,,1782,19179,,19179,,0
+Brooklyn,2019,BRO19,407,4,4,M POST,B,no,,629,,,,,,,314,3384,0.01,3384,0.01,34
+Brooklyn,2019,BRO19,408,4,3,E POST,A,no,,912,,,,,,,3650,39287,0.01,39287,0.01,393

@@ -121,6 +121,7 @@ ggplot(janes_data, aes(x=doy, y = (emergence * 100), color = trt, shape=trt)) +
 
 ```{r}
 EDcomp(janes_model, c(50, 50), type = "relative")
+ED(janes_model, c(0.1,0.5,0.9), type="absolute", interval = "delta")
 summary(janes_model)
 ```
 
@@ -181,6 +182,128 @@ ggplot(brook_data, aes(x=doy, y = (emergence * 100), color = trt, shape=trt)) +
 
 ```{r}
 EDcomp(brook_model, c(50, 50), type = "relative")
+ED(brook_model, c(0.1,0.5,0.9), type="absolute", interval = "delta")
 summary(brook_model)
 ```
 
+
+# Arlington
+
+```{r}
+arl_model <- emergence4$model[[1]]
+arl_data <- emergence4 %>% 
+  unnest(data) %>% 
+  filter(location == "Arlington" & weeds == "ambel") 
+  
+
+newdata <- expand.grid(doy = exp(seq(log(135), log(212), length = 212)))
+
+newdata1 <- data.frame(trt = "NTC", newdata)
+newdata2 <- data.frame(trt = "PRE", newdata)
+
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(arl_model, newdata = nd, interval="confidence")
+
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+
+arl_data$doy0 <- arl_data$doy
+arl_data$doy0[arl_data$doy0==135] <- 135
+
+nd <- nd %>% 
+  mutate_if(is_character, as_factor)
+```
+
+
+```{r}
+ggplot(arl_data, aes(x=doy, y = (emergence * 100), color = trt, shape=trt)) + 
+  geom_point(size=1, alpha = 0.6) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=doy, y=(p*100)), size=1) +
+  theme_light() + 
+  theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) 
+```
+
+```{r}
+EDcomp(arl_model, c(50, 50), type = "relative")
+ED(arl_model, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+summary(arl_model)
+```
+
+
+# Lancaster
+
+```{r}
+lan_model <- emergence4$model[[3]]
+lan_data <- emergence4 %>% 
+  unnest(data) %>% 
+  filter(location == "Lancaster" & weeds == "cheal") 
+  
+
+newdata <- expand.grid(doy = exp(seq(log(135), log(212), length = 212)))
+
+newdata1 <- data.frame(trt = "NTC", newdata)
+newdata2 <- data.frame(trt = "PRE", newdata)
+
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(lan_model, newdata = nd, interval="confidence")
+
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+
+lan_data$doy0 <- lan_data$doy
+lan_data$doy0[lan_data$doy0==135] <- 135
+
+nd <- nd %>% 
+  mutate_if(is_character, as_factor)
+```
+
+
+```{r}
+ggplot(lan_data, aes(x=doy, y = (emergence * 100), color = trt, shape=trt)) + 
+  geom_point(size=1, alpha = 0.6) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=doy, y=(p*100)), size=1) +
+  theme_light() + 
+  theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) 
+```
+
+```{r}
+EDcomp(lan_model, c(50, 50), type = "relative")
+ED(lan_model, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+summary(lan_model)
+```

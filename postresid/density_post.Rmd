@@ -81,7 +81,7 @@ density4 <- density3 %>%
 
 ```{r check-anova}
 density4 %>% 
-  filter(site == "Lancaster") %>% 
+  filter(site == "Brooklyn") %>% 
   unnest(anova)
 # You can check your ANOVA by filtering
 ```
