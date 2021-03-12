@@ -1,0 +1,752 @@
+---
+title: "Cumulative Weed Emergence"
+author: "SS"
+date: "3/9/2020"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r include=FALSE}
+library(betareg)
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(lme4)
+library(car)
+library(emmeans)
+library(multcompView)
+library(agricolae)
+library(nlme)
+library(lmerTest)
+library(multcomp)
+library(bestNormalize)
+library(glmmTMB)
+library(ggpubr)
+library(nortest)
+library(RColorBrewer)
+library(dplyr)
+library(drc)
+library(paletteer)
+```
+
+```{r include=FALSE}
+Data <- read.csv("WeedEmerge.csv", header=T)
+str(Data)
+Data$Year=as.factor(Data$Year)
+Data$Trt=as.factor(Data$Trt)
+
+Data1 = Data %>%
+  filter(Location=="Janesville")
+data1 = Data %>%
+  filter(Siteyr=="ROK18")
+data2 = Data %>%
+  filter(Siteyr=="ROK19")
+Data3 = Data %>%
+  filter(Location=="Brooklyn")
+data3 = Data %>%
+  filter(Siteyr=="BRO19")
+Data4 = Data %>%
+  filter(Location=="Arlington")
+data4 = Data %>%
+  filter(Siteyr=="ARL18")
+data5 = Data %>%
+  filter(Siteyr=="ARL19")
+Data6 = Data %>%
+  filter(Location=="Lancaster")
+data6 = Data %>%
+  filter(Siteyr=="LAN18")
+data7 = Data %>%
+  filter(Siteyr=="LAN19")
+
+Data2 <- read.csv("WeedEmergeV2.csv", header=T)
+str(Data2)
+Data2$Year=as.factor(Data2$Year)
+Data2$Trt=as.factor(Data2$Trt)
+
+data1.2 = Data2 %>%
+  filter(Siteyr=="ROK18")
+data2.2 = Data2 %>%
+  filter(Siteyr=="ROK19")
+data3.2 = Data2 %>%
+  filter(Siteyr=="BRO19")
+data4.2 = Data2 %>%
+  filter(Siteyr=="ARL18")
+data5.2 = Data2 %>%
+  filter(Siteyr=="ARL19")
+data6.2 = Data2 %>%
+  filter(Siteyr=="LAN18")
+data7.2 = Data2 %>%
+  filter(Siteyr=="LAN19")
+```
+
+```{r Janesville 2018 - giant ragweed emergence NLR, echo=TRUE}
+plot(AMBTR~DOY, data=data1)
+
+#NLR model Janesville 2018 - giant ragweed emergence
+model1 = drm(AMBTR ~ DOY, Trt, fct = l4(), data=data1)
+mselect(model1, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+model1.2 = drm(AMBTR ~ DOY, Trt, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data1)
+summary(model1.2)
+plot(model1.2)
+ED(model1.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+EDcomp(model1.2, c(0.1,0.1), type="absolute")
+EDcomp(model1.2, c(0.5,0.5), type="absolute")
+EDcomp(model1.2, c(0.9,0.9), type="absolute")
+
+#T-TEST COMPARISONS
+t.test(mAMBTR ~ Trt, data=data2.2)
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(145), log(211), by=0.001)))
+
+newdata1 <- data.frame(Trt = "NTC", newdata)
+newdata2 <- data.frame(Trt = "PRE", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(model1.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data1$DOY0 <- data1$DOY
+data1$DOY0[data1$DOY0==145] <- 145
+```
+
+```{r Janesville 2018 - giant ragweed emergence NLR ggplot echo=FALSE}
+ggplot(data1, aes(x=DOY, y=(AMBTR*100), color=Trt)) + 
+  geom_point(aes(shape=Trt, color=Trt), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135,220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Janesville 2018, giant ragweed") +
+  ggsave("AMBTR ROK18.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Janesville 2019 - giant ragweed emergence NLR, echo=TRUE}
+plot(AMBTR~DOY, data=data2)
+
+#NLR model - Janesville 2019 giant ragweed emergence
+model2 = drm(AMBTR ~ DOY, Trt, fct = l4(), data=data2)
+mselect(model2, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+model2.2 = drm(AMBTR ~ DOY, Trt, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data2)
+summary(model2.2)
+plot(model2.2)
+ED(model2.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+EDcomp(model2.2, c(0.1,0.1), type="absolute")
+EDcomp(model2.2, c(0.5,0.5), type="absolute")
+EDcomp(model2.2, c(0.9,0.9), type="absolute")
+
+t.test(mAMBTR ~ Trt, data=data2.2)
+groupwiseMean(mAMBTR~Trt, data=data2.2)
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(135), log(212), by=0.001)))
+
+newdata1 <- data.frame(Trt = "NTC", newdata)
+newdata2 <- data.frame(Trt = "PRE", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(model2.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data2$DOY0 <- data2$DOY
+data2$DOY0[data2$DOY0==135] <- 135
+```
+
+```{r Janesville 2019 - giant ragweed emergence NLR ggplot echo=FALSE}
+ggplot(data2, aes(x=DOY, y=(AMBTR*100), color=Trt)) + 
+  geom_point(aes(shape=Trt, color=Trt), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Janesville 2019, giant ragweed") +
+  ggsave("AMBTR ROK19.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Brooklyn 2019 - waterhemp emergence NLR, echo=TRUE}
+plot(AMATU~DOY, data=data3)
+
+#NLR model - Brooklyn 2019 waterhemp emergence
+model3 = drm(AMATU ~ DOY, Trt, fct = l4(), data=data3)
+mselect(model3, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+model3.2 = drm(AMATU ~ DOY, Trt, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data3)
+summary(model3.2)
+plot(model3.2)
+ED(model3.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+EDcomp(model3.2, c(0.1,0.1), type="absolute")
+EDcomp(model3.2, c(0.5,0.5), type="absolute")
+EDcomp(model3.2, c(0.9,0.9), type="absolute")
+
+t.test(mAMATU ~ Trt, data=data3.2)
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(154), log(219), by=0.001)))
+
+newdata1 <- data.frame(Trt = "NTC", newdata)
+newdata2 <- data.frame(Trt = "PRE", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(model3.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data3$DOY0 <- data3$DOY
+data3$DOY0[data3$DOY0==154] <- 154
+```
+
+```{r Brooklyn 2019 - waterhemp emergence NLR ggplot echo=FALSE}
+ggplot(data3, aes(x=DOY, y=(AMATU*100), color=Trt)) + 
+  geom_point(aes(shape=Trt, color=Trt), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Brooklyn 2019, waterhemp") +
+  ggsave("AMATU BRO19.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Arlington 2018 - common ragweed emergence NLR, echo=TRUE}
+plot(AMBEL~DOY, data=data4)
+
+#NLR model - Arlington 2018 common ragweed emergence
+model4 = drm(AMBEL ~ DOY, fct = l4(), data=data4)
+mselect(model4, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+model4.2 = drm(AMBEL ~ DOY, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data4)
+summary(model4.2)
+plot(model4.2) 
+ED(model4.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+
+t.test(mAMBEL ~ Trt, data=data4.2)
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(144), log(212), by=0.001)))
+
+nd <- data.frame(Trt = "NTC", newdata)
+#newdata1 <- data.frame(Trt = "NTC", newdata)
+#newdata2 <- data.frame(Trt = "PRE", newdata)
+#nd <- rbind(newdata1, newdata2)
+
+pm <- predict(model4.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data4$DOY0 <- data4$DOY
+data4$DOY0[data4$DOY0==144] <- 144
+```
+
+```{r Arlington 2018 - common ragweed emergence NLR ggplot echo=FALSE}
+ggplot(data4, aes(x=DOY, y=(AMBEL*100), color=Trt)) + 
+  geom_point(aes(shape=Trt, color=Trt), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Arlington 2018, common ragweed") +
+  ggsave("AMBEL ARL18.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Arlington 2019 - common ragweed emergence NLR, echo=TRUE}
+plot(AMBEL~DOY, data=data5)
+
+#NLR model - Arlington 2019 common ragweed emergence
+model5 = drm(AMBEL ~ DOY, Trt, fct = l4(), data=data5)
+mselect(model5, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+model5.2 = drm(AMBEL ~ DOY, Trt, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data5)
+summary(model5.2)
+plot(model5.2)
+ED(model5.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+
+t.test(mAMBEL ~ Trt, data=data5.2)
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(133), log(211), by=0.001)))
+
+nd <- data.frame(Trt = "NTC", newdata)
+#newdata1 <- data.frame(Trt = "NTC", newdata)
+#newdata2 <- data.frame(Trt = "PRE", newdata)
+#nd <- rbind(newdata1, newdata2)
+
+pm <- predict(model5.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data5$DOY0 <- data5$DOY
+data5$DOY0[data5$DOY0==133] <- 133
+```
+
+```{r Arlington 2019 - common ragweed emergence NLR ggplot echo=FALSE}
+ggplot(data5, aes(x=DOY, y=(AMBEL*100), color=Trt)) + 
+  geom_point(aes(shape=Trt, color=Trt), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Arlington 2019, common ragweed") +
+  ggsave("AMBEL ARL19.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Lancaster 2018 - common LQ emergence NLR, echo=TRUE}
+plot(CHEAL~DOY, data=data6)
+
+#NLR model - Lancaster 2018 common LQ emergence
+model6 = drm(CHEAL ~ DOY, Trt, fct = l4(), data=data6)
+mselect(model6, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+model6.2 = drm(CHEAL ~ DOY, Trt, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data6)
+summary(model6.2)
+plot(model6.2)
+ED(model6.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+EDcomp(model6.2, c(0.1,0.1), type="absolute")
+EDcomp(model6.2, c(0.5,0.5), type="absolute")
+EDcomp(model6.2, c(0.9,0.9), type="absolute")
+
+t.test(mCHEAL ~ Trt, data=data6.2)
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(144), log(213), by=0.001)))
+
+newdata1 <- data.frame(Trt = "NTC", newdata)
+newdata2 <- data.frame(Trt = "PRE", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(model6.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data6$DOY0 <- data6$DOY
+data6$DOY0[data6$DOY0==144] <- 144
+```
+
+```{r Lancaster 2018 - common LQ emergence NLR ggplot echo=FALSE}
+ggplot(data6, aes(x=DOY, y=(CHEAL*100), color=Trt)) + 
+  geom_point(aes(shape=Trt, color=Trt), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Lancaster 2018, common lambsquarters") +
+  ggsave("CHEAL LAN18.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Lancaster 2019 - common LQ emergence NLR, echo=TRUE}
+plot(CHEAL~DOY, data=data7)
+
+#NLR model - Lancaster 2019 common LQ emergence
+model7 = drm(CHEAL ~ DOY, fct = l4(), data=data7)
+mselect(model7, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+model7.2 = drm(CHEAL ~ DOY, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data7)
+summary(model7.2)
+plot(model7.2) 
+ED(model7.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+
+t.test(mCHEAL ~ Trt, data=data7.2)
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(143), log(210), by=0.001)))
+
+nd <- data.frame(Trt = "NTC", newdata)
+#newdata1 <- data.frame(Trt = "NTC", newdata)
+#newdata2 <- data.frame(Trt = "PRE", newdata)
+#nd <- rbind(newdata1, newdata2)
+
+pm <- predict(model7.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data7$DOY0 <- data7$DOY
+data7$DOY0[data7$DOY0==143] <- 143
+```
+
+```{r Lancaster 2019 - common LQ emergence NLR ggplot echo=FALSE}
+ggplot(data7, aes(x=DOY, y=(CHEAL*100), color=Trt)) + 
+  geom_point(aes(shape=Trt, color=Trt), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Treatment") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Trt), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.5),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  #ggtitle("Lancaster 2019, common lambsquarters") +
+  ggsave("CHEAL LAN19.2.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+
+```{r}
+Data3 <- read.csv("weedcomposition.csv", header=T)
+str(Data3)
+Data3$Year=as.factor(Data3$Year)
+Data3$Trt=as.factor(Data3$Trt)
+
+data1 = Data3 %>%
+  filter(Siteyr=="ROK18")
+data2 = Data3 %>%
+  filter(Siteyr=="ROK19")
+data3 = Data3 %>%
+  filter(Siteyr=="BRO19")
+data4 = Data3 %>%
+  filter(Siteyr=="ARL18")
+data5 = Data3 %>%
+  filter(Siteyr=="ARL19")
+data6 = Data3 %>%
+  filter(Siteyr=="LAN18")
+data7 = Data3 %>%
+  filter(Siteyr=="LAN19")
+
+#t.test(mERIVI ~ Trt, data=data3)
+data1.1 = data4 %>%
+  filter(Trt=="NTC")
+data1.2 = data4 %>%
+  filter(Trt=="PRE")
+se1.1 = sd(data1.1$mSETPU)/(sqrt(8))
+se1.1
+se1.2 = sd(data1.2$mSETPU)/(sqrt(8))
+se1.2
+```
+
+######## combine years, only one treatment
+
+```{r Janesville - giant ragweed emergence NLR, echo=TRUE}
+Data1 = Data1 %>%
+  filter(Trt == "PRE")
+plot(AMBTR~DOY, data=Data1)
+
+#NLR model Janesville - giant ragweed emergence
+Model1 = drm(AMBTR ~ DOY, Year, fct = l4(), data=Data1)
+mselect(Model1, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+Model1.2 = drm(AMBTR ~ DOY, Year, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=Data1)
+summary(Model1.2)
+plot(Model1.2)
+ED(Model1.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+```
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(145), log(211), by=0.001)))
+
+newdata1 <- data.frame(Year = "2018", newdata)
+newdata2 <- data.frame(Year = "2019", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(Model1.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+Data1$DOY0 <- Data1$DOY
+Data1$DOY0[Data1$DOY0==145] <- 145
+```
+
+```{r Janesville - giant ragweed emergence NLR ggplot echo=FALSE}
+ggplot(Data1, aes(x=DOY, y=(AMBTR*100), color=Year)) + 
+  geom_point(aes(shape=Year, color=Year), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Year") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Year), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.75),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135,220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  ggsave("AMBTR ROK.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Brooklyn - waterhemp emergence NLR, echo=TRUE}
+data3 = data3 %>%
+  filter(Trt=="PRE")
+plot(AMATU~DOY, data=data3)
+
+#NLR model - Brooklyn 2019 waterhemp emergence
+Model3 = drm(AMATU ~ DOY, fct = l4(), data=data3)
+mselect(Model3, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+Model3.2 = drm(AMATU ~ DOY, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=data3)
+summary(Model3.2)
+plot(Model3.2)
+ED(Model3.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+nd <- expand.grid(DOY=exp(seq(log(154), log(219), by=0.001)))
+
+pm <- predict(Model3.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+data3$DOY0 <- data3$DOY
+data3$DOY0[data3$DOY0==154] <- 154
+```
+
+```{r Brooklyn 2019 - waterhemp emergence NLR ggplot echo=FALSE}
+ggplot(data3, aes(x=DOY, y=(AMATU*100), color="#c5050c")) + 
+  geom_point(shape=17, color="#c5050c", stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Year") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color="#c5050c"), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.75),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_color_manual(values="#c5050c") + 
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  ggsave("AMATU BRO.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Arlington  - common ragweed emergence NLR, echo=TRUE}
+Data4 = Data4 %>%
+  filter(Trt=="NTC")
+Data4$Year=as.factor(Data4$Year)
+plot(AMBEL~DOY, data=Data4)
+
+#NLR model - Arlington common ragweed emergence
+Model4 = drm(AMBEL ~ DOY, Year, fct = l4(), data=Data4)
+mselect(Model4, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+Model4.2 = drm(AMBEL ~ DOY, Year, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=Data4)
+summary(Model4.2)
+plot(Model4.2) 
+ED(Model4.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(144), log(212), by=0.001)))
+
+newdata1 <- data.frame(Year = "2018", newdata)
+newdata2 <- data.frame(Year = "2019", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(Model4.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+Data4$DOY0 <- Data4$DOY
+Data4$DOY0[Data4$DOY0==144] <- 144
+```
+
+```{r Arlington 2018 - common ragweed emergence NLR ggplot echo=FALSE}
+ggplot(Data4, aes(x=DOY, y=(AMBEL*100), color=Year)) + 
+  geom_point(aes(shape=Year, color=Year), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Year") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Year), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.75),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  ggsave("AMBEL ARL.tiff", units="in", width=3, height=2.35, dpi=600)
+```
+
+```{r Lancaster - common LQ emergence NLR, echo=TRUE}
+Data6 = Data6 %>%
+  filter(Trt=="NTC")
+plot(CHEAL~DOY, data=Data6)
+
+#NLR model - Lancaster common LQ emergence
+Model6 = drm(CHEAL ~ DOY, Year, fct = l4(), data=Data6)
+mselect(Model6, list(l4(), W2.3(), W1.3(), W1.4(), W2.4()), sorted=c("IC", "Res var", "Lack of fit", "no"), icfct = AIC)
+
+Model6.2 = drm(CHEAL ~ DOY, Year, fct = W2.3u(fixed=c(NA, NA, NA), names = c("b", "c", "e")), data=Data6)
+summary(Model6.2)
+plot(Model6.2)
+ED(Model6.2, c(0.1,0.5,0.9), type="absolute", interval = "delta")
+```
+
+```{r warning=FALSE, include=FALSE, message=FALSE}
+newdata <- expand.grid(DOY=exp(seq(log(144), log(213), by=0.001)))
+
+newdata1 <- data.frame(Year = "2018", newdata)
+newdata2 <- data.frame(Year = "2019", newdata)
+nd <- rbind(newdata1, newdata2)
+
+pm <- predict(Model6.2, newdata = nd, interval="confidence")
+nd$p <- pm[,1]
+nd$pmin <- pm[,2]
+nd$pmax <- pm[,3]
+str(nd)
+
+Data6$DOY0 <- Data6$DOY
+Data6$DOY0[Data6$DOY0==144] <- 144
+```
+
+```{r Lancaster - common LQ emergence NLR ggplot echo=FALSE}
+ggplot(Data6, aes(x=DOY, y=(CHEAL*100), color=Year)) + 
+  geom_point(aes(shape=Year, color=Year), stat="identity", size=1) + 
+  labs(y="Cumulative emergence", x="Day of year", color = "Year") +
+  geom_line(data=nd, aes(x=DOY, y=(p*100), color=Year), size=1) +
+    theme_bw() + theme(plot.title = element_text(hjust=0.5, size=20, face="bold"),
+                     axis.title.y = element_text(size=9, color="black"),
+                     axis.title.x = element_text(size=9, color="black"), 
+                     legend.position=c(0.85,0.75),
+                     legend.text = element_text(color="black", size = 6), 
+                     legend.title = element_text(color="black", size=7, face="bold"),
+                     legend.background = element_blank(),
+                     axis.text.x = element_text(size=9, color="black"),
+                     axis.text.y = element_text(size=9, color="black"), 
+                     panel.background = element_rect(fill="white"),
+                     panel.grid.major=element_line(color="white"),
+                     panel.grid.minor=element_line(color="white")) +
+  scale_x_continuous(limits=c(135, 220)) +
+  scale_y_continuous(breaks=c(0, 25, 50, 75, 100)) +
+  scale_fill_manual(values = c("#494949", "#c5050c")) + 
+  scale_color_manual(values = c("#494949", "#c5050c")) + 
+  ggsave("CHEAL LAN.tiff", units="in", width=3, height=2.35, dpi=600)
+```
