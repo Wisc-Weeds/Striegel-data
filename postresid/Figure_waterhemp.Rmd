@@ -72,13 +72,12 @@ b1 <- brook_control %>%
   mutate(post = fct_recode(post,
                            "Early POST" = "A",
                            "Mid POST" = "B",
-                           "Late POST" = "C")#,
-         #residual = fct_recode#(residual,
-                               #"With residual" = "yes",
-                               #"No residual" = "no")
-                               ) %>% 
-#  group_by(post, residual) %>% 
-#  mutate(post = reorder_within(post, by = response, within = residual)) %>% 
+                           "Late POST" = "C"),
+         residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")) %>% 
+  #group_by(post, residual) %>% 
+  #mutate(post = reorder_within(post, by = response, within = residual)) %>% 
   ggplot(aes(x = post, y = response, color = post)) +
   geom_point(size = 2) +
   geom_jitter(data = control1 %>% 
@@ -86,14 +85,14 @@ b1 <- brook_control %>%
                mutate(post = fct_recode(post,
                            "Early POST" = "A",
                            "Mid POST" = "B",
-                           "Late POST" = "C")#,
-                      #residual = fct_recode(residual,
-                               #"With residual" = "yes",
-                               #"No residual" = "no")
+                           "Late POST" = "C"),
+                      residual = fct_recode(residual,
+                               "With residual" = "yes",
+                               "No residual" = "no")
                       ), aes(y = control), 
               alpha = 0.1) +
   geom_errorbar(aes(ymin = lower.CL, ymax = upper.CL), width = 0.1) +
-  #facet_grid(~ residual) +
+  facet_grid(~ residual) +
   coord_flip() +
   theme_test() +
   scale_color_brewer(palette = "Set1") +
