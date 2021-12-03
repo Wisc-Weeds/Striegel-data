@@ -37,10 +37,6 @@ jan_control <- control7 %>%
   filter(site == "Janesville")
 jan_control
 
-jan_biomass <- biomass7 %>% 
-  filter(site == "Janesville")
-jan_biomass
-
 jan_density <- density7 %>% 
   filter(site == "Janesville")
 
@@ -254,7 +250,7 @@ j5 <- jan_seed %>%
   coord_flip() +
   theme_test() +
   scale_color_brewer(palette = "Set1") +
-  labs(x = "", y = "Number of seeds (×1000)",
+  labs(x = "", y = expression(paste("Giant ragweed seeds m"^"-2"," (×1000)")),
        title = "") +
   scale_y_continuous( 
                      labels = scales::label_number(scale = 1/1000,
@@ -380,7 +376,7 @@ jc <- {(j7 / j6) | (j1 / j3) | (j5 / j4)} +
   subtitle = "Giant ragweed is a troublesome weed in Southern Wisconsin. Data is presented from 2018 and 2019",
   theme = theme(plot.title = element_text(size = 18))) & 
   theme(plot.title = element_text("serif"))
-  ggsave('janesville_5.pdf',  height = 6, width = 12, jc) 
+  ggsave('janesville_final.pdf',  height = 6, width = 12, jc) 
 ```
 
 

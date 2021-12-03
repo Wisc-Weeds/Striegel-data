@@ -34,8 +34,8 @@ brook_yield <- yield7 %>%
 brook_control <- control7 %>% 
   filter(site == "Brooklyn")
 
-brook_biomass <- biomass7 %>% 
-  filter(site == "Brooklyn")
+#brook_biomass <- biomass7 %>% 
+  #filter(site == "Brooklyn")
 
 brook_density <- density7 %>% 
   filter(site == "Brooklyn")
@@ -241,7 +241,7 @@ b5 <- brook_seed %>%
   coord_flip() +
   theme_test() +
   scale_color_brewer(palette = "Set1") +
-  labs(x = "", y = "Number of seeds (×1000)",
+  labs(x = "", y = expression(paste("Waterhemp seeds m"^"-2"," (×1000)")),
        title = "") +
   scale_y_continuous(labels = scales::label_number(scale = 1/1000, 
                                                   acaccuracy = 1)) +
@@ -366,5 +366,5 @@ bc <- {(b7 / b6) | (b1 / b3) | (b5 / b4)} +
   subtitle = "Waterhemp is a troublesome weed in Southern Wisconsin. Data is presented from 2019",
   theme = theme(plot.title = element_text(size = 18))) & 
   theme(plot.title = element_text("serif"))
-  ggsave('brooklyn_1.pdf',  height = 6, width = 12, bc) 
+  ggsave('brooklyn_final.pdf',  height = 6, width = 12, bc) 
 ```
